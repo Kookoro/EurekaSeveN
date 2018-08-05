@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			function calCulate(val){
+			
+			var num = document.getElementById("text");
+			switch(val){
+				case "=":
+				if(eval(num.value)==null){
+					break;
+					
+				}
+				num.value = eval(num.value);
+				
+				break;
+				
+				case "C":
+				num.value = "";
+				break;
+				
+				default:
+				 num.value =num.value+val;
+				break;
+			}	
+		}
+
+		
+			
+			
+		</script>
+		<style type="text/css">
+			
+			div{
+				width: 400px;
+				
+			}
+			.btn{
+				
+				float: left;
+				display: block;
+				width: 100px;
+				height: 100px;
+				font-size: 30px;
+			}
+			.input{
+				width: 396px;
+				height: 100px;
+				text-align: right;
+				font-size: 50px;
+			
+			}
+			.btn1{
+				font-size: 50px;
+				width: 400px;
+				height: 100px;
+				background-color: orange;
+				
+			}
+		</style>
+	</head>
+	<body>
+		<input class="input" id="text" type="text" value=""/>
+		<div>
+		<button class="btn"  value="7"  onclick="calCulate(this.value)">7</button>
+		<button class="btn"  value="8"  onclick="calCulate(this.value)">8</button>
+		<button class="btn"  value="9"  onclick="calCulate(this.value)">9</button>
+		<button class="btn"  value="+" onclick="calCulate(this.value)">+</button>
+		<button class="btn"  value="4" onclick="calCulate(this.value)">4</button>
+		<button class="btn" value="5" onclick="calCulate(this.value)">5</button>
+		<button class="btn" value="6" onclick="calCulate(this.value)">6</button>
+		<button class="btn" value="-" onclick="calCulate(this.value)">-</button>
+		<button class="btn" value="1" onclick="calCulate(this.value)">1</button>
+		<button class="btn" value="2" onclick="calCulate(this.value)">2</button>
+		<button class="btn" value="3" onclick="calCulate(this.value)">3</button>
+		<button class="btn" value="*" onclick="calCulate(this.value)">*</button>
+		<button class="btn" value="." onclick="calCulate(this.value)">.</button>
+		<button class="btn" value="0" onclick="calCulate(this.value)">0</button>
+		<button class="btn" value="C" onclick="calCulate(this.value)">C</button>
+		<button class="btn" value="/" onclick="calCulate(this.value)">/</button>
+		<button class="btn1" value="=" onclick="calCulate(this.value)">=</button>
+		</div>
+		
+		
+		
+		
+	</body>
+</html>

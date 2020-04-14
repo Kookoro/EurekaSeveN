@@ -1,12 +1,5 @@
-import React, { Component } from "react";
-import {
-  Route,
-  Link,
-  Switch,
-  withRouter,
-  Redirect,
-  BrowserRouter,
-} from "react-router-dom";
+import React from "react";
+import { Route, BrowserRouter } from "react-router-dom";
 
 import LoginControl from "./components/LoginControl";
 import Article from "./components/Article";
@@ -19,7 +12,7 @@ const Router = (props) => {
   return (
     <BrowserRouter>
       {/* react路由 */}
-      <Route path="/" exact component={Homepage} />
+      <Route path="/" component={Homepage} />
       <Route path="/LoginControl" component={LoginControl} />
       <Route path="/Article" component={Article} />
       <Route path="/Footer" component={Footer} />

@@ -1,12 +1,8 @@
-import React, { Component, useState } from "react";
+import React from "react";
 import { Button } from "antd";
 import { useHistory } from "react-router-dom";
 
 const Content = (props) => {
-  const [state, setstate] = useState({
-    list: props.location.state,
-  });
-
   let history = useHistory();
   function handleClick() {
     history.push("");

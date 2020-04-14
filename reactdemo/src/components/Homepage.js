@@ -10,9 +10,6 @@ const HomePage = () => {
   return (
     <div>
       <Space>
-        <Link to="/footer">
-          <Button>去footer</Button>
-        </Link>
         <Link to="/Author">
           <Button>去Author</Button>
         </Link>

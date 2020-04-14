@@ -1,4 +1,4 @@
-import React, { Component, useState, useCallback, useMemo } from "react";
+import React, { useState } from "react";
 import { Input } from "antd";
 const Footer = () => {
   const [state, setstate] = useState({

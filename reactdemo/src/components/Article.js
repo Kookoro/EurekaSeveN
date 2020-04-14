@@ -1,20 +1,7 @@
 import React, { Component, useState } from "react";
 import { Link, useHistory } from "react-router-dom";
-import { Button } from "antd";
+import { Button, Input } from "antd";
 
-// class Article extends Component {
-//     constructor(props) {
-//         super(props);
-//     }
-
-//     render() {
-//         return (
-//             <div>
-//                 Article
-//                </div>
-//         )
-//     }
-// }
 const Article = () => {
   const [state, setstate] = useState({
     list: [
@@ -38,23 +25,81 @@ const Article = () => {
       },
     ],
   });
-
+  const [newArticle, setNewArticle] = useState({
+    aid: "",
+    title: "",
+    content: "",
+  });
+  const onInputChange = (e) => {
+    const inputValue = e.target.value,
+      inputName = e.target.name;
+    const data = Object.assign({}, newArticle, { [inputName]: inputValue });
+    setNewArticle(data);
+  };
+  const addArticle = () => {
+    let newList = state.list;
+    newList.push(newArticle);
+    setstate({
+      list: newList,
+    });
+  };
+  const deleteComment = (e) => {
+    let undeleteList = state.list;
+    const index = e.target.getAttribute("index");
+    undeleteList.splice(index, 1);
+    setstate({
+      list: undeleteList,
+    });
+  };
   return (
     <div>
-      文章组件
+      评论组件
       <ul>
         {state.list.map((value, key) => {
           return (
             <li key={key}>
               <Link
-                to={{ pathname: "/Article/Content/" + value.aid, state: value }}
+                to={{
+                  pathname: "/Article/Content/" + value.aid,
+                  state: value,
+                }}
               >
                 {value.title}
               </Link>
+              <Button
+                onClick={(e) => {
+                  deleteComment(e);
+                }}
+                index={key}
+              >
+                删除评论
+              </Button>
             </li>
           );
         })}
       </ul>
+      <Input
+        placeholder="请填写标题"
+        name="title"
+        onChange={(e) => {
+          onInputChange(e);
+        }}
+      ></Input>
+      <Input
+        placeholder="请填写内容"
+        name="content"
+        onChange={(e) => {
+          onInputChange(e);
+        }}
+      ></Input>
+      <Input
+        placeholder="请填写编号"
+        name="aid"
+        onChange={(e) => {
+          onInputChange(e);
+        }}
+      ></Input>
+      ;<Button onClick={addArticle}>发表文章</Button>
     </div>
   );
 };

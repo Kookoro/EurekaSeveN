@@ -1,3 +1,4 @@
+项目用于 React 框架以及 antd 组件的学习
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

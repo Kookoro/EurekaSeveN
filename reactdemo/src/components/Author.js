@@ -11,11 +11,11 @@ class Auther extends Component {
     super(props);
   }
   changeObValue() {
-    ob.a = 2;
+    ob.a++;
   }
   componentDidMount() {
     autorun(() => {
-      console.log("autorun", ob.a);
+      console.log("autorun监听", ob.a);
     });
   }
   render() {

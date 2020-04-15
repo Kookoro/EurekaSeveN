@@ -18,15 +18,8 @@ class Calculater extends React.Component {
               store.changePrice(e);
             }}
           ></InputNumber>
+
           <Button
-            onMouseDown={store.increaseOnKeydown}
-            onMouseUp={store.increaseOnKeyUp}
-          >
-            长按
-          </Button>
-          <Button
-            onKeyDown={store.increaseOnKeydown}
-            onKeyUp={store.increaseOnKeyUp}
             onClick={() => {
               store.increase();
             }}

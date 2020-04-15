@@ -5,7 +5,7 @@ import { useHistory } from "react-router-dom";
 const Content = (props) => {
   let history = useHistory();
   function handleClick() {
-    history.push("");
+    history.push("/Article");
   }
   return (
     <div>

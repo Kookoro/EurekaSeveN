@@ -76,6 +76,7 @@ function Counter(props) {
     </div>
   );
 }
+
 class Storage {
   constructor(name) {
     this.name = "Storage";
@@ -104,13 +105,16 @@ class Storage {
     }
   }
   getItem(name) {
-    const getValue = localStorage.getItem(name);
+    const value = localStorage.getItem(name);
     let item;
+    if (!value) {
+      return "无数据";
+    }
     try {
-      item = JSON.parse(getValue);
+      item = JSON.parse(value);
     } catch (error) {
       //如果不行就不是json的字符串，就直接返回
-      item = getValue;
+      item = value;
     }
     if (item.startTime) {
       const date = new Date().getTime();
@@ -118,7 +122,7 @@ class Storage {
       if (date - item.startTime > item.expires) {
         //缓存过期，清除缓存，返回false
         localStorage.removeItem(name);
-        return false;
+        return "已过期";
       } else {
         //缓存未过期，返回value
         return item.value;
@@ -184,6 +188,21 @@ class LoginControl extends React.Component {
   }
   render() {
     const isLoggedIn = this.state.isLoggedIn;
+    function Cat(name) {
+      function eat() {
+        console.log("this eat");
+      }
+    }
+    const fn = new Function();
+    console.log(Object.prototype.toString.call(fn));
+    console.log(fn.__proto__ === Function.prototype);
+    const a = new Cat();
+    var two = new Object();
+
+    // console.log("a", a.__proto__);
+    // console.log("a:value", a.__proto__);
+    // console.log("two:proto", two.__proto__);
+    // console.log(Cat.prototype.__proto__.__proto__);
     let button;
     return (
       <div>

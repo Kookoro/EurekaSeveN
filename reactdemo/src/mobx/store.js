@@ -14,17 +14,7 @@ class AppState {
   increase() {
     this.timer++;
   }
-  @action
-  increaseOnKeyUp() {
-    // setInterval(() => {
-    //   this.timer++;
-    // }, 300);
-    console.log(this.timer++);
-  }
-  @action
-  increaseOnKeydown() {
-    clearInterval();
-  }
+
   @action
   decrease() {
     this.timer--;

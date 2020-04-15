@@ -17,6 +17,7 @@ class Clock extends React.Component {
   componentWillUnmount() {
     //组件dom卸载前
     clearInterval(this.timerID);
+    this.getBeijingTime = null;
   }
   tick() {
     // this.setState({

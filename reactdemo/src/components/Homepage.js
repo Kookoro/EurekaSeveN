@@ -25,6 +25,9 @@ const HomePage = () => {
         <Link to={{ pathname: "/Clock", state: state }}>
           <Button>去Clock</Button>
         </Link>
+        <Link to="/Calculater">
+          <Button>去Calculater</Button>
+        </Link>
       </Space>
     </div>
   );

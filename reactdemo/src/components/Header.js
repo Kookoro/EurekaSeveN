@@ -10,7 +10,7 @@ class MyHeader extends Component {
   render() {
     const { datas } = this.props;
     const len = datas.length;
-    const val = this.childmakeMoney();
+
     return (
       <div>
         <ul>
@@ -43,12 +43,6 @@ class MyHeader extends Component {
     );
     function handle(index) {
       this.datas.unshift(index);
-    }
-    function timer() {
-      const nowDate = new Date();
-      setInterval(() => {
-        return nowDate;
-      }, 1000);
     }
   }
 }

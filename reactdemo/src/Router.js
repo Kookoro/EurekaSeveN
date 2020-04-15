@@ -8,6 +8,7 @@ import Author from "./components/Author";
 import Footer from "./components/Footer";
 import Clock from "./components/Clock";
 import Content from "./components/Content";
+import Calculater from "./components/Calculater";
 const Router = (props) => {
   return (
     <BrowserRouter>
@@ -19,6 +20,7 @@ const Router = (props) => {
       <Route path="/Author" component={Author} />
       <Route path="/Clock" component={Clock} />
       <Route path="/Article/Content" component={Content} />
+      <Route path="/Calculater" component={Calculater} />
     </BrowserRouter>
   );
 };

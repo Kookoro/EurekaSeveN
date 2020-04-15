@@ -1,8 +1,9 @@
-import React, { Component, useState } from "react";
-import { Link, useHistory } from "react-router-dom";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { Button, Input, Alert } from "antd";
 
 const Article = () => {
+  let s1 = "";
   const [isNull, setIsNull] = useState(false);
   const [state, setstate] = useState({
     list: [
@@ -31,6 +32,9 @@ const Article = () => {
     title: "",
     content: "",
   });
+  const showS = () => {
+    console.log(s1.state.value);
+  };
   const onInputChange = (e) => {
     const inputValue = e.target.value,
       inputName = e.target.name;
@@ -109,6 +113,7 @@ const Article = () => {
         <Alert message="Error" type="error" description="请填写内容！"></Alert>
       ) : null}
       <Input
+        autoComplete="off"
         placeholder="请填写标题"
         name="title"
         onChange={(e) => {
@@ -116,6 +121,7 @@ const Article = () => {
         }}
       ></Input>
       <Input
+        autoComplete="off"
         placeholder="请填写内容"
         name="content"
         onChange={(e) => {
@@ -123,13 +129,16 @@ const Article = () => {
         }}
       ></Input>
       <Input
+        autoComplete="off"
         placeholder="请填写编号"
         name="aid"
         onChange={(e) => {
           onInputChange(e);
         }}
       ></Input>
-      ;<Button onClick={addArticle}>发表文章</Button>
+      <Button onClick={addArticle}>发表文章</Button>
+      <Input ref={(s) => (s1 = s)}></Input>;
+      <Button onClick={showS}>click</Button>
     </div>
   );
 };

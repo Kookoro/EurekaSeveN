@@ -147,8 +147,8 @@ function setSt() {
   });
 }
 function getSt() {
-  let storage = new Storage();
-  let value = storage.getItem("name");
+  const storage = new Storage();
+  const value = storage.getItem("name");
   console.log("我是value", value);
 }
 class LoginControl extends React.Component {
@@ -194,10 +194,10 @@ class LoginControl extends React.Component {
       }
     }
     const fn = new Function();
-    console.log(Object.prototype.toString.call(fn));
+    console.log(Object.prototype.toString.call(Function.prototype.__proto__));
     console.log(fn.__proto__ === Function.prototype);
     const a = new Cat();
-    var two = new Object();
+    const two = new Object();
 
     // console.log("a", a.__proto__);
     // console.log("a:value", a.__proto__);

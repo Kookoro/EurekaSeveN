@@ -13,6 +13,7 @@ const Router = (props) => {
   return (
     <BrowserRouter>
       {/* react路由 */}
+
       <Route path="/" component={Homepage} />
       <Route path="/LoginControl" component={LoginControl} />
       <Route path="/Article" component={Article} />

@@ -23,17 +23,13 @@ const HomePage = () => {
       c: 3,
     },
     date: new Date(),
-    say: function () {
-      console.log("1");
-    },
     regexp: new RegExp(/cloneDeep/i),
     isNan: NaN,
   });
   const onCollapse = (collapsed) => {
     const copyData = cloneDeep(state);
-    const copyData2 = JSON.parse(
-      JSON.stringify(state)
-    ); /*
+    const copyData2 = JSON.parse(JSON.stringify(state));
+    /*
     JSON.stringify()只能序列化对象的可枚举的自有属性，
     例如 如果obj中的对象是有构造函数生成的， 则使用JSON.parse(JSON.stringify(obj))深拷贝后，会丢弃对象的constructor；
 
@@ -81,27 +77,32 @@ const HomePage = () => {
   };
   return (
     <div>
-      <Button onClick={onCollapse}>onClick</Button>
+      <Button onClick={onCollapse}> onClick </Button>{" "}
       <Space>
         <Link to="/Author">
-          <Button>去Author</Button>
-        </Link>
+          <Button> 去Author </Button>{" "}
+        </Link>{" "}
         <Link to="/LoginControl">
-          <Button>去LoginControl</Button>
-        </Link>
+          <Button> 去LoginControl </Button>{" "}
+        </Link>{" "}
         <Link to="/Article">
-          <Button>去Article</Button>
-        </Link>
+          <Button> 去Article </Button>{" "}
+        </Link>{" "}
         <Link to="/footer">
-          <Button>去footer</Button>
-        </Link>
-        <Link to={{ pathname: "/Clock", state: state }}>
-          <Button>去Clock</Button>
-        </Link>
+          <Button> 去footer </Button>{" "}
+        </Link>{" "}
+        <Link
+          to={{
+            pathname: "/Clock",
+            state: state,
+          }}
+        >
+          <Button> 去Clock </Button>{" "}
+        </Link>{" "}
         <Link to="/Calculater">
-          <Button>去Calculater</Button>
-        </Link>
-      </Space>
+          <Button> 去Calculater </Button>{" "}
+        </Link>{" "}
+      </Space>{" "}
     </div>
   );
 };

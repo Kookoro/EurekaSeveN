@@ -76,8 +76,7 @@
   "scripts": {
     "start": "react-app-rewired start",
     "build": "react-app-rewired build",
-    "test": "react-app-rewired test",
-    "analyz": "set NODE_ENV=production npm_config_report=true react-app-rewired start"
+    "test": "react-app-rewired test"
   },
   "eslintConfig": {
     "extends": "react-app"

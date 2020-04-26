@@ -7,6 +7,7 @@ import MyHeader from "./components/Header";
 // const { SubMenu } = Menu;
 // const { Header, Content, Footer, Sider } = Layout;
 import { Layout, Menu, Input } from "antd";
+
 import {
   AppstoreOutlined,
   BarChartOutlined,
@@ -45,10 +46,12 @@ class App extends Component {
   }
   makeMoney() {
     let money = 0;
+
     function add(e) {
       money = parseFloat(e) + money;
       return money;
     }
+
     function query() {
       console.log(money);
     }
@@ -80,38 +83,39 @@ class App extends Component {
                   e.query();
                 }}
               >
-                {menuList[0]}
-              </span>
-            </Menu.Item>
+                {" "}
+                {menuList[0]}{" "}
+              </span>{" "}
+            </Menu.Item>{" "}
             <Menu.Item key="2">
               <VideoCameraOutlined />
-              <span className="nav-text">{menuList[1]}</span>
-            </Menu.Item>
+              <span className="nav-text"> {menuList[1]} </span>{" "}
+            </Menu.Item>{" "}
             <Menu.Item key="3">
               <UploadOutlined />
-              <span className="nav-text">{menuList[2]}</span>
-            </Menu.Item>
+              <span className="nav-text"> {menuList[2]} </span>{" "}
+            </Menu.Item>{" "}
             <Menu.Item key="4">
               <BarChartOutlined />
-              <span className="nav-text">{menuList[3]}</span>
-            </Menu.Item>
+              <span className="nav-text"> {menuList[3]} </span>{" "}
+            </Menu.Item>{" "}
             <Menu.Item key="5">
               <CloudOutlined />
-              <span className="nav-text">{menuList[4]}</span>
-            </Menu.Item>
+              <span className="nav-text"> {menuList[4]} </span>{" "}
+            </Menu.Item>{" "}
             <Menu.Item key="6">
               <AppstoreOutlined />
-              <span className="nav-text">{menuList[5]}</span>
-            </Menu.Item>
+              <span className="nav-text"> {menuList[5]} </span>{" "}
+            </Menu.Item>{" "}
             <Menu.Item key="7">
               <TeamOutlined />
-              <span className="nav-text">{menuList[6]}</span>
-            </Menu.Item>
+              <span className="nav-text"> {menuList[6]} </span>{" "}
+            </Menu.Item>{" "}
             <Menu.Item key="8">
               <ShopOutlined />
-              <span className="nav-text">{menuList[7]}</span>
-            </Menu.Item>
-          </Menu>
+              <span className="nav-text"> {menuList[7]} </span>{" "}
+            </Menu.Item>{" "}
+          </Menu>{" "}
           <Search
             placeholder="input search text"
             onSearch={(value) => console.log(value)}
@@ -120,13 +124,28 @@ class App extends Component {
               position: "fixed",
               bottom: 0,
             }}
-          />
-        </Sider>
-        <Layout className="site-layout" style={{ marginLeft: 200 }}>
-          <Header className="site-layout-background" style={{ padding: 0 }}>
-            <div></div>
-          </Header>
-          <Content style={{ margin: "24px 16px 0", overflow: "initial" }}>
+          />{" "}
+        </Sider>{" "}
+        <Layout
+          className="site-layout"
+          style={{
+            marginLeft: 200,
+          }}
+        >
+          <Header
+            className="site-layout-background"
+            style={{
+              padding: 0,
+            }}
+          >
+            <div> </div>{" "}
+          </Header>{" "}
+          <Content
+            style={{
+              margin: "24px 16px 0",
+              overflow: "initial",
+            }}
+          >
             <div
               style={{
                 height: "calc(100vh - 158px)",
@@ -135,13 +154,17 @@ class App extends Component {
               <MyHeader
                 datas={this.state.data}
                 makeMoney={this.makeMoney}
-              ></MyHeader>
-            </div>
-          </Content>
-          <Footer style={{ textAlign: "center" }}>
-            Ant Design ©2018 Created by Ant UED
-          </Footer>
-        </Layout>
+              ></MyHeader>{" "}
+            </div>{" "}
+          </Content>{" "}
+          <Footer
+            style={{
+              textAlign: "center",
+            }}
+          >
+            Ant Design© 2018 Created by Ant UED{" "}
+          </Footer>{" "}
+        </Layout>{" "}
       </Layout>
     );
   }

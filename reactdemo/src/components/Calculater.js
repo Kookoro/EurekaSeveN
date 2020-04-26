@@ -9,38 +9,39 @@ class Calculater extends React.Component {
     return (
       <div>
         <div>
-          <h1>count:{store.timer}</h1>
-          <h1>price:{store.price}</h1>
-          <h1>totalPrice:{store.totalPrice}</h1>
+          <h1> count: {store.timer} </h1> <h1> price: {store.price} </h1>{" "}
+          <h1> totalPrice: {store.totalPrice} </h1>{" "}
           <InputNumber
             defaultValue="0"
             onChange={(e) => {
               store.changePrice(e);
             }}
           ></InputNumber>
-
           <Button
             onClick={() => {
               store.increase();
             }}
           >
             ++
-          </Button>
+          </Button>{" "}
           <Button
             onClick={() => {
+              if (store.timer === 0) {
+                return;
+              }
               store.decrease();
             }}
           >
             --
-          </Button>
+          </Button>{" "}
           <Button
             onClick={() => {
               store.resetTimer();
             }}
           >
-            reset
-          </Button>
-        </div>
+            reset{" "}
+          </Button>{" "}
+        </div>{" "}
       </div>
     );
   }

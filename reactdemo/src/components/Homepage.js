@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button, Space, Layout, Menu, Breadcrumb } from "antd";
+import "../css/header.css";
 import {
   DesktopOutlined,
   PieChartOutlined,
@@ -76,34 +77,37 @@ const HomePage = () => {
     }
   };
   return (
-    <div>
-      <Button onClick={onCollapse}> onClick </Button>{" "}
-      <Space>
-        <Link to="/Author">
-          <Button> 去Author </Button>{" "}
-        </Link>{" "}
-        <Link to="/LoginControl">
-          <Button> 去LoginControl </Button>{" "}
-        </Link>{" "}
-        <Link to="/Article">
-          <Button> 去Article </Button>{" "}
-        </Link>{" "}
-        <Link to="/footer">
-          <Button> 去footer </Button>{" "}
-        </Link>{" "}
-        <Link
-          to={{
-            pathname: "/Clock",
-            state: state,
-          }}
-        >
-          <Button> 去Clock </Button>{" "}
-        </Link>{" "}
-        <Link to="/Calculater">
-          <Button> 去Calculater </Button>{" "}
-        </Link>{" "}
-      </Space>{" "}
-    </div>
+    <Layout>
+      <Header className="header">header</Header>
+      <Layout>
+        <Space>
+          <Button onClick={onCollapse}> onClick </Button>{" "}
+          <Link to="/Author">
+            <Button> 去Author </Button>{" "}
+          </Link>{" "}
+          <Link to="/LoginControl">
+            <Button> 去LoginControl </Button>{" "}
+          </Link>{" "}
+          <Link to="/Article">
+            <Button> 去Article </Button>{" "}
+          </Link>{" "}
+          <Link to="/footer">
+            <Button> 去footer </Button>{" "}
+          </Link>{" "}
+          <Link
+            to={{
+              pathname: "/Clock",
+              state: state,
+            }}
+          >
+            <Button> 去Clock </Button>{" "}
+          </Link>{" "}
+          <Link to="/Calculater">
+            <Button> 去Calculater </Button>{" "}
+          </Link>{" "}
+        </Space>{" "}
+      </Layout>
+    </Layout>
   );
 };
 export default HomePage;

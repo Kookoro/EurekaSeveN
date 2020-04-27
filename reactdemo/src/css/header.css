@@ -1,4 +1,30 @@
+html {
+  font-size: 100px;
+}
 .header {
-  height: 2.8rem;
   width: 100%;
+  padding: 0;
+  display: flex;
+  height: 0.53rem;
+  background-color: #282a36;
+}
+.header-main-container {
+  width: 100%;
+  display: flex;
+  min-width: 5rem;
+}
+.user-info-avatar {
+  height: 48px;
+  width: 48px;
+  position: relative;
+  float: right;
+  border-radius: 50%;
+  border: 0.02rem solid red;
+  margin-right: 0.04rem;
+  margin-top: 0.03rem;
+  display: flex;
+}
+.user-info-name {
+  font-size: 0.14rem;
+  color: aliceblue;
 }

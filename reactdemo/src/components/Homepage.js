@@ -1,6 +1,16 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { Button, Space, Layout, Menu, Breadcrumb } from "antd";
+import {
+  Button,
+  Space,
+  Layout,
+  Menu,
+  Breadcrumb,
+  Row,
+  Col,
+  Avatar,
+  Drawer,
+} from "antd";
 import "../css/header.css";
 import {
   DesktopOutlined,
@@ -8,6 +18,7 @@ import {
   FileOutlined,
   TeamOutlined,
   UserOutlined,
+  GithubOutlined,
 } from "@ant-design/icons";
 
 const { Header, Content, Footer, Sider } = Layout;
@@ -76,9 +87,71 @@ const HomePage = () => {
       return (result = obj);
     }
   };
+
+  const [states, setstates] = useState({
+    visible: false,
+  });
+
+  const showDrawer = () => {
+    setstates({
+      visible: true,
+    });
+  };
+  const onClose = () => {
+    setstates({
+      visible: false,
+    });
+  };
   return (
     <Layout>
-      <Header className="header">header</Header>
+      <Header className="header">
+        <div className="header-main-container">
+          <div
+            style={{
+              height: "100%",
+              width: "80%",
+            }}
+          >
+            col-18 col-push-6
+          </div>
+          <div
+            style={{
+              height: "100%",
+              width: "20%",
+              display: "flex",
+              justifyContent: "space-between",
+            }}
+          >
+            <div>
+              {/* <span className="user-info-name">EurekaSeveN</span>
+              <GithubOutlined /> */}
+            </div>
+            <div className="user-info-avatar">
+              <img
+                src="https://avatars2.githubusercontent.com/u/42001218?s=400&u=5e65204880e8ba2585d5dfa5859526c7d05738a1&v=4"
+                alt="EurekaSeveN"
+                style={{
+                  height: "100%",
+                  borderRadius: "50%",
+                  cursor: "pointer",
+                }}
+                onClick={showDrawer}
+              />
+            </div>
+            <Drawer
+              title="Basic Drawer"
+              placement="right"
+              closable={false}
+              onClose={onClose}
+              visible={states.visible}
+            >
+              <p>Some contents...</p>
+              <p>Some contents...</p>
+              <p>Some contents...</p>
+            </Drawer>
+          </div>
+        </div>
+      </Header>
       <Layout>
         <Space>
           <Button onClick={onCollapse}> onClick </Button>{" "}

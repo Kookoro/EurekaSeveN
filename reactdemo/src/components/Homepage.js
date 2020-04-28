@@ -139,7 +139,7 @@ const HomePage = () => {
               />
             </div>
             <Drawer
-              title="Basic Drawer"
+              title="EurekaSeveN"
               placement="right"
               closable={false}
               onClose={onClose}
@@ -156,7 +156,7 @@ const HomePage = () => {
         <Space>
           <Button onClick={onCollapse}> onClick </Button>{" "}
           <Link to="/Author">
-            <Button> 去Author </Button>{" "}
+            <Button> 去Author </Button> <Button> 去Author </Button>{" "}
           </Link>{" "}
           <Link to="/LoginControl">
             <Button> 去LoginControl </Button>{" "}

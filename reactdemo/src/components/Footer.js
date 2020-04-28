@@ -34,7 +34,7 @@ const Footer = () => {
         点击{" "}
       </Button>
       <h1> {state.value} </h1> <h1> 你点击了{count}次 </h1>
-      <div id="box1"></div>
+      <div id="box1" style={{}}></div>
     </div>
   );
 };

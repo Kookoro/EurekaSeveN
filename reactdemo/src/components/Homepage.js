@@ -21,6 +21,34 @@ import {
   GithubOutlined,
 } from "@ant-design/icons";
 
+/*
+  createElement原理
+
+  function App() {
+  return (
+      <p className="title">hello world</p>
+  );
+}
+
+ReactDOM.render(<APP />, document.getElementById("root"));
+====================================================
+会被babel编译成
+function App() {
+  return React.createElement(
+    "p",
+    { className: "title" },
+    "hello world"
+  );
+}
+
+ReactDOM.render(React.createElement(APP, null), document.getElementById("root"));
+
+
+
+*/
+
+function createElement2(tag, attrs, ...children) {}
+
 const { Header, Content, Footer, Sider } = Layout;
 const { SubMenu } = Menu;
 const HomePage = () => {

@@ -12,14 +12,7 @@ import {
   Drawer,
 } from "antd";
 import "../css/header.css";
-import {
-  DesktopOutlined,
-  PieChartOutlined,
-  FileOutlined,
-  TeamOutlined,
-  UserOutlined,
-  GithubOutlined,
-} from "@ant-design/icons";
+import { GithubOutlined } from "@ant-design/icons";
 
 /*
   createElement原理
@@ -31,7 +24,7 @@ import {
 }
 
 ReactDOM.render(<APP />, document.getElementById("root"));
-====================================================
+====================================================               
 会被babel编译成
 function App() {
   return React.createElement(

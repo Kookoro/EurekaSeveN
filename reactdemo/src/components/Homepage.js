@@ -74,6 +74,7 @@ const HomePage = () => {
     //   return data;
     // });
   };
+
   const cloneDeep = (obj) => {
     let result;
     const type = Object.prototype.toString.call(obj);
@@ -166,6 +167,12 @@ const HomePage = () => {
               onClose={onClose}
               visible={states.visible}
             >
+              <p>Some contents...</p>
+              <p>Some contents...</p>
+              <p>Some contents...</p>
+              <p>Some contents...</p>
+              <p>Some contents...</p>
+              <p>Some contents...</p>
               <p>Some contents...</p>
               <p>Some contents...</p>
               <p>Some contents...</p>

@@ -5,7 +5,7 @@ const Footer = () => {
     value: "",
   });
   const [arr, setArr] = useState([]);
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(50);
   // Similar to componentDidMount and componentDidUpdate:
   // 类似于 componentDidMount 和 ComponentDidUpdate
   useEffect(() => {
@@ -27,7 +27,7 @@ const Footer = () => {
       />{" "}
       <Button
         onClick={() => {
-          setCount(count + 1);
+          setCount(count + 5);
         }}
       >
         {" "}
@@ -37,7 +37,7 @@ const Footer = () => {
       <div
         id="box1"
         style={{
-          width: "100px",
+          width: count + "px",
           height: "100px",
           backgroundColor: "red",
         }}

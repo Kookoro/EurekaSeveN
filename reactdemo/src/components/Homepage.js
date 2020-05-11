@@ -182,31 +182,31 @@ const HomePage = () => {
       </Header>
       <Layout>
         <Space>
-          <Button onClick={onCollapse}> onClick </Button>{" "}
+          <Button onClick={onCollapse}> onClick </Button>
           <Link to="/Author">
-            <Button> 去Author </Button> <Button> 去Author </Button>{" "}
-          </Link>{" "}
+            <Button> 去Author </Button> <Button> 去Author </Button>
+          </Link>
           <Link to="/LoginControl">
-            <Button> 去LoginControl </Button>{" "}
-          </Link>{" "}
+            <Button> 去LoginControl </Button>
+          </Link>
           <Link to="/Article">
-            <Button> 去Article </Button>{" "}
-          </Link>{" "}
+            <Button> 去Article </Button>
+          </Link>
           <Link to="/footer">
-            <Button> 去footer </Button>{" "}
-          </Link>{" "}
+            <Button> 去footer </Button>
+          </Link>
           <Link
             to={{
               pathname: "/Clock",
               state: state,
             }}
           >
-            <Button> 去Clock </Button>{" "}
-          </Link>{" "}
+            <Button> 去Clock </Button>
+          </Link>
           <Link to="/Calculater">
-            <Button> 去Calculater </Button>{" "}
-          </Link>{" "}
-        </Space>{" "}
+            <Button> 去Calculater </Button>
+          </Link>
+        </Space>
       </Layout>
     </Layout>
   );

@@ -20,6 +20,7 @@ class Auther extends Component {
       console.log("autorun监听", ob.a);
     });
   }
+
   render() {
     const store = appStore;
     return (

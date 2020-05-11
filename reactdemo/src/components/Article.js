@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button, Input, Alert } from "antd";
-
+import "../css/article.css";
 const Article = () => {
   let s1 = "";
   const [isNull, setIsNull] = useState(false);
@@ -88,7 +88,7 @@ const Article = () => {
         */}
         {state.list.map((value, key) => {
           return (
-            <li key={key}>
+            <li className="list-Fix" key={key}>
               <Link
                 to={{
                   pathname: "/Article/Content/" + value.aid,

@@ -1,5 +1,6 @@
 项目用于 React 框架以及 antd 组件的学习
 ## Quick Start
+进入文件目录下
 ### `npm install`
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

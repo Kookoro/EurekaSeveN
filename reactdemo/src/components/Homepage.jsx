@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, BrowserRouter as Router, Route } from "react-router-dom";
 import {
   Button,
   Space,
@@ -13,6 +13,15 @@ import {
 } from "antd";
 import "../css/header.css";
 import { GithubOutlined } from "@ant-design/icons";
+
+import LoginControl from "../components/LoginControl";
+import Article from "../components/Article";
+
+import Author from "../components/Author";
+import MainFooter from "../components/Footer";
+import Clock from "../components/Clock";
+import MainContent from "../components/Content";
+import Calculater from "../components/Calculater";
 
 /*
   createElement原理
@@ -125,112 +134,123 @@ const HomePage = () => {
     });
   };
   return (
-    <Layout style={{ display: "block" }}>
-      <Header className="header ">
-        <div className="header-main-container">
-          <div
-            style={{
-              height: "100%",
-              width: "80%",
-            }}
-          >
-            col-18 col-push-6
-          </div>
-          <div
-            style={{
-              height: "100%",
-              width: "20%",
-              display: "flex",
-              justifyContent: "space-between",
-            }}
-          >
-            <div>
-              {/* <span className="user-info-name">EurekaSeveN</span>
-              <GithubOutlined /> */}
-            </div>
-            <div className="user-info-avatar">
-              <img
-                src="https://avatars2.githubusercontent.com/u/42001218?s=400&u=5e65204880e8ba2585d5dfa5859526c7d05738a1&v=4"
-                alt=" "
-                style={{
-                  height: "100%",
-                  borderRadius: "50%",
-                  cursor: "pointer",
-                }}
-                onClick={showDrawer}
-              />
-            </div>
-            <Drawer
-              title="EurekaSeveN"
-              placement="right"
-              closable={false}
-              onClose={onClose}
-              visible={states.visible}
+    <Router>
+      <Layout style={{ display: "block" }}>
+        <Header className="header ">
+          <div className="header-main-container">
+            <div
+              style={{
+                height: "100%",
+                width: "80%",
+              }}
             >
-              <p>Some contents...</p>
-              <p>Some contents...</p>
-              <p>Some contents...</p>
-              <p>Some contents...</p>
-              <p>Some contents...</p>
-              <p>Some contents...</p>
-              <p>Some contents...</p>
-              <p>Some contents...</p>
-              <p>Some contents...</p>
-            </Drawer>
-          </div>
-        </div>
-      </Header>
-      <div className="siderAndcontent-container">
-        <Sider>
-          <Menu theme="dark">
-            <Menu.Item>
-              去Author
-              <Link to="/Author">
-                <Button> 去Author </Button> <Button> 去Author </Button>
-              </Link>
-            </Menu.Item>
-            <Menu.Item>
-              去LoginControl
-              <Link to="/LoginControl">
-                <Button> 去LoginControl </Button>
-              </Link>
-            </Menu.Item>
-            <Menu.Item>
-              去Article
-              <Link to="/Article">
-                <Button> 去Article </Button>
-              </Link>
-            </Menu.Item>
-            <Menu.Item>
-              去footer
-              <Link to="/footer">
-                <Button> 去footer </Button>
-              </Link>
-            </Menu.Item>
-            <Menu.Item>
-              去Clock
-              <Link
-                to={{
-                  pathname: "/Clock",
-                  state: state,
-                }}
+              col-18 col-push-6
+            </div>
+            <div
+              style={{
+                height: "100%",
+                width: "20%",
+                display: "flex",
+                justifyContent: "space-between",
+              }}
+            >
+              <div>
+                {/* <span className="user-info-name">EurekaSeveN</span>
+              <GithubOutlined /> */}
+              </div>
+              <div className="user-info-avatar">
+                <img
+                  src="https://avatars2.githubusercontent.com/u/42001218?s=400&u=5e65204880e8ba2585d5dfa5859526c7d05738a1&v=4"
+                  alt=" "
+                  style={{
+                    height: "100%",
+                    borderRadius: "50%",
+                    cursor: "pointer",
+                  }}
+                  onClick={showDrawer}
+                />
+              </div>
+              <Drawer
+                title="EurekaSeveN"
+                placement="right"
+                closable={false}
+                onClose={onClose}
+                visible={states.visible}
               >
-                <Button> 去Clock </Button>
-              </Link>
-            </Menu.Item>
-            <Menu.Item>
-              去Calculater
-              <Link to="/Calculater">
-                <Button> 去Calculater </Button>
-              </Link>
-            </Menu.Item>
-            <Menu.Item>菜单项</Menu.Item>
-            <Menu.Item>菜单项</Menu.Item>
-          </Menu>
-        </Sider>
-        <Content></Content>
-      </div>
-    </Layout>
+                <p>Some contents...</p>
+                <p>Some contents...</p>
+                <p>Some contents...</p>
+                <p>Some contents...</p>
+                <p>Some contents...</p>
+                <p>Some contents...</p>
+                <p>Some contents...</p>
+                <p>Some contents...</p>
+                <p>Some contents...</p>
+              </Drawer>
+            </div>
+          </div>
+        </Header>
+        <div className="siderAndcontent-container">
+          <Sider>
+            <Menu theme="dark">
+              <Menu.Item>
+                去Author
+                <Link to="/Author">
+                  <Button> 去Author </Button> <Button> 去Author </Button>
+                </Link>
+              </Menu.Item>
+              <Menu.Item>
+                去LoginControl
+                <Link to="/LoginControl">
+                  <Button> 去LoginControl </Button>
+                </Link>
+              </Menu.Item>
+              <Menu.Item>
+                去Article
+                <Link to="/Article">
+                  <Button> 去Article </Button>
+                </Link>
+              </Menu.Item>
+              <Menu.Item>
+                去footer
+                <Link to="/footer">
+                  <Button> 去footer </Button>
+                </Link>
+              </Menu.Item>
+              <Menu.Item>
+                去Clock
+                <Link
+                  to={{
+                    pathname: "/Clock",
+                    state: state,
+                  }}
+                >
+                  <Button> 去Clock </Button>
+                </Link>
+              </Menu.Item>
+              <Menu.Item>
+                去Calculater
+                <Link to="/Calculater">
+                  <Button> 去Calculater </Button>
+                </Link>
+              </Menu.Item>
+              <Menu.Item>菜单项</Menu.Item>
+              <Menu.Item>菜单项</Menu.Item>
+            </Menu>
+          </Sider>
+          <Content>
+            <Route path="/author" component={Author}></Route>
+            <Route path="/LoginControl" component={LoginControl} />
+            <Route path="/Article" component={Article} />
+            <Route path="/Footer" component={MainFooter} />
+            <Route path="/Author" component={Author} />
+            <Route path="/Clock" component={Clock} />
+            <Route path="/Article/Content" component={MainContent} />
+            <Route path="/Calculater" component={Calculater} />
+          </Content>
+        </div>
+      </Layout>
+    </Router>
   );
 };
 export default HomePage;

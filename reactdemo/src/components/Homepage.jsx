@@ -125,8 +125,8 @@ const HomePage = () => {
     });
   };
   return (
-    <Layout>
-      <Header className="header">
+    <Layout style={{ display: "block" }}>
+      <Header className="header ">
         <div className="header-main-container">
           <div
             style={{
@@ -151,7 +151,7 @@ const HomePage = () => {
             <div className="user-info-avatar">
               <img
                 src="https://avatars2.githubusercontent.com/u/42001218?s=400&u=5e65204880e8ba2585d5dfa5859526c7d05738a1&v=4"
-                alt="EurekaSeveN"
+                alt=" "
                 style={{
                   height: "100%",
                   borderRadius: "50%",
@@ -180,34 +180,56 @@ const HomePage = () => {
           </div>
         </div>
       </Header>
-      <Layout>
-        <Space>
-          <Button onClick={onCollapse}> onClick </Button>
-          <Link to="/Author">
-            <Button> 去Author </Button> <Button> 去Author </Button>
-          </Link>
-          <Link to="/LoginControl">
-            <Button> 去LoginControl </Button>
-          </Link>
-          <Link to="/Article">
-            <Button> 去Article </Button>
-          </Link>
-          <Link to="/footer">
-            <Button> 去footer </Button>
-          </Link>
-          <Link
-            to={{
-              pathname: "/Clock",
-              state: state,
-            }}
-          >
-            <Button> 去Clock </Button>
-          </Link>
-          <Link to="/Calculater">
-            <Button> 去Calculater </Button>
-          </Link>
-        </Space>
-      </Layout>
+      <div className="siderAndcontent-container">
+        <Sider>
+          <Menu theme="dark">
+            <Menu.Item>
+              去Author
+              <Link to="/Author">
+                <Button> 去Author </Button> <Button> 去Author </Button>
+              </Link>
+            </Menu.Item>
+            <Menu.Item>
+              去LoginControl
+              <Link to="/LoginControl">
+                <Button> 去LoginControl </Button>
+              </Link>
+            </Menu.Item>
+            <Menu.Item>
+              去Article
+              <Link to="/Article">
+                <Button> 去Article </Button>
+              </Link>
+            </Menu.Item>
+            <Menu.Item>
+              去footer
+              <Link to="/footer">
+                <Button> 去footer </Button>
+              </Link>
+            </Menu.Item>
+            <Menu.Item>
+              去Clock
+              <Link
+                to={{
+                  pathname: "/Clock",
+                  state: state,
+                }}
+              >
+                <Button> 去Clock </Button>
+              </Link>
+            </Menu.Item>
+            <Menu.Item>
+              去Calculater
+              <Link to="/Calculater">
+                <Button> 去Calculater </Button>
+              </Link>
+            </Menu.Item>
+            <Menu.Item>菜单项</Menu.Item>
+            <Menu.Item>菜单项</Menu.Item>
+          </Menu>
+        </Sider>
+        <Content></Content>
+      </div>
     </Layout>
   );
 };

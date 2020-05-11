@@ -1,12 +1,19 @@
 html {
   font-size: 100px;
+  overflow-x: hidden;
+}
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 .header {
-  width: 100%;
   padding: 0;
   display: flex;
   height: 0.53rem;
   background-color: #282a36;
+  padding-left: 0.06rem;
+  padding-right: 0.06rem;
 }
 .header-main-container {
   width: 100%;
@@ -27,4 +34,14 @@ html {
 .user-info-name {
   font-size: 0.14rem;
   color: aliceblue;
+}
+.clearfix::after {
+  content: " ";
+  display: block;
+  height: 0;
+  visibility: hidden;
+  clear: both;
+}
+.siderAndcontent-container {
+  display: flex;
 }

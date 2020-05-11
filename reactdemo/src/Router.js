@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, BrowserRouter } from "react-router-dom";
+import { Route, BrowserRouter as BRouter } from "react-router-dom";
 
 import LoginControl from "./components/LoginControl";
 import Article from "./components/Article";
@@ -11,18 +11,18 @@ import Content from "./components/Content";
 import Calculater from "./components/Calculater";
 const Router = (props) => {
   return (
-    <BrowserRouter>
+    <BRouter>
+      {" "}
       {/* react路由 */}
-
-      <Route path="/" component={Homepage} />
-      <Route path="/LoginControl" component={LoginControl} />
-      <Route path="/Article" component={Article} />
-      <Route path="/Footer" component={Footer} />
-      <Route path="/Author" component={Author} />
-      <Route path="/Clock" component={Clock} />
-      <Route path="/Article/Content" component={Content} />
-      <Route path="/Calculater" component={Calculater} />
-    </BrowserRouter>
+      <Route path="/" className="router" component={Homepage} />{" "}
+      <Route path="/LoginControl" component={LoginControl} />{" "}
+      <Route path="/Article" component={Article} />{" "}
+      <Route path="/Footer" component={Footer} />{" "}
+      <Route path="/Author" component={Author} />{" "}
+      <Route path="/Clock" component={Clock} />{" "}
+      <Route path="/Article/Content" component={Content} />{" "}
+      <Route path="/Calculater" component={Calculater} />{" "}
+    </BRouter>
   );
 };
 export default Router;

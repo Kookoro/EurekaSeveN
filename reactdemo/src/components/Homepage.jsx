@@ -12,17 +12,7 @@ import {
   Drawer,
 } from "antd";
 import "../css/header.css";
-import { GithubOutlined } from "@ant-design/icons";
-
-import LoginControl from "../components/LoginControl";
-import Article from "../components/Article";
-
-import Author from "../components/Author";
-import MainFooter from "../components/Footer";
-import Clock from "../components/Clock";
-import MainContent from "../components/Content";
-import Calculater from "../components/Calculater";
-
+import ChildMenu from "../components/childrenComponent/ChildMenu";
 /*
   createElement原理
 
@@ -239,14 +229,15 @@ const HomePage = () => {
             </Menu>
           </Sider>
           <Content>
-            <Route path="/author" component={Author}></Route>
+            {/* <Route path="/author" component={Author}></Route>
             <Route path="/LoginControl" component={LoginControl} />
             <Route path="/Article" component={Article} />
             <Route path="/Footer" component={MainFooter} />
             <Route path="/Author" component={Author} />
             <Route path="/Clock" component={Clock} />
             <Route path="/Article/Content" component={MainContent} />
-            <Route path="/Calculater" component={Calculater} />
+            <Route path="/Calculater" component={Calculater} /> */}
+            <ChildMenu></ChildMenu>
           </Content>
         </div>
       </Layout>

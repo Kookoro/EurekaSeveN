@@ -47,8 +47,7 @@ html {
   display: flex;
 }
 .menu-container {
-  position: fixed;
-  width: 200px;
+  width: 1.5rem;
 }
 .website-name-span {
   font-size: 0.24rem;
@@ -61,4 +60,12 @@ html {
   padding-left: 0.04rem;
   color: white;
   cursor: pointer;
+}
+.footer-container {
+  background-color: #001529;
+  height: 2rem;
+}
+.ant-layout-sider {
+  width: 1.5rem;
+  min-width: 1.5rem;
 }

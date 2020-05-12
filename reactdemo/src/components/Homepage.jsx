@@ -1,10 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, BrowserRouter as Router, Route } from "react-router-dom";
 import { Button, Layout, Menu, Drawer } from "antd";
 import "../css/menu.css";
 import ChildMenu from "../components/childrenComponent/ChildMenu";
 import Calendar from "../components/childrenComponent/Calendar";
 import { GithubOutlined } from "@ant-design/icons";
+import NProgress from "nprogress";
+import "nprogress/nprogress.css";
+const { Header, Content, Sider, Footer } = Layout;
 /*<GithubOutlined />
   createElement原理
 
@@ -31,9 +34,6 @@ ReactDOM.render(React.createElement(APP, null), document.getElementById("root"))
 
 */
 
-function createElement2(tag, attrs, ...children) {}
-
-const { Header, Content, Sider } = Layout;
 const HomePage = () => {
   const [state] = useState({
     name: "linlin",
@@ -128,6 +128,30 @@ const HomePage = () => {
     document.body.scrollTop = 0;
     document.documentElement.scrollTop = 0;
   };
+  function load() {
+    NProgress.configure({ minimum: 0.1 });
+    NProgress.start();
+    debugger;
+    setTimeout(() => {
+      NProgress.done();
+    }, 2000);
+  }
+
+  /*
+  e=> {
+      if (window.scrollY > 204) {
+        console.log(window.scrollY);
+      }
+    }
+  }
+  */
+
+  document.body.onscroll = useEffect((e) => {
+    if (window.scrollY > 204) {
+      console.log(window.scrollY);
+    }
+  });
+
   return (
     <Router>
       <Layout style={{ display: "block" }}>
@@ -187,19 +211,18 @@ const HomePage = () => {
           </div>
         </Header>
         <div className="siderAndcontent-container clearfix">
-          <Sider style={{ backgroundColor: "#282a36" }}>
-            <div style={{ height: "200px", width: "233PX" }}></div>
+          <Sider style={{ backgroundColor: "#282a36" }} width="1.5rem">
+            <div style={{ height: "1.5rem", width: "100%" }}></div>
             <Menu
               onClick={backToTop}
               theme="dark"
               mode="inline"
               className="menu-container"
-              inlineCollapsed={true}
             >
-              <Menu.Item>
+              <Menu.Item onClick={load}>
                 Author
                 <Link to="/Author">
-                  <Button> Author </Button> <Button> 去Author </Button>
+                  <Button> Author </Button>
                 </Link>
               </Menu.Item>
               <Menu.Item>
@@ -247,18 +270,11 @@ const HomePage = () => {
             </Menu>
           </Sider>
 
-          <Content style={{ height: "2000px" }}>
-            {/* <Route path="/author" component={Author}></Route>
-            <Route path="/LoginControl" component={LoginControl} />
-            <Route path="/Article" component={Article} />
-            <Route path="/Footer" component={MainFooter} />
-            <Route path="/Author" component={Author} />
-            <Route path="/Clock" component={Clock} />
-            <Route path="/Article/Content" component={MainContent} />
-            <Route path="/Calculater" component={Calculater} /> */}
+          <Content style={{ minHeight: "10rem" }}>
             <ChildMenu></ChildMenu>
           </Content>
         </div>
+        <Footer className="footer-container"></Footer>
       </Layout>
     </Router>
   );

@@ -3,7 +3,9 @@ import { Link, BrowserRouter as Router, Route } from "react-router-dom";
 import { Button, Layout, Menu, Drawer } from "antd";
 import "../css/menu.css";
 import ChildMenu from "../components/childrenComponent/ChildMenu";
-/*
+import Calendar from "../components/childrenComponent/Calendar";
+import { GithubOutlined } from "@ant-design/icons";
+/*<GithubOutlined />
   createElement原理
 
   function App() {
@@ -136,7 +138,10 @@ const HomePage = () => {
                 height: "100%",
                 width: "80%",
               }}
-            ></div>
+            >
+              <span className="website-name-span">EurekaSeveN</span>
+              <GithubOutlined className="github-icon" />
+            </div>
             <div
               style={{
                 height: "100%",
@@ -183,11 +188,13 @@ const HomePage = () => {
         </Header>
         <div className="siderAndcontent-container clearfix">
           <Sider style={{ backgroundColor: "#282a36" }}>
+            <div style={{ height: "200px", width: "233PX" }}></div>
             <Menu
               onClick={backToTop}
               theme="dark"
               mode="inline"
               className="menu-container"
+              inlineCollapsed={true}
             >
               <Menu.Item>
                 Author
@@ -230,10 +237,16 @@ const HomePage = () => {
                   <Button> Calculater </Button>
                 </Link>
               </Menu.Item>
-              <Menu.Item>菜单项</Menu.Item>
+              <Menu.Item>
+                TestHooks
+                <Link to="/TestHooks">
+                  <Button> TestHooks </Button>
+                </Link>
+              </Menu.Item>
               <Menu.Item>菜单项</Menu.Item>
             </Menu>
           </Sider>
+
           <Content style={{ height: "2000px" }}>
             {/* <Route path="/author" component={Author}></Route>
             <Route path="/LoginControl" component={LoginControl} />

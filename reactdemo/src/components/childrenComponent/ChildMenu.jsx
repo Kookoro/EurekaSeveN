@@ -9,7 +9,7 @@ import MainFooter from "../Footer";
 import Clock from "../Clock";
 import MainContent from "../Content";
 import Calculater from "../Calculater";
-
+import TestHooks from "../TestHooks";
 const ChildRoute = (props) => {
   return (
     <div>
@@ -21,6 +21,7 @@ const ChildRoute = (props) => {
       <Route path="/Clock" component={Clock} />
       <Route path="/Article/Content" component={MainContent} />
       <Route path="/Calculater" component={Calculater} />
+      <Route path="/TestHooks" component={TestHooks} />
     </div>
   );
 };

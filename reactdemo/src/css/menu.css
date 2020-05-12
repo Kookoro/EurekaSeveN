@@ -14,6 +14,7 @@ html {
   background-color: #282a36;
   padding-left: 0.06rem;
   padding-right: 0.06rem;
+  border-bottom: 0.02rem solid #1890ff;
 }
 .header-main-container {
   width: 100%;
@@ -21,14 +22,14 @@ html {
   min-width: 5rem;
 }
 .user-info-avatar {
-  height: 48px;
-  width: 48px;
+  height: 40px;
+  width: 40px;
   position: relative;
   float: right;
   border-radius: 50%;
-  border: 0.02rem solid red;
+  border: 0.02rem solid #282a36;
   margin-right: 0.04rem;
-  margin-top: 0.03rem;
+  margin-top: 0.05rem;
   display: flex;
 }
 .user-info-name {
@@ -48,4 +49,16 @@ html {
 .menu-container {
   position: fixed;
   width: 200px;
+}
+.website-name-span {
+  font-size: 0.24rem;
+  line-height: 0.48rem;
+  color: white;
+  padding-left: 0.1rem;
+}
+.github-icon {
+  font-size: 0.2rem;
+  padding-left: 0.04rem;
+  color: white;
+  cursor: pointer;
 }

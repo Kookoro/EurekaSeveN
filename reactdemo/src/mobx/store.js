@@ -1,4 +1,9 @@
-import { observable, action, autorun, computed } from "mobx";
+import {
+  observable,
+  action,
+  autorun,
+  computed
+} from "mobx";
 
 class AppState {
   // 装饰器@

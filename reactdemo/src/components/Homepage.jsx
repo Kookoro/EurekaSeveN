@@ -11,7 +11,7 @@ import {
   Avatar,
   Drawer,
 } from "antd";
-import "../css/header.css";
+import "../css/menu.css";
 import ChildMenu from "../components/childrenComponent/ChildMenu";
 /*
   createElement原理
@@ -180,55 +180,55 @@ const HomePage = () => {
             </div>
           </div>
         </Header>
-        <div className="siderAndcontent-container">
+        <div className="siderAndcontent-container clearfix">
           <Sider>
             <Menu theme="dark">
               <Menu.Item>
-                去Author
+                Author
                 <Link to="/Author">
-                  <Button> 去Author </Button> <Button> 去Author </Button>
+                  <Button> Author </Button> <Button> 去Author </Button>
                 </Link>
               </Menu.Item>
               <Menu.Item>
-                去LoginControl
+                LoginControl
                 <Link to="/LoginControl">
-                  <Button> 去LoginControl </Button>
+                  <Button> LoginControl </Button>
                 </Link>
               </Menu.Item>
               <Menu.Item>
-                去Article
+                Article
                 <Link to="/Article">
-                  <Button> 去Article </Button>
+                  <Button> Article </Button>
                 </Link>
               </Menu.Item>
               <Menu.Item>
-                去footer
+                footer
                 <Link to="/footer">
-                  <Button> 去footer </Button>
+                  <Button> footer </Button>
                 </Link>
               </Menu.Item>
               <Menu.Item>
-                去Clock
+                Clock
                 <Link
                   to={{
                     pathname: "/Clock",
                     state: state,
                   }}
                 >
-                  <Button> 去Clock </Button>
+                  <Button> Clock </Button>
                 </Link>
               </Menu.Item>
               <Menu.Item>
-                去Calculater
+                Calculater
                 <Link to="/Calculater">
-                  <Button> 去Calculater </Button>
+                  <Button> Calculater </Button>
                 </Link>
               </Menu.Item>
               <Menu.Item>菜单项</Menu.Item>
               <Menu.Item>菜单项</Menu.Item>
             </Menu>
           </Sider>
-          <Content>
+          <Content style={{ height: "2000px" }}>
             {/* <Route path="/author" component={Author}></Route>
             <Route path="/LoginControl" component={LoginControl} />
             <Route path="/Article" component={Article} />

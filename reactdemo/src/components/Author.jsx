@@ -1,7 +1,5 @@
 import React, { Component } from "react";
-
 import { Button } from "antd";
-import { observer } from "mobx-react";
 import appStore from "../mobx/store";
 import { observable, autorun } from "mobx";
 let ob = observable({

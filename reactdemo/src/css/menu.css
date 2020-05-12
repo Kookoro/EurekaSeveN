@@ -45,3 +45,7 @@ html {
 .siderAndcontent-container {
   display: flex;
 }
+.menu-container {
+  position: fixed;
+  width: 200px;
+}

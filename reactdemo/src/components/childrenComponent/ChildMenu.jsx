@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Link, BrowserRouter as Router, Route } from "react-router-dom";
+import { Route } from "react-router-dom";
 import LoginControl from "../LoginControl";
 
 import Article from "../Article";

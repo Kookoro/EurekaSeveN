@@ -1,7 +1,6 @@
 import {
   observable,
   action,
-  autorun,
   computed
 } from "mobx";
 

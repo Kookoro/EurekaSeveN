@@ -14,16 +14,12 @@ import {
   CloudOutlined,
   ShopOutlined,
   TeamOutlined,
-  UserOutlined,
   UploadOutlined,
   VideoCameraOutlined,
   HomeOutlined,
 } from "@ant-design/icons";
 const { Search } = Input;
 const { Header, Content, Footer, Sider } = Layout;
-const sayHello = (e) => {
-  alert("11111");
-};
 class App extends Component {
   constructor(props) {
     super(props);
@@ -179,6 +175,5 @@ const menuList = [
   "培训管理",
   "保险管理",
 ];
-const titleName = "首页";
 
 export default App;

@@ -1,16 +1,6 @@
 import React, { useState } from "react";
 import { Link, BrowserRouter as Router, Route } from "react-router-dom";
-import {
-  Button,
-  Space,
-  Layout,
-  Menu,
-  Breadcrumb,
-  Row,
-  Col,
-  Avatar,
-  Drawer,
-} from "antd";
+import { Button, Layout, Menu, Drawer } from "antd";
 import "../css/menu.css";
 import ChildMenu from "../components/childrenComponent/ChildMenu";
 /*
@@ -41,10 +31,9 @@ ReactDOM.render(React.createElement(APP, null), document.getElementById("root"))
 
 function createElement2(tag, attrs, ...children) {}
 
-const { Header, Content, Footer, Sider } = Layout;
-const { SubMenu } = Menu;
+const { Header, Content, Sider } = Layout;
 const HomePage = () => {
-  const [state, setState] = useState({
+  const [state] = useState({
     name: "linlin",
     age: 22,
     year: "2020-04-13",
@@ -58,6 +47,7 @@ const HomePage = () => {
     regexp: new RegExp(/cloneDeep/i),
     isNan: NaN,
   });
+
   const onCollapse = (collapsed) => {
     const copyData = cloneDeep(state);
     const copyData2 = JSON.parse(JSON.stringify(state));
@@ -123,6 +113,19 @@ const HomePage = () => {
       visible: false,
     });
   };
+
+  // window.addEventListener("scroll", (e) => {
+  //   const header = document.querySelector(".header");
+  //   if (document.body.scrollHeight >= 53) {
+  //     header.style.display = "none";
+  //   } else {
+  //     header.style.display = "flex";
+  //   }
+  // });
+  const backToTop = (e) => {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+  };
   return (
     <Router>
       <Layout style={{ display: "block" }}>
@@ -133,9 +136,7 @@ const HomePage = () => {
                 height: "100%",
                 width: "80%",
               }}
-            >
-              col-18 col-push-6
-            </div>
+            ></div>
             <div
               style={{
                 height: "100%",
@@ -181,8 +182,13 @@ const HomePage = () => {
           </div>
         </Header>
         <div className="siderAndcontent-container clearfix">
-          <Sider>
-            <Menu theme="dark">
+          <Sider style={{ backgroundColor: "#282a36" }}>
+            <Menu
+              onClick={backToTop}
+              theme="dark"
+              mode="inline"
+              className="menu-container"
+            >
               <Menu.Item>
                 Author
                 <Link to="/Author">

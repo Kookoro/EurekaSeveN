@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link, BrowserRouter as Router, Route } from "react-router-dom";
-import { Button, Layout, Menu, Drawer } from "antd";
+import { Button, Layout, Menu, Drawer, Input } from "antd";
 import "../css/menu.css";
 import ChildMenu from "../components/childrenComponent/ChildMenu";
 import Calendar from "../components/childrenComponent/Calendar";
@@ -8,6 +8,7 @@ import { GithubOutlined } from "@ant-design/icons";
 import NProgress from "nprogress";
 import "nprogress/nprogress.css";
 const { Header, Content, Sider, Footer } = Layout;
+const { Search } = Input;
 /*<GithubOutlined />
   createElement原理
 
@@ -131,7 +132,6 @@ const HomePage = () => {
   function load() {
     NProgress.configure({ minimum: 0.1 });
     NProgress.start();
-    debugger;
     setTimeout(() => {
       NProgress.done();
     }, 2000);
@@ -146,11 +146,15 @@ const HomePage = () => {
   }
   */
 
-  document.body.onscroll = useEffect((e) => {
+  document.body.onscroll = (e) => {
+    const menu = document.querySelector(".menu-container");
     if (window.scrollY > 204) {
-      console.log(window.scrollY);
+      menu.style.position = "fixed";
+      menu.style.top = 0;
+    } else {
+      menu.style.position = "initial";
     }
-  });
+  };
 
   return (
     <Router>
@@ -160,7 +164,7 @@ const HomePage = () => {
             <div
               style={{
                 height: "100%",
-                width: "80%",
+                width: "20%",
               }}
             >
               <span className="website-name-span">EurekaSeveN</span>
@@ -169,14 +173,19 @@ const HomePage = () => {
             <div
               style={{
                 height: "100%",
-                width: "20%",
+                width: "80%",
                 display: "flex",
                 justifyContent: "space-between",
               }}
             >
-              <div>
+              <div className="input-search-container">
                 {/* <span className="user-info-name">EurekaSeveN</span>
               <GithubOutlined /> */}
+
+                <Search
+                  className="input-search"
+                  placeholder="Search article"
+                ></Search>
               </div>
               <div className="user-info-avatar">
                 <img
@@ -197,15 +206,15 @@ const HomePage = () => {
                 onClose={onClose}
                 visible={states.visible}
               >
-                <p>Some contents...</p>
-                <p>Some contents...</p>
-                <p>Some contents...</p>
-                <p>Some contents...</p>
-                <p>Some contents...</p>
-                <p>Some contents...</p>
-                <p>Some contents...</p>
-                <p>Some contents...</p>
-                <p>Some contents...</p>
+                <p>演示案例1</p>
+                <p>演示案例2</p>
+                <p>演示案例3</p>
+                <p>演示案例4</p>
+                <p>演示案例5</p>
+                <p>演示案例6</p>
+                <p>演示案例7</p>
+                <p>演示案例8</p>
+                <p>演示案例9</p>
               </Drawer>
             </div>
           </div>
@@ -214,12 +223,12 @@ const HomePage = () => {
           <Sider style={{ backgroundColor: "#282a36" }} width="1.5rem">
             <div style={{ height: "1.5rem", width: "100%" }}></div>
             <Menu
-              onClick={backToTop}
+              onClick={(backToTop, load)}
               theme="dark"
               mode="inline"
               className="menu-container"
             >
-              <Menu.Item onClick={load}>
+              <Menu.Item>
                 Author
                 <Link to="/Author">
                   <Button> Author </Button>

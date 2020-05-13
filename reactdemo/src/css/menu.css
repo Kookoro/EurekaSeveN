@@ -69,3 +69,19 @@ html {
   width: 1.5rem;
   min-width: 1.5rem;
 }
+.input-search-container {
+  display: flex;
+  flex-direction: row-reverse;
+  padding-left: 1.5rem;
+  padding-right: 0.1rem;
+  /* justify-content: space-between; */
+  width: 100%;
+  align-items: center;
+}
+.input-search {
+  max-width: 2rem;
+  min-width: 0.8rem;
+}
+.ant-input-affix-wrapper {
+  border-radius: 20px;
+}

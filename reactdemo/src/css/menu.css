@@ -15,6 +15,9 @@ html {
   padding-left: 0.06rem;
   padding-right: 0.06rem;
   border-bottom: 0.02rem solid #1890ff;
+  width: 100%;
+  position: fixed;
+  z-index: 999;
 }
 .header-main-container {
   width: 100%;
@@ -64,6 +67,9 @@ html {
 .footer-container {
   background-color: #001529;
   height: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .ant-layout-sider {
   width: 1.5rem;
@@ -84,4 +90,7 @@ html {
 }
 .ant-input-affix-wrapper {
   border-radius: 20px;
+}
+.ant-layout-content {
+  padding-top: 0.53rem;
 }

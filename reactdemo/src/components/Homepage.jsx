@@ -137,7 +137,6 @@ const HomePage = () => {
       NProgress.done();
     }, 2000);
   }
-  const NcRef = useRef();
   // const onRef = useEffect((ref) => {
   //   NewBreadcrumb = ref;
   // });
@@ -148,7 +147,7 @@ const HomePage = () => {
     const menu = document.querySelector(".menu-container");
     if (window.scrollY > 204) {
       menu.style.position = "fixed";
-      menu.style.top = 0;
+      menu.style.top = "53px";
     } else {
       menu.style.position = "initial";
     }
@@ -219,9 +218,12 @@ const HomePage = () => {
         </Header>
         <div className="siderAndcontent-container clearfix">
           <Sider style={{ backgroundColor: "#282a36" }} width="1.5rem">
-            <div style={{ height: "1.5rem", width: "100%" }}></div>
+            <div style={{ height: "2rem", width: "100%" }}></div>
             <Menu
-              onClick={(backToTop, load)}
+              onClick={() => {
+                load();
+                backToTop();
+              }}
               theme="dark"
               mode="inline"
               className="menu-container"
@@ -282,7 +284,18 @@ const HomePage = () => {
             <ChildMenu></ChildMenu>
           </Content>
         </div>
-        <Footer className="footer-container"></Footer>
+        <Footer className="footer-container">
+          <div className="footer-content-main">
+            <div></div>
+            <span
+              style={{
+                color: "white",
+              }}
+            >
+              ©2020-2020蜀ICP备19040308号
+            </span>
+          </div>
+        </Footer>
       </Layout>
     </Router>
   );

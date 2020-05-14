@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Link, BrowserRouter as Router, Route } from "react-router-dom";
 import { Button, Layout, Menu, Drawer, Input } from "antd";
 import "../css/menu.css";
 import ChildMenu from "../components/childrenComponent/ChildMenu";
 import Calendar from "../components/childrenComponent/Calendar";
+import NewBreadcrumb from "../components/Breadcrumb";
 import { GithubOutlined } from "@ant-design/icons";
 import NProgress from "nprogress";
 import "nprogress/nprogress.css";
@@ -136,16 +137,13 @@ const HomePage = () => {
       NProgress.done();
     }, 2000);
   }
-
-  /*
-  e=> {
-      if (window.scrollY > 204) {
-        console.log(window.scrollY);
-      }
-    }
-  }
-  */
-
+  const NcRef = useRef();
+  // const onRef = useEffect((ref) => {
+  //   NewBreadcrumb = ref;
+  // });
+  // function changeBread() {
+  //   NewBreadcrumb.getPath();
+  // }
   document.body.onscroll = (e) => {
     const menu = document.querySelector(".menu-container");
     if (window.scrollY > 204) {
@@ -280,6 +278,7 @@ const HomePage = () => {
           </Sider>
 
           <Content style={{ minHeight: "10rem" }}>
+            <NewBreadcrumb></NewBreadcrumb>
             <ChildMenu></ChildMenu>
           </Content>
         </div>

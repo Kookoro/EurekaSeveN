@@ -148,7 +148,7 @@ const HomePage = () => {
   // }
   document.body.onscroll = (e) => {
     const menu = document.querySelector(".menu-container");
-    if (window.scrollY > 204) {
+    if (window.scrollY > 190) {
       menu.style.position = "fixed";
       menu.style.top = "53px";
     } else {
@@ -294,7 +294,7 @@ const HomePage = () => {
               style={{
                 color: "white",
               }}
-              href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=31010402002252"
+              href="http://beian.miit.gov.cn"
               target="_blank"
             >
               ©2020-2020蜀ICP备19040308号

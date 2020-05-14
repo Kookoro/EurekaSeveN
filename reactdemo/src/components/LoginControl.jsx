@@ -32,18 +32,41 @@ function LoginButton(props) {
 }
 
 function LogoutButton(props) {
-  const [store] = useState(0);
-  useEffect(() => {
-    console.log("setStore调用后", store);
+  const [store, setStore] = useState({
+    val: 0,
+    newVal: 1,
   });
+  useEffect(() => {
+    document.querySelector(".titles").style.width = store.newVal * 20 + "px";
+  });
+  function add() {
+    setStore({ ...store, newVal: store.newVal + 1 });
+  }
   // function changeName() {
   //   console.log("setStore调用前", store);
   //   setStore(store + 1);
   // }
   return (
-    <Button type="primary" danger onClick={props.onClick}>
-      Logout
-    </Button>
+    <div>
+      <Button type="primary" danger onClick={props.onClick}>
+        Logout
+      </Button>
+      <Button
+        type="primary"
+        danger
+        onMouseDown={() => {
+          add();
+        }}
+      >
+        addStore
+      </Button>
+      <div
+        className="titles"
+        style={{ height: "100px", width: "100px", backgroundColor: "red" }}
+      >
+        1
+      </div>
+    </div>
   );
 }
 function Counter(props) {

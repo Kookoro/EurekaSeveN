@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import "../css/clock.css";
 class Clock extends React.Component {
   constructor(props) {
     super(props);
@@ -43,6 +44,25 @@ class Clock extends React.Component {
     return (
       <div>
         <h1>时钟</h1>
+        <div>
+          <div
+            className="box"
+            style={{ height: "100px", width: "100px", backgroundColor: "red" }}
+          >
+            1
+          </div>
+          <div
+            className="box"
+            style={{
+              height: "100px",
+              width: "100px",
+              backgroundColor: "yellow",
+            }}
+          >
+            2
+          </div>
+        </div>
+
         <h1>
           用户姓名:{this.state.datas.name}
           用户年龄:{this.state.datas.age}

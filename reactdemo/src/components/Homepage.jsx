@@ -131,7 +131,10 @@ const HomePage = () => {
     document.documentElement.scrollTop = 0;
   };
   function load() {
-    NProgress.configure({ minimum: 0.1 });
+    const header = document.querySelector("header");
+    NProgress.configure({
+      minimum: 0.1,
+    });
     NProgress.start();
     setTimeout(() => {
       NProgress.done();
@@ -287,13 +290,15 @@ const HomePage = () => {
         <Footer className="footer-container">
           <div className="footer-content-main">
             <div></div>
-            <span
+            <a
               style={{
                 color: "white",
               }}
+              href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=31010402002252"
+              target="_blank"
             >
               ©2020-2020蜀ICP备19040308号
-            </span>
+            </a>
           </div>
         </Footer>
       </Layout>

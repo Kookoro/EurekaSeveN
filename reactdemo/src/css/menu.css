@@ -14,7 +14,7 @@ html {
   background-color: #282a36;
   padding-left: 0.06rem;
   padding-right: 0.06rem;
-  border-bottom: 0.02rem solid #1890ff;
+  box-shadow: 0 2px 3px rgba(26, 26, 26, 0.1);
   width: 100%;
   position: fixed;
   z-index: 999;
@@ -93,4 +93,7 @@ html {
 }
 .ant-layout-content {
   padding-top: 0.53rem;
+}
+#nprogress .bar {
+  background-color: #1890ff !important;
 }

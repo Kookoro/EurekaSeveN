@@ -5,7 +5,7 @@ import "../css/menu.css";
 import ChildMenu from "../components/childrenComponent/ChildMenu";
 import Calendar from "../components/childrenComponent/Calendar";
 import NewBreadcrumb from "../components/Breadcrumb";
-import { GithubOutlined } from "@ant-design/icons";
+import { GithubOutlined, HomeOutlined } from "@ant-design/icons";
 import NProgress from "nprogress";
 import "nprogress/nprogress.css";
 const { Header, Content, Sider, Footer } = Layout;
@@ -131,7 +131,6 @@ const HomePage = () => {
     document.documentElement.scrollTop = 0;
   };
   function load() {
-    const header = document.querySelector("header");
     NProgress.configure({
       minimum: 0.1,
     });
@@ -232,28 +231,25 @@ const HomePage = () => {
               className="menu-container"
             >
               <Menu.Item>
+                <HomeOutlined />
+
+                <Link to="/">首页</Link>
+              </Menu.Item>
+              <Menu.Item>
                 Author
-                <Link to="/Author">
-                  <Button> Author </Button>
-                </Link>
+                <Link to="/Author"></Link>
               </Menu.Item>
               <Menu.Item>
                 LoginControl
-                <Link to="/LoginControl">
-                  <Button> LoginControl </Button>
-                </Link>
+                <Link to="/LoginControl"></Link>
               </Menu.Item>
               <Menu.Item>
                 Article
-                <Link to="/Article">
-                  <Button> Article </Button>
-                </Link>
+                <Link to="/Article"></Link>
               </Menu.Item>
               <Menu.Item>
                 footer
-                <Link to="/footer">
-                  <Button> footer </Button>
-                </Link>
+                <Link to="/footer"></Link>
               </Menu.Item>
               <Menu.Item>
                 Clock
@@ -262,21 +258,15 @@ const HomePage = () => {
                     pathname: "/Clock",
                     state: state,
                   }}
-                >
-                  <Button> Clock </Button>
-                </Link>
+                ></Link>
               </Menu.Item>
               <Menu.Item>
                 Calculater
-                <Link to="/Calculater">
-                  <Button> Calculater </Button>
-                </Link>
+                <Link to="/Calculater"></Link>
               </Menu.Item>
               <Menu.Item>
                 TestHooks
-                <Link to="/TestHooks">
-                  <Button> TestHooks </Button>
-                </Link>
+                <Link to="/TestHooks"></Link>
               </Menu.Item>
               <Menu.Item>菜单项</Menu.Item>
             </Menu>

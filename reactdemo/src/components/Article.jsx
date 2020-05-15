@@ -137,7 +137,7 @@ const Article = () => {
         }}
       ></Input>
       <Button onClick={addArticle}>发表文章</Button>
-      <Input ref={(s) => (s1 = s)}></Input>;
+      <Input ref={(s) => (s1 = s)}></Input>
       <Button onClick={showS}>click</Button>
     </div>
   );

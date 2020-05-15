@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useRef } from "react";
 import { Link, BrowserRouter as Router, Route } from "react-router-dom";
 import { Button, Layout, Menu, Drawer, Input } from "antd";
 import "../css/menu.css";
@@ -117,7 +117,11 @@ const HomePage = () => {
       visible: false,
     });
   };
+  const childform = useRef();
 
+  const NBreadcrumb = React.forwardRef((props, ref) => (
+    <NewBreadcrumb ref={(r) => (NewBreadcrumb = r)}></NewBreadcrumb>
+  ));
   // window.addEventListener("scroll", (e) => {
   //   const header = document.querySelector(".header");
   //   if (document.body.scrollHeight >= 53) {
@@ -138,6 +142,10 @@ const HomePage = () => {
     setTimeout(() => {
       NProgress.done();
     }, 2000);
+  }
+  function updateBreadVal() {
+    debugger;
+    console.log(childform.current);
   }
   // const onRef = useEffect((ref) => {
   //   NewBreadcrumb = ref;
@@ -225,6 +233,7 @@ const HomePage = () => {
               onClick={() => {
                 load();
                 backToTop();
+                updateBreadVal();
               }}
               theme="dark"
               mode="inline"
@@ -268,12 +277,16 @@ const HomePage = () => {
                 TestHooks
                 <Link to="/TestHooks"></Link>
               </Menu.Item>
+              <Menu.Item>
+                Calendar
+                <Link to="/Calendar"></Link>
+              </Menu.Item>
               <Menu.Item>菜单项</Menu.Item>
             </Menu>
           </Sider>
 
           <Content style={{ minHeight: "10rem" }}>
-            <NewBreadcrumb></NewBreadcrumb>
+            <NewBreadcrumb ref={childform}></NewBreadcrumb>
             <ChildMenu></ChildMenu>
           </Content>
         </div>

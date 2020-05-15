@@ -9,6 +9,9 @@ const breadcrumbNameMap = {
   "/footer": "footer",
   "/Clock": "Clock",
   "/Author": "Author",
+  "/Article/Content/0001": "0001",
+  "/Article/Content/0002": "0002",
+  "/Article/Content/0003": "0003",
 };
 
 class NewBreadcrumb extends React.Component {
@@ -20,24 +23,20 @@ class NewBreadcrumb extends React.Component {
     };
   }
   getPath = () => {
-    //对路径进行切分，存放到this.state.pathSnippets中
-
     this.state.pathSnippets = this.props.location.pathname
       .split("/")
       .filter((i) => i);
-    // let arr=this.state.pathSnippets;
-    // let pathname=this.context.router.history.location.pathname;
-    //将切分的路径读出来，形成面包屑，存放到this.state.extraBreadcrumbItems
-    this.state.extraBreadcrumbItems = this.state.pathSnippets.map(
-      (_, index) => {
-        let url = `/${this.state.pathSnippets.slice(0, index + 1).join("/")}`;
+
+    this.setState({
+      extraBreadcrumbItems: this.state.pathSnippets.map((_, index) => {
+        const url = `/${this.state.pathSnippets.slice(0, index + 1).join("/")}`;
         return (
           <Breadcrumb.Item key={url}>
             <Link to={url}>{breadcrumbNameMap[url]}</Link>
           </Breadcrumb.Item>
         );
-      }
-    );
+      }),
+    });
   };
   componentWillMount() {
     this.getPath();

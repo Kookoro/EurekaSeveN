@@ -7,6 +7,9 @@ html {
   padding: 0;
   list-style: none;
 }
+body {
+  background-color: #f6f6f6;
+}
 .header {
   padding: 0;
   display: flex;
@@ -92,7 +95,9 @@ html {
   border-radius: 20px;
 }
 .ant-layout-content {
-  padding-top: 0.53rem;
+  padding-top: 0.66rem;
+  padding-left: 0.06rem;
+  padding-right: 0.06rem;
 }
 #nprogress .bar {
   background-color: #1890ff !important;

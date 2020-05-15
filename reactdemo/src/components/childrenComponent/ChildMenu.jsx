@@ -10,6 +10,7 @@ import Clock from "../Clock";
 import MainContent from "../Content";
 import Calculater from "../Calculater";
 import TestHooks from "../TestHooks";
+import NewCalendar from "../childrenComponent/Calendar";
 const ChildRoute = (props) => {
   return (
     <div>
@@ -22,6 +23,8 @@ const ChildRoute = (props) => {
       <Route path="/Article/Content" component={MainContent} />
       <Route path="/Calculater" component={Calculater} />
       <Route path="/TestHooks" component={TestHooks} />
+      <Route path="/TestHooks" component={TestHooks} />
+      <Route path="/Calendar" component={NewCalendar} />
     </div>
   );
 };

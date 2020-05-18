@@ -117,11 +117,11 @@ const HomePage = () => {
       visible: false,
     });
   };
-  const childform = useRef();
 
-  const NBreadcrumb = React.forwardRef((props, ref) => (
-    <NewBreadcrumb ref={(r) => (NewBreadcrumb = r)}></NewBreadcrumb>
-  ));
+  const NBreadcrumb = React.forwardRef((props, ref) => {
+    return <NewBreadcrumb ref={ref}></NewBreadcrumb>;
+  });
+  const ref = React.createRef();
   // window.addEventListener("scroll", (e) => {
   //   const header = document.querySelector(".header");
   //   if (document.body.scrollHeight >= 53) {
@@ -141,11 +141,11 @@ const HomePage = () => {
     NProgress.start();
     setTimeout(() => {
       NProgress.done();
-    }, 2000);
+    }, 200);
   }
   function updateBreadVal() {
+    console.log(NBreadcrumb.current);
     debugger;
-    console.log(childform.current);
   }
   // const onRef = useEffect((ref) => {
   //   NewBreadcrumb = ref;
@@ -286,7 +286,7 @@ const HomePage = () => {
           </Sider>
 
           <Content style={{ minHeight: "10rem" }}>
-            <NewBreadcrumb ref={childform}></NewBreadcrumb>
+            <NBreadcrumb ref={ref}></NBreadcrumb>
             <ChildMenu></ChildMenu>
           </Content>
         </div>

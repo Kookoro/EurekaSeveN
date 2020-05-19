@@ -137,16 +137,14 @@ const HomePage = () => {
   function load() {
     NProgress.configure({
       minimum: 0.1,
+      showSpinner: false,
     });
     NProgress.start();
     setTimeout(() => {
       NProgress.done();
     }, 200);
   }
-  function updateBreadVal() {
-    console.log(NBreadcrumb.current);
-    debugger;
-  }
+
   // const onRef = useEffect((ref) => {
   //   NewBreadcrumb = ref;
   // });
@@ -172,6 +170,9 @@ const HomePage = () => {
               style={{
                 height: "100%",
                 width: "20%",
+                minWidth: "174px",
+                display: "flex",
+                alignItems: "center",
               }}
             >
               <span className="website-name-span">EurekaSeveN</span>
@@ -182,7 +183,7 @@ const HomePage = () => {
                 height: "100%",
                 width: "80%",
                 display: "flex",
-                justifyContent: "space-between",
+                justifyContent: "flex-end",
               }}
             >
               <div className="input-search-container">
@@ -197,7 +198,7 @@ const HomePage = () => {
               <div className="user-info-avatar">
                 <img
                   src="https://avatars2.githubusercontent.com/u/42001218?s=400&u=5e65204880e8ba2585d5dfa5859526c7d05738a1&v=4"
-                  alt=" "
+                  alt=""
                   style={{
                     height: "100%",
                     borderRadius: "50%",
@@ -233,7 +234,6 @@ const HomePage = () => {
               onClick={() => {
                 load();
                 backToTop();
-                updateBreadVal();
               }}
               theme="dark"
               mode="inline"
@@ -286,7 +286,7 @@ const HomePage = () => {
           </Sider>
 
           <Content style={{ minHeight: "10rem" }}>
-            <NBreadcrumb ref={ref}></NBreadcrumb>
+            <NBreadcrumb></NBreadcrumb>
             <ChildMenu></ChildMenu>
           </Content>
         </div>

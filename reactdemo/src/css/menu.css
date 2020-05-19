@@ -10,10 +10,28 @@ html {
 body {
   background-color: #f6f6f6;
 }
+@media only screen and (min-device-width: 320px) and (max-device-height: 568px) {
+  html {
+    font-size: 50px;
+  }
+}
+@media only screen and (min-device-width: 375px) and (-webkit-min-device-pixel-ratio: 2) {
+  html {
+    font-size: 70px;
+  }
+  .ant-layout-sider {
+    display: none;
+  }
+}
+@media only screen and (min-device-width: 412px) and (-webkit-min-device-pixel-ratio: 3) {
+  html {
+    font-size: 70px;
+  }
+}
 .header {
   padding: 0;
   display: flex;
-  height: 0.53rem;
+  height: 0.56rem;
   background-color: #282a36;
   padding-left: 0.06rem;
   padding-right: 0.06rem;
@@ -25,17 +43,15 @@ body {
 .header-main-container {
   width: 100%;
   display: flex;
-  min-width: 5rem;
+  min-width: 4rem;
 }
 .user-info-avatar {
-  height: 40px;
-  width: 40px;
+  height: 0.48rem;
+  width: 0.48rem;
   position: relative;
-  float: right;
+
   border-radius: 50%;
   border: 0.02rem solid #282a36;
-  margin-right: 0.04rem;
-  margin-top: 0.05rem;
   display: flex;
 }
 .user-info-name {
@@ -64,11 +80,12 @@ body {
 .github-icon {
   font-size: 0.2rem;
   padding-left: 0.04rem;
+  padding-top: 0.02rem;
   color: white;
   cursor: pointer;
 }
 .footer-container {
-  background-color: #001529;
+  background-color: #282a36;
   height: 2rem;
   display: flex;
   justify-content: center;
@@ -81,8 +98,8 @@ body {
 .input-search-container {
   display: flex;
   flex-direction: row-reverse;
-  padding-left: 1.5rem;
-  padding-right: 0.1rem;
+  /* padding-left: 1.5rem;
+  padding-right: 0.1rem; */
   /* justify-content: space-between; */
   width: 100%;
   align-items: center;

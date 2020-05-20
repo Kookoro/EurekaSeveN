@@ -184,6 +184,7 @@ const HomePage = () => {
                 width: "80%",
                 display: "flex",
                 justifyContent: "flex-end",
+                alignItems: "center",
               }}
             >
               <div className="input-search-container">
@@ -285,9 +286,11 @@ const HomePage = () => {
             </Menu>
           </Sider>
 
-          <Content style={{ minHeight: "10rem" }}>
-            <NBreadcrumb></NBreadcrumb>
-            <ChildMenu></ChildMenu>
+          <Content style={{ minHeight: "10rem", backgroundColor: "#F6F6F6" }}>
+            <div className="content-container">
+              <NBreadcrumb></NBreadcrumb>
+              <ChildMenu></ChildMenu>
+            </div>
           </Content>
         </div>
         <Footer className="footer-container">
@@ -300,7 +303,7 @@ const HomePage = () => {
               href="http://beian.miit.gov.cn"
               target="_blank"
             >
-              ©2020-2020蜀ICP备19040308号
+              ©2019-2020蜀ICP备19040308号
             </a>
           </div>
         </Footer>

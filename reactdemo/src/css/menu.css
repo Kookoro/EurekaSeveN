@@ -119,3 +119,7 @@ body {
 #nprogress .bar {
   background-color: #1890ff !important;
 }
+.content-container {
+  background-color: #ffffff;
+  box-shadow: 0 1px 3px rgba(26, 26, 26, 0.1);
+}

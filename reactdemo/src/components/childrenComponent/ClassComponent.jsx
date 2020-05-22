@@ -79,6 +79,29 @@ class XXX extends React.component{
         )
     }
 */
+//setState()
+
+/*
+    不要直接修改State
+    eg:this.state.comment = "你好!"
+
+    而应该使用setState()
+
+    eg:this.setState({comment:'你好'})
+
+    构造函数是唯一可以给this.state赋值的地方
+
+
+    同时 React可能会把多个setState()合并为一个调用
+
+    考虑到this.props 与this.state可能会异步更新 所以不要依赖其值来更新下一个状态
+    否则可能不会出现想要的结果
+    eg: this.state({
+        counter:this.state.counter + this.props.increment
+    })
+    j解决
+
+*/
 //React 生命周期方法
 class XXX extends React.Component {
   constructor(props) {

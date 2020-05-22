@@ -94,10 +94,14 @@ class XXX extends React.Component {
   componentDidMount() {}
   //销毁
   componentWillUnmount() {}
-  com;
-
+  //更新
+  shouldComponentUpdate() {}
+  componentWillUpdate() {} // 更新前
+  componentDidUpdate() {} //更新后
+  componentWillReceiveProps() {} //接受props前
   render() {
     return;
     <div></div>;
   }
 }
+export default XXX;

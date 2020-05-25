@@ -21,9 +21,7 @@ class Calculater extends React.Component {
             onClick={() => {
               store.increase();
             }}
-          >
-            ++
-          </Button>{" "}
+          >+</Button>{" "}
           <Button
             onClick={() => {
               if (store.timer === 0) {

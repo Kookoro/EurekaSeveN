@@ -102,6 +102,33 @@ class XXX extends React.component{
     j解决
 
 */
+
+//React 三目运算符
+/*
+    render(){
+        return (
+            <div>
+            The user is<b>{isLoggedIn?'currently':'not'}</b>logged in
+            </div>
+
+        )
+    }
+
+
+    同样也可以用于多个包含多个组件的复杂表达式中
+        render(){
+            const isLoggedIn = this.state.isLoggedIn
+            return (
+                <div>
+                    {
+                      isLoggedIn?<LogoutButton><LogoutButton>
+                    }
+
+                </div>
+            )
+        }
+    */
+
 //React 生命周期方法
 class XXX extends React.Component {
   constructor(props) {

@@ -178,8 +178,13 @@ class XXX extends React.Component {
   componentDidUpdate() {} //更新后
   componentWillReceiveProps() {} //接受props前
   render() {
-    return;
-    <div></div>;
+    /**
+     * render 必须的生命周期
+     * 用于构建组件的html结构的生命周期
+     * 或返回null或者false
+     *
+     */
+    return <div></div>;
   }
 }
 export default XXX;

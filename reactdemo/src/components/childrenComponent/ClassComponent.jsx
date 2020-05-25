@@ -138,8 +138,36 @@ class XXX extends React.Component {
   func = () => {
     //方法
   };
+  /*
+  
+                组件生命周期
+  class组件中,一般一个组件由extends Component创建,同时提供一个render方法以及多个生命周期方法
+
+
+
+
+  */
   getDefaultPorps() {}
+  /**
+   * getDefaultPorps只在组件创建时调用一次同时将返回的对象缓存
+   * 该方法在实例初始化以前调用,故该方法无法通过this获取该组件实例
+   *
+   */
   getInitialState() {}
+  /**
+   * getInitialState()
+   * 初始化this.state的值,只在组件装载以前调用唯一一次
+   *
+   * React在ES6中的实现实际上去掉了getInitialState()这个生命周期函数,改为class组件中state在构造函数constructor里实现
+   * eg:
+   * Class Test extends React.Component{
+   *    constructor(props){
+   *        super(props);
+   *           this.state={InitialState};
+   * }
+   * }
+   *
+   */
   componentWillMount() {}
   componentDidMount() {}
   //销毁

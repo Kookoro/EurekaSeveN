@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Button } from "antd";
 import appStore from "../mobx/store";
+import AsyncText from "../components/childrenComponent/asyncAwait";
 import { observable, autorun } from "mobx";
 let ob = observable({
   a: 1,
@@ -23,7 +24,8 @@ class Auther extends Component {
     const store = appStore;
     return (
       <div>
-        Auther <h1> {store.timer} </h1>{" "}
+        Auther <h1> {store.timer} </h1>
+        <AsyncText></AsyncText>
         <Button onClick={this.changeObValue}> click </Button>{" "}
       </div>
     );

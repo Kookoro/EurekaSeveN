@@ -163,7 +163,11 @@ const HomePage = () => {
 
   return (
     <Router>
-      <Layout style={{ display: "block" }}>
+      <Layout style={{ 
+        display: "block",
+        height:"86vh",
+      
+      }}>
         <Header className="header ">
           <div className="header-main-container">
             <div

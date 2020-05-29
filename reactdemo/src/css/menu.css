@@ -1,5 +1,6 @@
 html {
   font-size: 100px;
+  background-color: #282a35;
   overflow-x: hidden;
 }
 * {
@@ -19,9 +20,7 @@ body {
   html {
     font-size: 70px;
   }
-  .ant-layout-sider {
-    display: none;
-  }
+ 
 }
 @media only screen and (min-device-width: 412px) and (-webkit-min-device-pixel-ratio: 3) {
   html {
@@ -67,6 +66,7 @@ body {
 }
 .siderAndcontent-container {
   display: flex;
+  height: 100%;
 }
 .menu-container {
   width: 1.5rem;

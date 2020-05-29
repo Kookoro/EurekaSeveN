@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, BrowserRouter as Router, Route } from "react-router-dom";
 import {Layout, Menu, Drawer, Input } from "antd";
 import "../css/menu.css";
@@ -36,7 +36,7 @@ ReactDOM.render(React.createElement(APP, null), document.getElementById("root"))
 */
 
 const HomePage = () => {
-  const [state] = useState({
+  const [state,setState] = useState({
     name: "linlin",
     age: 22,
     year: "2020-04-13",
@@ -50,7 +50,13 @@ const HomePage = () => {
     regexp: new RegExp(/cloneDeep/i),
     isNan: NaN,
   });
-
+  React.useEffect(()=>{
+    if(state.collapsed){
+      alert(state.year)
+    }else{
+      return
+    }
+  })
   const onCollapse = (collapsed) => {
     const copyData = cloneDeep(state);
     const copyData2 = JSON.parse(JSON.stringify(state));
@@ -143,7 +149,12 @@ const HomePage = () => {
       NProgress.done();
     }, 200);
   }
-
+  function changeStatus(){
+    setState({
+      ...state,
+      collapsed:!state.collapsed,
+    })
+  }
   // const onRef = useEffect((ref) => {
   //   NewBreadcrumb = ref;
   // });
@@ -178,7 +189,7 @@ const HomePage = () => {
                 alignItems: "center",
               }}
             >
-              <span className="website-name-span">EurekaSeveN</span>
+              <span onClick={changeStatus} className="website-name-span">EurekaSeveN</span>
               <GithubOutlined className="github-icon" />
             </div>
             <div

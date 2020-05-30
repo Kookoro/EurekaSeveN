@@ -2,7 +2,7 @@ import React from "react";
 import { observer } from "mobx-react";
 import appStore from "../mobx/store";
 import { Button, InputNumber } from "antd";
-@observer
+
 class Calculater extends React.Component {
   render() {
     const store = appStore;

@@ -31,9 +31,35 @@ function App() {
 
 ReactDOM.render(React.createElement(APP, null), document.getElementById("root"));
 
+JSX
+在react中，用独特的jsx语法代替JavaScript传统语法，jsx语法类似xml语法
+jsx具有以下几个优点
+1.jsx相较于JavaScript执行更快
+2.JSX类型安全，能够快速定位错误
+3.jsx模板取代html，简单快速
+jsx渲染原理:
+jsx是基于babel-present-react-app语法解析包，将jsx语法解析成一个传统的React.createElement()方法调用
 
 
 */
+/**
+ *例如 下面的element元素
+
+ *  */
+const element = (
+  <h1 className="hello">
+
+  hello world!
+  </h1>
+)
+//转换后成为:
+const nextElement = React.createElement('h1',
+{
+  className:"hello",
+
+},'hello world!')
+
+
 
 const HomePage = () => {
   const [state,setState] = useState({

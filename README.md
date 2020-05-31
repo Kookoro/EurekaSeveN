@@ -13,7 +13,8 @@
 # 需要用到的资料书签(不断收集中)
 * [React中文文档](https://react.docschina.org/)
     - [React-菜鸟教程](https://www.runoob.com/react/react-tutorial.html)
-    - [React-hooks不完全指南](https://segmentfault.com/a/1190000019223106)
+    - [React-Hooks不完全指南](https://segmentfault.com/a/1190000019223106)
+    - [React Hooks原理](https://github.com/brickspert/blog/issues/26)
 * [React-router](https://reacttraining.com/react-router/web/guides/quick-start)
 
 * [Redux]()

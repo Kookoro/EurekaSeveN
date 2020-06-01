@@ -11,11 +11,9 @@ class MyHeader extends Component {
   render() {
     const { datas } = this.props;
     const len = datas.length;
-
     return (
       <div>
         <ul>
-          {" "}
           {datas.map((item, index) => {
             return (
               <li
@@ -24,24 +22,21 @@ class MyHeader extends Component {
                 }}
                 key={index}
               >
-                {" "}
-                {item.content} {item.userName}{" "}
+                {item.content} {item.userName}
                 <button
                   onClick={() => {
                     handle();
                   }}
                 >
-                  删除{" "}
+                  删除
                 </button>
               </li>
             );
-          })}{" "}
-        </ul>{" "}
-        <Content name="linlin" children="sssss">
-          {" "}
-        </Content>{" "}
-        <div> 当前任务条数: {len} </div> <Clock> </Clock>{" "}
-        <LoginControl> </LoginControl>{" "}
+          })}
+        </ul>
+        <Content name="linlin" children="sssss"></Content>
+        <div> 当前任务条数: {len} </div> <Clock> </Clock>
+        <LoginControl> </LoginControl>
       </div>
     );
 

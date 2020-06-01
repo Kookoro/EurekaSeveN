@@ -2,15 +2,16 @@ import React from "react";
 import { observer } from "mobx-react";
 import appStore from "../mobx/store";
 import { Button, InputNumber } from "antd";
-
+import LeetCode from "../components/childrenComponent/leetcode";
+@observer
 class Calculater extends React.Component {
   render() {
     const store = appStore;
     return (
       <div>
         <div>
-          <h1> count: {store.timer} </h1> <h1> price: {store.price} </h1>{" "}
-          <h1> totalPrice: {store.totalPrice} </h1>{" "}
+          <h1> count: {store.timer} </h1> <h1> price: {store.price} </h1>
+          <h1> totalPrice: {store.totalPrice} </h1>
           <InputNumber
             defaultValue="0"
             onChange={(e) => {
@@ -21,7 +22,9 @@ class Calculater extends React.Component {
             onClick={() => {
               store.increase();
             }}
-          >+</Button>{" "}
+          >
+            +
+          </Button>
           <Button
             onClick={() => {
               if (store.timer === 0) {
@@ -31,15 +34,18 @@ class Calculater extends React.Component {
             }}
           >
             --
-          </Button>{" "}
+          </Button>
           <Button
             onClick={() => {
               store.resetTimer();
             }}
           >
-            reset{" "}
-          </Button>{" "}
-        </div>{" "}
+            reset
+          </Button>
+        </div>
+        <div>
+          <LeetCode></LeetCode>
+        </div>
       </div>
     );
   }

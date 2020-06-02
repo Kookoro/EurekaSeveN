@@ -10,12 +10,14 @@
 
 估计以后会把这个自己 xjb 搞的东西用 typescript 重构一下把，估计都排到 nodejs 学完以后了。
 
-# 需要用到的资料书签(不断收集中)
+# 可能用到的资料书签(不断收集中)
 
 - [React 中文文档](https://react.docschina.org/)
   - [React-菜鸟教程](https://www.runoob.com/react/react-tutorial.html)
   - [React-Hooks 不完全指南](https://segmentfault.com/a/1190000019223106)
   - [React Hooks 原理](https://github.com/brickspert/blog/issues/26)
 - [React-router](https://reacttraining.com/react-router/web/guides/quick-start)
-- [Redux]()
+- [Redux](redux.js.org)
+  - [Redux 中文](https://cn.redux.js.org/)
+  - [redux 原来如此简单-BY frontoldman](https://segmentfault.com/a/1190000016311891)
 - [mobx]()

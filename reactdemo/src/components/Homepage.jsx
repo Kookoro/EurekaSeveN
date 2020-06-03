@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link, BrowserRouter as Router, Route } from "react-router-dom";
-import {Layout, Menu, Drawer, Input } from "antd";
+import { Layout, Menu, Drawer, Input } from "antd";
 import "../css/menu.css";
 import ChildMenu from "../components/childrenComponent/ChildMenu";
 import NewBreadcrumb from "../components/Breadcrumb";
@@ -46,23 +46,18 @@ jsx是基于babel-present-react-app语法解析包，将jsx语法解析成一个
  *例如 下面的element元素
 
  *  */
-const element = (
-  <h1 className="hello">
-
-  hello world!
-  </h1>
-)
+const element = <h1 className="hello">hello world!</h1>;
 //转换后成为:
-const nextElement = React.createElement('h1',
-{
-  className:"hello",
-
-},'hello world!')
-
-
+const nextElement = React.createElement(
+  "h1",
+  {
+    className: "hello",
+  },
+  "hello world!"
+);
 
 const HomePage = () => {
-  const [state,setState] = useState({
+  const [state, setState] = useState({
     name: "linlin",
     age: 22,
     year: "2020-04-13",
@@ -76,13 +71,13 @@ const HomePage = () => {
     regexp: new RegExp(/cloneDeep/i),
     isNan: NaN,
   });
-  React.useEffect(()=>{
-    if(state.collapsed){
-      alert(state.year)
-    }else{
-      return
+  React.useEffect(() => {
+    if (state.collapsed) {
+      alert(state.year);
+    } else {
+      return;
     }
-  })
+  });
   const onCollapse = (collapsed) => {
     const copyData = cloneDeep(state);
     const copyData2 = JSON.parse(JSON.stringify(state));
@@ -175,11 +170,11 @@ const HomePage = () => {
       NProgress.done();
     }, 200);
   }
-  function changeStatus(){
+  function changeStatus() {
     setState({
       ...state,
-      collapsed:!state.collapsed,
-    })
+      collapsed: !state.collapsed,
+    });
   }
   // const onRef = useEffect((ref) => {
   //   NewBreadcrumb = ref;
@@ -199,11 +194,12 @@ const HomePage = () => {
 
   return (
     <Router>
-      <Layout style={{ 
-        display: "block",
-        height:"86vh",
-      
-      }}>
+      <Layout
+        style={{
+          display: "block",
+          height: "86vh",
+        }}
+      >
         <Header className="header ">
           <div className="header-main-container">
             <div
@@ -215,7 +211,9 @@ const HomePage = () => {
                 alignItems: "center",
               }}
             >
-              <span onClick={changeStatus} className="website-name-span">EurekaSeveN</span>
+              <span onClick={changeStatus} className="website-name-span">
+                EurekaSeveN
+              </span>
               <GithubOutlined className="github-icon" />
             </div>
             <div
@@ -326,7 +324,7 @@ const HomePage = () => {
             </Menu>
           </Sider>
 
-          <Content style={{ minHeight: "10rem", backgroundColor: "#F6F6F6" }}>
+          <Content style={{ minHeight: "9rem", backgroundColor: "#F6F6F6" }}>
             <div className="content-container">
               <NBreadcrumb></NBreadcrumb>
               <ChildMenu></ChildMenu>

@@ -17,7 +17,7 @@ class Auther extends Component {
       testArr: ["1"],
       testRegExp: /runoob/i,
       testBoolean: false,
-      testSymbol: new Symbol("PI"),
+      testSymbol: Symbol("PI"),
       testString: "SSSSSS",
       testFunc: () => {
         console.log(this.state.testFunc);
@@ -26,13 +26,18 @@ class Auther extends Component {
   }
   changeObValue() {
     ob.a++;
+    console.log(ob.a);
   }
   componentDidMount() {
     autorun(() => {
       console.log("autorun监听", ob.a);
+      alert("tql");
     });
   }
   printType(obj) {
+    // Object.prototype.toString.configurable = false;
+    Object.freeze(Object.prototype.toString);
+
     return Object.prototype.toString.call(obj);
   }
   render() {

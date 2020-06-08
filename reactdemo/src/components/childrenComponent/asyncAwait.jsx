@@ -25,7 +25,6 @@ class AsyncText extends React.Component {
     // async 函数返回的是一个 Promise 对象，所以在最外层不能用 await 获取其返回值的情况下，我们当然应该用原来的方式：then() 链来处理这个 Promise 对象，就像这样、
     result.then((e) => {
       console.log(e);
-      debugger;
     });
 
     return <div></div>;

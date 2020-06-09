@@ -31,7 +31,6 @@ class Auther extends Component {
   componentDidMount() {
     autorun(() => {
       console.log("autorun监听", ob.a);
-      alert("tql");
     });
   }
   printType(obj) {

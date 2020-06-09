@@ -20,4 +20,5 @@
 - [Redux](redux.js.org)
   - [Redux 中文](https://cn.redux.js.org/)
   - [redux 原来如此简单-BY frontoldman](https://segmentfault.com/a/1190000016311891)
-- [mobx]()
+- [mobx](https://cn.mobx.js.org)
+  - [ES2016 装饰器](https://github.com/tc39/proposal-decorators)

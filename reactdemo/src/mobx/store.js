@@ -1,8 +1,26 @@
-import {
-  observable,
-  action,
-  computed
-} from "mobx";
+import { observable, action, computed } from "mobx";
+
+/**
+ * React 和 MobX 是一对强力组合。React 通过提供机制把应用状态转换为可渲染组件树并对其进行渲染。而MobX提供机制来存储和更新应用状态供 React 使用。
+ *@observable
+ *通过使用 @observable 装饰器(ES.Next)来给类属性添加注解。
+  @computed
+  通过@computed 装饰器或者利用 (extend)Observable 时调用 的getter / setter 函数来进行使用
+  可以定义在相关数据发生变化时自动更新的值
+
+
+ */
+class TodoList {
+  @observable todos = [];
+  @computed get unfinishedTodoCount() {
+    return this.todos.filter((todo) => !todo.finished).length;
+  }
+}
+class Todo {
+  id = Math.random();
+  @observable title = "";
+  @observable finished = false;
+}
 
 class AppState {
   // 装饰器@
@@ -10,22 +28,26 @@ class AppState {
   @observable price = 0;
   @action
   resetTimer() {
+    //重置计数器
     this.timer = 0;
     this.price = 0;
   }
 
   @action
   increase() {
+    //增加计数器
     this.timer++;
   }
 
   @action
   decrease() {
+    //减少计数器
     this.timer--;
   }
 
   @action
   changePrice(value) {
+    //改变价格
     this.price = value;
   }
 

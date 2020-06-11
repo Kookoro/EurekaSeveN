@@ -4,7 +4,6 @@ const Footer = () => {
   const [state, setstate] = useState({
     value: "",
   });
-  const [arr, setArr] = useState([]);
   const [count, setCount] = useState(150);
   // Similar to componentDidMount and componentDidUpdate:
   // 类似于 componentDidMount 和 ComponentDidUpdate

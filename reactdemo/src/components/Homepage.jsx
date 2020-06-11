@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { Link, BrowserRouter as Router, Route } from "react-router-dom";
+import React, { useState } from "react";
+import { Link, BrowserRouter as Router } from "react-router-dom";
 import { Layout, Menu, Drawer, Input } from "antd";
 import "../css/menu.css";
 import ChildMenu from "../components/childrenComponent/ChildMenu";
@@ -45,16 +45,16 @@ jsx是基于babel-present-react-app语法解析包，将jsx语法解析成一个
 /**
  *例如 下面的element元素
 
- *  */
-const element = <h1 className="hello">hello world!</h1>;
-//转换后成为:
-const nextElement = React.createElement(
-  "h1",
-  {
-    className: "hello",
-  },
-  "hello world!"
-);
+//  *  */
+// const element = <h1 className="hello">hello world!</h1>;
+// //转换后成为:
+// const nextElement = React.createElement(
+//   "h1",
+//   {
+//     className: "hello",
+//   },
+//   "hello world!"
+// );
 
 const HomePage = () => {
   const [state, setState] = useState({
@@ -78,21 +78,21 @@ const HomePage = () => {
       return;
     }
   });
-  const onCollapse = (collapsed) => {
-    const copyData = cloneDeep(state);
-    const copyData2 = JSON.parse(JSON.stringify(state));
-    /*
-    JSON.stringify()只能序列化对象的可枚举的自有属性，
-    例如 如果obj中的对象是有构造函数生成的， 则使用JSON.parse(JSON.stringify(obj))深拷贝后，会丢弃对象的constructor；
+  //   const onCollapse = (collapsed) => {
+  //     const copyData = cloneDeep(state);
+  //     const copyData2 = JSON.parse(JSON.stringify(state));
+  //     /*
+  //     JSON.stringify()只能序列化对象的可枚举的自有属性，
+  //     例如 如果obj中的对象是有构造函数生成的， 则使用JSON.parse(JSON.stringify(obj))深拷贝后，会丢弃对象的constructor；
 
-*/
-    console.log(copyData);
-    console.log(copyData2);
-    // setState(() => {
-    //   const data = Object.assign({}, state, { collapsed: collapsed });
-    //   return data;
-    // });
-  };
+  // */
+  //     console.log(copyData);
+  //     console.log(copyData2);
+  //     // setState(() => {
+  //     //   const data = Object.assign({}, state, { collapsed: collapsed });
+  //     //   return data;
+  //     // });
+  //   };
 
   const cloneDeep = (obj) => {
     let result;
@@ -147,7 +147,6 @@ const HomePage = () => {
   const NBreadcrumb = React.forwardRef((props, ref) => {
     return <NewBreadcrumb ref={ref}></NewBreadcrumb>;
   });
-  const ref = React.createRef();
   // window.addEventListener("scroll", (e) => {
   //   const header = document.querySelector(".header");
   //   if (document.body.scrollHeight >= 53) {
@@ -340,6 +339,7 @@ const HomePage = () => {
               }}
               href="http://beian.miit.gov.cn"
               target="_blank"
+              rel="noopener noreferrer"
             >
               ©2019-2020蜀ICP备19040308号
             </a>

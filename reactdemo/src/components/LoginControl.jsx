@@ -211,22 +211,19 @@ class LoginControl extends React.Component {
   }
   render() {
     const isLoggedIn = this.state.isLoggedIn;
-    function Cat(name) {
-      function eat() {
-        console.log("this eat");
-      }
-    }
-    const fn = new Function();
+    let button;
+    // function Cat(name) {}
+    const fn = () => {};
     console.log(Object.prototype.toString.call(Function.prototype.__proto__));
     console.log(fn.__proto__ === Function.prototype);
-    const a = new Cat();
-    const two = new Object();
+    // const a = new Cat();
+    // const two = new Object();
 
     // console.log("a", a.__proto__);
     // console.log("a:value", a.__proto__);
     // console.log("two:proto", two.__proto__);
     // console.log(Cat.prototype.__proto__.__proto__);
-    let button;
+
     return (
       <div>
         <Counter name="parentSendMsg"></Counter>

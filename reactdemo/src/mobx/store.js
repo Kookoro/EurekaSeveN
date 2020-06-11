@@ -10,17 +10,17 @@ import { observable, action, computed } from "mobx";
 
 
  */
-class TodoList {
-  @observable todos = [];
-  @computed get unfinishedTodoCount() {
-    return this.todos.filter((todo) => !todo.finished).length;
-  }
-}
-class Todo {
-  id = Math.random();
-  @observable title = "";
-  @observable finished = false;
-}
+// class TodoList {
+//   @observable todos = [];
+//   @computed get unfinishedTodoCount() {
+//     return this.todos.filter((todo) => !todo.finished).length;
+//   }
+// }
+// class Todo {
+//   id = Math.random();
+//   @observable title = "";
+//   @observable finished = false;
+// }
 
 class AppState {
   // 装饰器@

@@ -8,7 +8,6 @@ const breadcrumbNameMap = {
   "/Article": "Article",
   "/footer": "footer",
   "/Clock": "Clock",
-  "/Author": "Author",
   "/Article/Content/0001": "0001",
   "/Article/Content/0002": "0002",
   "/Article/Content/0003": "0003",
@@ -23,11 +22,12 @@ class NewBreadcrumb extends React.Component {
     };
   }
   getPath = () => {
-    this.state.pathSnippets = this.props.location.pathname
-      .split("/")
-      .filter((i) => i);
+    // this.state.pathSnippets = this.props.location.pathname
+    //   .split("/")
+    //   .filter((i) => i);
 
     this.setState({
+      pathSnippets: this.props.location.pathname.split("/").filter((i) => i),
       extraBreadcrumbItems: this.state.pathSnippets.map((_, index) => {
         const url = `/${this.state.pathSnippets.slice(0, index + 1).join("/")}`;
         return (

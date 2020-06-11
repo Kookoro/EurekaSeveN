@@ -22,12 +22,13 @@ class NewBreadcrumb extends React.Component {
     };
   }
   getPath = () => {
-    // this.state.pathSnippets = this.props.location.pathname
-    //   .split("/")
-    //   .filter((i) => i);
-
+    this.state.pathSnippets = this.props.location.pathname
+      .split("/")
+      .filter((i) => i);
+    // this.setState({
+    //   pathSnippets: this.props.location.pathname.split("/").filter((i) => i),
+    // });
     this.setState({
-      pathSnippets: this.props.location.pathname.split("/").filter((i) => i),
       extraBreadcrumbItems: this.state.pathSnippets.map((_, index) => {
         const url = `/${this.state.pathSnippets.slice(0, index + 1).join("/")}`;
         return (

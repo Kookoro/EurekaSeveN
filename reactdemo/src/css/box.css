@@ -1,0 +1,10 @@
+.box-container {
+  width: 100%;
+  height: 600px;
+  background-color: #90a4ae;
+}
+#anim {
+  width: 100px;
+  height: 100px;
+  background-color: red;
+}

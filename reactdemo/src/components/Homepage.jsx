@@ -56,8 +56,6 @@ jsx是基于babel-present-react-app语法解析包，将jsx语法解析成一个
 //   "hello world!"
 // );
 
-
-
 /**
  * React组件
  * React 应用都是构建在组件之上。
@@ -65,33 +63,33 @@ jsx是基于babel-present-react-app语法解析包，将jsx语法解析成一个
  * props可视为配置属性
  * state可视为状态属性
  * props在组件内部是不可改变的,而state是可以通过setState()或react hook中useState()来修改
- * 
+ *
  * 类组件与函数组件的区别
  * 首先,无论是类组件还是函数组件，都不能修改其自身的props属性
- * 
+ *
  * 由于React是单向数据流，即如果父组件改变了属性，那么会导致子组件视图的刷新
  *  属性props由外界传递而来，state是本身具有的状态
  * 状态可以随意改变，而组件状态与属性的改变都可能会更新视图
- * 
+ *
  * 区别
  * 性能方面，函数组件的性能是高于类组件的——类组件使用的时候需要实例化，而函数组件直接执行对应函数得到返回结果即可。
- * react 16.8版本以前，react hooks诞生之前，函数组件状态state的操作是受到限制的，同时类组件生命周期需要关注的逻辑会随着项目工程逐渐庞大而难以分离，随着hooks的引入，让编写组件更加方便，同时能够提取公共逻辑， 
+ * react 16.8版本以前，react hooks诞生之前，函数组件状态state的操作是受到限制的，同时类组件生命周期需要关注的逻辑会随着项目工程逐渐庞大而难以分离，随着hooks的引入，让编写组件更加方便，同时能够提取公共逻辑，
  * 类组件
- * 
+ *
  * class Component extends React.Component{
  *  constructor(props){
- * 
- * 
+ *
+ *
  *  }
  * render
  * }
  * 函数组件
- * 
+ *
  * function Component(props){
- *  
- * 
+ *
+ *
  * }
- * 
+ *
  */
 const HomePage = () => {
   const [state, setState] = useState({

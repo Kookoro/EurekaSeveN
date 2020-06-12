@@ -5,11 +5,18 @@ class box extends React.Component {
   constructor(props) {
     super(props);
     this.startTime = "";
+    this.mySymbol = Symbol();
+    this.obj = {
+      [this.mySymbol](arg) {
+        console.log(arg);
+      },
+    };
   }
+
   render() {
     return (
       <div className="box-container">
-        <Button onClick={}>点击运行动画</Button>
+        <Button onClick={this.obj[this.mySymbol](123)}>点击运行动画</Button>
         <div id="anim"></div>
       </div>
     );

@@ -20,7 +20,7 @@ function TestHooks() {
           setstate({ ...state, count: state.count + 1, isshow: !state.isshow })
         }
       >
-        1
+        123
       </Button>
       <Button
         onClick={() =>

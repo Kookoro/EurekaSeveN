@@ -43,8 +43,13 @@ const Article = () => {
 
             const target = { a: 1, b: 2 };
             const source = { b: 4, c: 5 };
-
-            const returnedTarget = Object.assign(target, source);
+          target:目标对象，source源对象 
+          ps：source可有多个参数，而第一个参数必须是要合并的目标对象
+          后面的参数都是源对象
+          如果目标对象中存在于源对象相同的属性，则后面的属性会覆盖之前的属性。
+            
+          eg
+          const returnedTarget = Object.assign(target, source);
 
             console.log(target);
             // expected output: Object { a: 1, b: 4, c: 5 }
@@ -80,8 +85,8 @@ const Article = () => {
       评论组件
       <ul>
         {
-        
-        
+
+
         /* Keys 是 React 用于追踪哪些列表中元素被修改、被添加或者被移除的辅助标识。
         
         1.在开发过程中，我们需要保证某个元素的 key 在其同级元素中具有唯一性。

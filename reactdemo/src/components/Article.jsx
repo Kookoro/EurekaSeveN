@@ -48,6 +48,14 @@ const Article = () => {
           后面的参数都是源对象
           如果目标对象中存在于源对象相同的属性，则后面的属性会覆盖之前的属性。
             
+          ps2：Object.assign方法实行的是  浅拷贝，而不是 深拷贝。
+          也就是说，如果源对象某个属性的值是对象，那么目标对象拷贝得到的是这个对象的引用。
+            const obj1 = {a: {b: 1}};
+            const obj2 = Object.assign({}, obj1);
+            浅拷贝 是对对象的引用而不是真实的对对象的赋值，
+            如果修改了对象的属性值，那么引用该对象的其他对象的属性都会发生改变
+            obj1.a.b = 2; 
+            obj2.a.b // 2
           eg
           const returnedTarget = Object.assign(target, source);
 
@@ -57,6 +65,29 @@ const Article = () => {
             console.log(returnedTarget);
             // expected output: Object { a: 1, b: 4, c: 5 }
 
+        用处：
+        给class添加属性
+        class Person(){
+          constructor(x,y){
+            Object.assign(this,{x,y})
+            将x属性和y属性添加到Point类的对象实例。
+          }
+        }
+        给对象添加方法
+        Object.assign(Person.prototype,{
+          sayAge(){},
+          sayHello(){}
+        })
+        3 克隆对象
+        function clone(obj){
+          return Object.assign({},obj)
+          ps 该方法只能克隆对象原始的值，不能克隆对象继承的值。
+        }
+          3.1克隆对象
+        function clone(obj){
+          let objProto = Object.getPrototyoeOf(obj)
+          return Object.assign(Object,create(objProto),obj)
+        }
        */
     const data = Object.assign({}, newArticle, { [inputName]: inputValue });
     setNewArticle(data);
@@ -84,10 +115,7 @@ const Article = () => {
     <div>
       评论组件
       <ul>
-        {
-
-
-        /* Keys 是 React 用于追踪哪些列表中元素被修改、被添加或者被移除的辅助标识。
+        {/* Keys 是 React 用于追踪哪些列表中元素被修改、被添加或者被移除的辅助标识。
         
         1.在开发过程中，我们需要保证某个元素的 key 在其同级元素中具有唯一性。
         2.在 React Diff 算法中 React 会借助元素的 Key 值来判断该元素是新近创建的还是被移动而来的元素，从而减少不必要的元素重渲染。

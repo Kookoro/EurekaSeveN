@@ -10,7 +10,7 @@
 
 估计以后会把这个自己 xjb 搞的东西用 typescript 重构一下把，估计都排到 nodejs 学完以后了。
 
-# 可能用到的资料书签(不断收集中)
+# 可能用到的资料书签(随缘收集)
 
 - [React 中文文档](https://react.docschina.org/)
   - [React-中文](http://caibaojian.com/react/)
@@ -26,5 +26,4 @@
 - [Nodejs](http://nodejs.cn/api/)
 - [Express](https://www.expressjs.com.cn/)
 - [MongoDB](https://www.mongodb.com/)
-- [Typescript](https://www.tslang.cn/docs/home.html)
-
+- [TypeScript](https://www.tslang.cn/docs/home.html)

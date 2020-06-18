@@ -23,6 +23,7 @@
   - [redux 原来如此简单-BY frontoldman](https://segmentfault.com/a/1190000016311891)
 - [Mobx](https://cn.mobx.js.org)
   - [ES2016 装饰器](https://github.com/tc39/proposal-decorators)
+  - [Mobx 学习总结](https://segmentfault.com/a/1190000013810512)
 - [Nodejs](http://nodejs.cn/api/)
 - [Express](https://www.expressjs.com.cn/)
 - [MongoDB](https://www.mongodb.com/)

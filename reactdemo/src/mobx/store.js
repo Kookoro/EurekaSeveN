@@ -1,4 +1,8 @@
-import { observable, action, computed } from "mobx";
+import {
+  observable,
+  action,
+  computed
+} from "mobx";
 
 /**
  * React 和 MobX 是一对强力组合。React 通过提供机制把应用状态转换为可渲染组件树并对其进行渲染。而MobX提供机制来存储和更新应用状态供 React 使用。
@@ -7,6 +11,9 @@ import { observable, action, computed } from "mobx";
   @computed
   通过@computed 装饰器或者利用 (extend)Observable 时调用 的getter / setter 函数来进行使用
   可以定义在相关数据发生变化时自动更新的值
+
+
+  相较于redux对state的强约束 ,mobx借助@observable 来填补了相关不足。
 
 
  */

@@ -88,6 +88,10 @@ const Article = () => {
           let objProto = Object.getPrototyoeOf(obj)
           return Object.assign(Object,create(objProto),obj)
         }
+        4 合并对象 
+        将多个对象合并到某个对象
+        const merge = (target,...sources)=>Object.assign(target,...sources)
+
        */
     const data = Object.assign({}, newArticle, { [inputName]: inputValue });
     setNewArticle(data);

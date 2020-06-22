@@ -98,8 +98,10 @@ const Article = () => {
 
         2.Object.key(obj) 返回一个数组，包括了可枚举的所有属性
 
-        3.Object.getOwnPropertyNames(obj)
-        
+        3.Object.getOwnPropertyNames(obj)返回数组，包含对象自身的所有属性，不含symbol，但包括不可枚举的非symbol属性
+        4.Object.getOwnPropertySymbols(obj)返回对象自身所有的symbol属性
+        5.Reflect.ownKeys(obj) 返回一个数组，包含对象自身所有属性，包含Symbol，切不论是否可枚举。
+
 
 
        */

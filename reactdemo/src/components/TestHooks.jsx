@@ -32,6 +32,12 @@ function TestHooks() {
 
 
     注意：当函数组件被卸载后状态表被清空后调用useState被赋初值，故尽量利用style来控制元素的消失于隐藏。
+
+    为什么要用react Hook??
+    因为复用一个有状态的组件太麻烦了
+
+
+
   */
   useEffect(() => {
     if (state.count >= 5) {
@@ -39,10 +45,6 @@ function TestHooks() {
       window.confirm("是否继续点击");
     }
   });
-
-
-
-
 
   return (
     <div>

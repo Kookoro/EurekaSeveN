@@ -91,6 +91,16 @@ const Article = () => {
         4 合并对象 
         将多个对象合并到某个对象
         const merge = (target,...sources)=>Object.assign(target,...sources)
+        合并后返回一个新对象
+
+        对象属性的遍历:
+        1.for...in 循环遍历对象自身的喝继承的可枚举属性（不包括Symbool，因为其无法枚举）
+
+        2.Object.key(obj) 返回一个数组，包括了可枚举的所有属性
+
+        3.Object.getOwnPropertyNames(obj)
+        
+
 
        */
     const data = Object.assign({}, newArticle, { [inputName]: inputValue });

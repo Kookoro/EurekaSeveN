@@ -218,7 +218,7 @@ const HomePage = () => {
   // }
   document.body.onscroll = (e) => {
     const menu = document.querySelector(".menu-container");
-    if (window.scrollY > 190) {
+    if (window.scrollY > 150) {
       menu.style.position = "fixed";
       menu.style.top = "53px";
     } else {
@@ -231,7 +231,6 @@ const HomePage = () => {
       <Layout
         style={{
           display: "block",
-          height: "86vh",
         }}
       >
         <Header className="header ">
@@ -358,7 +357,7 @@ const HomePage = () => {
             </Menu>
           </Sider>
 
-          <Content style={{ minHeight: "9rem", backgroundColor: "#F6F6F6" }}>
+          <Content style={{ minHeight: "10rem", backgroundColor: "#F6F6F6" }}>
             <div className="content-container">
               <NBreadcrumb></NBreadcrumb>
               <ChildMenu></ChildMenu>

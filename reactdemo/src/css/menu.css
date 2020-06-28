@@ -20,7 +20,6 @@ body {
   html {
     font-size: 70px;
   }
- 
 }
 @media only screen and (min-device-width: 412px) and (-webkit-min-device-pixel-ratio: 3) {
   html {
@@ -86,7 +85,7 @@ body {
 }
 .footer-container {
   background-color: #282a36;
-  height: 2rem;
+  height: 1.5rem;
   display: flex;
   justify-content: center;
   align-items: center;

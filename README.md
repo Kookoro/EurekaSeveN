@@ -14,6 +14,10 @@
 
 Express+Nodejs 开搞，买了本《深入浅出 Nodejs》看了前 3 章发现还是一句都写不出来
 
+## 2020/06/28
+
+Express 出乎意外的好上手，但还需要一段时间才能掌握
+
 # 可能用到的资料书签(随缘收集)
 
 - [React 中文文档](https://react.docschina.org/)
@@ -30,6 +34,7 @@ Express+Nodejs 开搞，买了本《深入浅出 Nodejs》看了前 3 章发现�
   - [Mobx 学习总结](https://segmentfault.com/a/1190000013810512)
 - [Nodejs](http://nodejs.cn/api/)
 - [Express](https://www.expressjs.com.cn/)
+  - [RESTfulAPI 设计指南](http://www.ruanyifeng.com/blog/2014/05/restful_api.html)
 - [MongoDB](https://www.mongodb.com/)
 - [Webpack](https://www.jianshu.com/p/42e11515c10f)
 - [TypeScript](https://www.tslang.cn/docs/home.html)

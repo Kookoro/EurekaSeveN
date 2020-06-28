@@ -164,15 +164,5 @@ class App extends Component {
     );
   }
 }
-const menuList = [
-  "首页",
-  "组织管理",
-  "人事管理",
-  "考勤管理",
-  "薪酬福利",
-  "招聘管理",
-  "培训管理",
-  "保险管理",
-];
 
 export default App;

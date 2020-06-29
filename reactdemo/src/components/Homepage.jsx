@@ -3,7 +3,7 @@ import { Link, BrowserRouter as Router } from "react-router-dom";
 import { Layout, Menu, Drawer, Input } from "antd";
 import "../css/menu.css";
 import ChildMenu from "../components/childrenComponent/ChildMenu";
-import NewBreadcrumb from "../components/Breadcrumb";
+import NewBreadcrumb from "./childrenComponent/page/Breadcrumb";
 import { GithubOutlined, HomeOutlined } from "@ant-design/icons";
 import NProgress from "nprogress";
 import "nprogress/nprogress.css";

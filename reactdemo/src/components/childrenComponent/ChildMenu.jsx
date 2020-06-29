@@ -1,20 +1,22 @@
 import React from "react";
 
 import { Route } from "react-router-dom";
-import LoginControl from "../LoginControl";
+import LoginControl from "./page/LoginControl";
 
-import Article from "../Article";
-import Author from "../Author";
-import MainFooter from "../Footer";
-import Clock from "../Clock";
-import MainContent from "../Content";
-import Calculater from "../Calculater";
-import TestHooks from "../TestHooks";
-import NewCalendar from "../childrenComponent/Calendar";
+import Article from "./page/Article";
+import Author from "./page/Author";
+import MainFooter from "./page/Footer";
+import Clock from "./page/Clock";
+import MainContent from "./page/Content";
+import Calculater from "./page/Calculater";
+import TestHooks from "./page/TestHooks";
+import NewCalendar from "./page/Calendar";
+import Homepage from "../Homepage";
 const ChildRoute = (props) => {
   return (
     <div>
-      <Route path="/author" component={Author}></Route>
+      <Route path="/homepage" component={Homepage} />
+      <Route path="/author" component={Author} />
       <Route path="/LoginControl" component={LoginControl} />
       <Route path="/Article" component={Article} />
       <Route path="/Footer" component={MainFooter} />

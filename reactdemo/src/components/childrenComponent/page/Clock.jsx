@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-import "../css/clock.css";
+import "../../../css/clock.css";
 import { Button } from "antd";
 class StdClock extends React.Component {
   constructor(props) {

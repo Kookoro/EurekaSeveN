@@ -3,7 +3,7 @@ import "./App.css";
 // import { BrowserRouter,Redirect,Switch,Route} from 'react-router-dom';
 // import { Layout, Menu, Breadcrumb } from 'antd';
 // import { UserOutlined, LaptopOutlined, NotificationOutlined } from '@ant-design/icons';
-import MyHeader from "./components/Header";
+import MyHeader from "./components/childrenComponent/page/Header";
 // const { SubMenu } = Menu;
 // const { Header, Content, Footer, Sider } = Layout;
 import { Layout, Menu, Input } from "antd";

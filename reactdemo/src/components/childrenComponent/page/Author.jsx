@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Button } from "antd";
-import appStore from "../mobx/store";
-import AsyncText from "../components/childrenComponent/asyncAwait";
+import appStore from "../../../mobx/store";
+import AsyncText from "./asyncAwait";
 import { observable, autorun } from "mobx";
 let ob = observable({
   a: 1,

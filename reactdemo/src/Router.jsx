@@ -1,14 +1,13 @@
 import React from "react";
 import { Route, BrowserRouter as BRouter } from "react-router-dom";
-
-import Homepage from "./components/Homepage";
+import Index from "./components/Index";
 
 const Router = (props) => {
   return (
     <div>
       <BRouter>
         {/* react路由 */}
-        <Route path="/" className="router" component={Homepage} />
+        <Route path="/" className="router" component={Index} />
       </BRouter>
     </div>
   );

@@ -1,5 +1,5 @@
 import react from "react";
-import Homepage from "../components/Homepage";
+import Homepage from "../../Homepage";
 import "../css/page.css";
 
 const Template = (props) => {

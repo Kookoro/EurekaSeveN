@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button, Input, Alert } from "antd";
-import "../css/article.css";
+// import "../css/article.css";
+import "../../../css/article.css";
 const Article = () => {
   let s1 = "";
   const [isNull, setIsNull] = useState(false);

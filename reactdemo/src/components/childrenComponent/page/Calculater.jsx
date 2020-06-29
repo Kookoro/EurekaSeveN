@@ -1,8 +1,8 @@
 import React from "react";
 import { observer } from "mobx-react";
-import appStore from "../mobx/store";
+import appStore from "../../../mobx/store";
 import { Button, InputNumber } from "antd";
-import LeetCode from "../components/childrenComponent/leetcode";
+import LeetCode from "./leetcode";
 @observer
 class Calculater extends React.Component {
   render() {

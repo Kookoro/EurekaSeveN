@@ -121,7 +121,7 @@ class Storage {
     } else {
       //如果options.expires没有设置，就判断一下value的类型
       const type = Object.prototype.toString.call(options.value);
-      if (type === "[object Object]" || type === "[object Object]") {
+      if (type === "[object Object]" || type === "[object Array]") {
         options.value = JSON.stringify(options.value);
       }
       localStorage.setItem(options.name, options.value);
@@ -211,7 +211,6 @@ class LoginControl extends React.Component {
   }
   render() {
     const isLoggedIn = this.state.isLoggedIn;
-    let button;
     // function Cat(name) {}
     const fn = () => {};
     console.log(Object.prototype.toString.call(Function.prototype.__proto__));

@@ -20,8 +20,6 @@ Express 出乎意外的好上手，但还需要一段时间才能掌握
 
 ## 2020/07/02
 
-
-
 # 可能用到的资料书签(随缘收集)
 
 - [React 中文文档](https://react.docschina.org/)
@@ -38,11 +36,11 @@ Express 出乎意外的好上手，但还需要一段时间才能掌握
   - [Mobx 学习总结](https://segmentfault.com/a/1190000013810512)
 - [Nodejs](http://nodejs.cn/api/)
 - [Express](https://www.expressjs.com.cn/)
+  - [Express-Github](https://github.com/expressjs/express)
   - [RESTfulAPI 设计指南](http://www.ruanyifeng.com/blog/2014/05/restful_api.html)
 - [MongoDB](https://www.mongodb.com/)
 - [Webpack](https://www.jianshu.com/p/42e11515c10f)
 - [TypeScript](https://www.tslang.cn/docs/home.html)
-  -[TypeScript-Github](https://github.com/Microsoft/TypeScript)
-  -[TypeScript中文手册](https://typescript.bootcss.com/)
-  -[TypeScript入门教程-阮一峰](https://ts.xcatliu.com/)
-  
+  - [TypeScript-Github](https://github.com/Microsoft/TypeScript)
+  - [TypeScript 中文手册](https://typescript.bootcss.com/)
+  - [TypeScript 入门教程-阮一峰](https://ts.xcatliu.com/)

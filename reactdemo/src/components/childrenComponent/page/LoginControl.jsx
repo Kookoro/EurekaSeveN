@@ -222,7 +222,7 @@ class LoginControl extends React.Component {
     // console.log("a:value", a.__proto__);
     // console.log("two:proto", two.__proto__);
     // console.log(Cat.prototype.__proto__.__proto__);
-
+    let button;
     return (
       <div>
         <Counter name="parentSendMsg"></Counter>

@@ -19,6 +19,10 @@
  *async函数返回一个Promise对象
  *如果在async函数中返回一个直接的值，那么async会将这个值通过Promise.resolve()包装成一个Promise对象
 
+  async函数返回一个promise对象，其内部函数return的值会作为then方法回调函数的参数。
+
+
+
 
  */
 import React from "react";
@@ -37,13 +41,19 @@ class AsyncText extends React.Component {
     result.then((e) => {
       console.log(e);
     });
+    this.returnHelloWorld().then((v) => console.log(v)); //helloworld
 
+    //async 内部抛出的错误会导致返回的Promise对象变为reject状态，
     return <div></div>;
   }
   async asyncLearn() {
     return this.state.val;
   }
   async getStockPriceByName() {}
+
+  async returnHelloWorld() {
+    return "hello world";
+  }
 }
 export default AsyncText;
 /**

@@ -94,6 +94,7 @@
     ]
   },
   "devDependencies": {
+    "compression-webpack-plugin": "^4.0.0",
     "webpack-bundle-analyzer": "^3.7.0"
   },
   "jest": {

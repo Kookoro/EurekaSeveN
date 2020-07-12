@@ -24,7 +24,7 @@ const getClientEnvironment = require('./env');
 const ModuleNotFoundPlugin = require('react-dev-utils/ModuleNotFoundPlugin');
 const ForkTsCheckerWebpackPlugin = require('react-dev-utils/ForkTsCheckerWebpackPlugin');
 const typescriptFormatter = require('react-dev-utils/typescriptFormatter');
-
+const CompressionPlugin = require('compression-webpack-plugin')
 
 const postcssNormalize = require('postcss-normalize');
 
@@ -648,6 +648,14 @@ module.exports = function (webpackEnv) {
         // The formatter is invoked directly in WebpackDevServerUtils during development
         formatter: isEnvProduction ? typescriptFormatter : undefined,
       }),
+      new CompressionPlugin({
+        filename: '[path].gz[query]', // 目标资源名称。[file] 会被替换成原资源。[path] 会被替换成原资源路径，[query] 替换成原查询字符串
+        algorithm: 'gzip', // 算法       
+        test: new RegExp('\\.(js|css)$'), // 压缩 js 与 css
+        threshold: 10240, // 只处理比这个值大的资源。按字节计算
+        minRatio: 0.8 // 只有压缩率比这个值小的资源才会被处理
+
+      })
     ].filter(Boolean),
     // Some libraries import Node modules but don't use them in the browser.
     // Tell webpack to provide empty mocks for them so importing them works.

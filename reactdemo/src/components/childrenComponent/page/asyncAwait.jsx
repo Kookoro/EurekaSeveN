@@ -71,6 +71,34 @@
   这相当于，
   只有在async内部的所有异步函数执行完成后，才会执行then后的回调函数。
 
+  await
+
+  在一般情况下，await命令后面跟了一个Promise对象，如果不是Promise对象，那么会转成一个立即resolve的Promise对象
+
+  async function f(){
+    return await '123'
+  }
+  f().then(v=>console.log(v))//'123'
+
+  同样,await命令后面的Promise对象如果转变为reject，那么reject的参数会被catch方法的回调函数接受
+  eg：
+  async function f(){
+    await Promise.reject('wrong!')
+  }
+  f()
+  .then(v=>console.log(v))
+  .catch(v=>console.log(v))//wrong！
+  
+  只要一个await语句后面的Promise变为reject，那么整个resolve函数都会中断执行
+
+  但很多时候在进行异步操作时，并不希望一个异步操作失败，导致后续异步操作无法执行的情况，即不要阻断后续异步操作，
+  那么此时可以：
+  1.将await放置在 try...catch语句中 
+  
+  2.在await后面的Promise对象后添加一个catch方法，处理可能出现的错误
+
+
+
  */
 import React from "react";
 

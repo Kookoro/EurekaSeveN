@@ -6,7 +6,33 @@ import { observable, autorun } from "mobx";
 let ob = observable({
   a: 1,
 });
-
+/**
+ * 函数柯里化https://juejin.im/post/5af13664f265da0ba266efcf
+ * 将多参数的函数转化为单参数的函数
+ * function currying(fn,n){
+ *  return function(m){
+ *    return fn().call(this,m,n)
+ * }
+ * function tailFactorial(n,total){
+ *  if(n===1)return total;
+ *  return  tailFactorial(n-1,total*n)
+ * }
+ * const factorial = currying(tailFactorial,1);
+ * factorial(100)
+ *
+ *
+ * 利用函数柯里化 将多个参数的尾递归阶乘函数转化为单参数的阶乘函数
+ *
+ *
+ *
+ * }
+ *
+ *
+ *
+ *
+ *
+ *
+ */
 class Auther extends Component {
   constructor(props) {
     super(props);

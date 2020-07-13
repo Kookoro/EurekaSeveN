@@ -21,8 +21,46 @@
 
   async函数返回一个promise对象，其内部函数return的值会作为then方法回调函数的参数。
 
-
-
+  实现原理:
+  async function fn(args){
+    //...
+  }
+  相当于
+  function fn(args){
+    return spawn(function* (){
+      //...
+    })
+  }
+  //spawn函数==自动执行器。
+  //spawn函数
+  function spawn(genF){
+    return new Promise((reslove,reject)=>{
+      let gen = genF();
+      function step(nextF){
+        try{
+          var next = nextF()
+        }
+        catch(e){
+          return reject(e)
+        }
+        if(next.done) {
+          return reslove(next.value)
+        }
+        Promise.resolve(next.value).then(function(v){
+          step(function(){
+            return gen.next(v);
+          })
+        },function(e){
+          step(function(){
+            return gen.throw(e)
+          })
+        })
+      }
+      step(function(){
+        return gen.next(undefined);
+      })
+    })
+  }
 
  */
 import React from "react";

@@ -94,9 +94,27 @@
   但很多时候在进行异步操作时，并不希望一个异步操作失败，导致后续异步操作无法执行的情况，即不要阻断后续异步操作，
   那么此时可以：
   1.将await放置在 try...catch语句中 
-  
-  2.在await后面的Promise对象后添加一个catch方法，处理可能出现的错误
+  async function f(){
+    try{
+  await Promise.reject('wrong!')  
+    }catch(e){
 
+    }
+    return await Promise.resolve('helloworld')
+  }
+  f()
+  .then(v=>console.log(v))
+
+  2.在await后面的Promise对象后添加一个catch方法，处理可能出现的错误
+    async function f(){
+    await Promise.reject('wrong!')
+    .catch(e=>console.log(e))
+    return await Promise.resolve('hello world')
+  }
+  f()
+  .then(v=>console.log(v))
+  //出错了
+  //hello world
 
 
  */

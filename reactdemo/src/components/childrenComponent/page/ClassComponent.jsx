@@ -189,8 +189,16 @@ class XXX extends React.Component {
 }
 export default XXX;
 /*
+class 继承
 
+利用extends实现继承 ES5通过修改原型链实现继承，extends相较ES5实现更加清晰方便
 
+class Point{
+
+}
+class ColorPoint extends Point{
+
+}
 
 
 

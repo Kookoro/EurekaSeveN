@@ -24,7 +24,7 @@ const getClientEnvironment = require('./env');
 const ModuleNotFoundPlugin = require('react-dev-utils/ModuleNotFoundPlugin');
 const ForkTsCheckerWebpackPlugin = require('react-dev-utils/ForkTsCheckerWebpackPlugin');
 const typescriptFormatter = require('react-dev-utils/typescriptFormatter');
-const CompressionPlugin = require('compression-webpack-plugin')
+const CompressionPlugin = require('compression-webpack-plugin') //gzip
 
 const postcssNormalize = require('postcss-normalize');
 
@@ -648,6 +648,8 @@ module.exports = function (webpackEnv) {
         // The formatter is invoked directly in WebpackDevServerUtils during development
         formatter: isEnvProduction ? typescriptFormatter : undefined,
       }),
+
+      //gzip配置
       new CompressionPlugin({
         filename: '[path].gz[query]', // 目标资源名称。[file] 会被替换成原资源。[path] 会被替换成原资源路径，[query] 替换成原查询字符串
         algorithm: 'gzip', // 算法       

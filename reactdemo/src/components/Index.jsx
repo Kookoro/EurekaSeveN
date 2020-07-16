@@ -1,31 +1,52 @@
-import React, { useState } from "react";
-import { Button } from "antd";
-import { Link, BrowserRouter as Router } from "react-router-dom";
-import ChildMenu from "../components/childrenComponent/ChildMenu";
+import React, { useState, useEffect } from "react";
+// import { Button } from "antd";
+// import { Link, BrowserRouter as Router } from "react-router-dom";
+// import ChildMenu from "../components/childrenComponent/ChildMenu";
 
-var canMakeArithmeticProgression = function (arr) {
-  arr.sort((a, b) => {
-    return a - b;
-  }); //升序
-  const q = arr[1] - arr[0];
-  let flag = true;
-  for (let i = 0; i < arr.length - 1; i++) {
-    if (arr[i + 1] - arr[i] !== q) {
-      flag = false;
-      break;
-    }
+import "../scss/index.scss";
+import Axios from "axios";
+
+class Index extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      imgUrl: "",
+      imgShow: false,
+    };
   }
-  console.log(flag);
-};
+  render() {
+    return (
+      <div>
+        <div className="header"></div>
+        <div className="content">
+          <div className="img_container">
+            {this.state.imgShow ? (
+              <img
+                src={this.state.imgUrl}
+                alt="image"
+                className="index_image"
+              />
+            ) : null}
+          </div>
+        </div>
+        <div className="footer"></div>
+      </div>
+    );
+  }
 
-function Index() {
-  let arr = [3, 5, 1];
-  return (
-    <div>
-      <h1>111</h1>
-      <h1>{canMakeArithmeticProgression(arr)}</h1>
-    </div>
-  );
+  getDailyImg() {
+    Axios.get("http://localhost:3080/getDailyImg").then((res) => {
+      this.setState({
+        // imgUrl: "http://www.bing.com/" + res.data.imgUrl,
+        imgUrl: `http://www.bing.com/${res.data.imgUrl}`,
+        imgShow: true,
+      });
+    });
+  }
+
+  componentWillMount() {
+    this.getDailyImg();
+  }
 }
 
 export default Index;

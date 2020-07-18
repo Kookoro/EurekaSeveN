@@ -11,7 +11,9 @@ th, td {
   background: #cccccc !important; //自定义颜色
 }
 $white: #f6f6f6;
-
+li {
+  list-style: none;
+}
 html {
   background-color: $white;
   --backgroundColor: #231b30;
@@ -86,6 +88,7 @@ html {
   margin-top: 550px;
   z-index: 2;
   background-color: white;
+  box-shadow: 0 1px 3px rgba(26, 26, 26, 0.1);
 }
 .banner {
   width: 100%;
@@ -104,4 +107,13 @@ html {
 footer {
   width: 100%;
   height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  a {
+    color: #5f5f5f;
+  }
+  ul {
+    text-align: center;
+  }
 }

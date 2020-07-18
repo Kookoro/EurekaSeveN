@@ -1,8 +1,4 @@
 import React from "react";
-// import { Button } from "antd";
-// import { Link, BrowserRouter as Router } from "react-router-dom";
-// import ChildMenu from "../components/childrenComponent/ChildMenu";
-
 import "../scss/index.scss";
 import axios from "axios";
 import { Input } from "antd";
@@ -16,7 +12,9 @@ class Index extends React.Component {
     this.state = {
       imgUrl: "",
       imgShow: false,
+      scrollHeight: 0,
     };
+    this.handleScroll = this.handleScroll.bind(this);
   }
   render() {
     return (
@@ -40,14 +38,50 @@ class Index extends React.Component {
         <footer>
           <div className="foot-container">
             <ul>
-              <li></li>
-              <li></li>
+              <li>不要哀求，学会争取，若是如此，终有所获。</li>
+              <li>
+                <span
+                  style={{
+                    fontSize: "12px",
+                  }}
+                >
+                  本网站仅作为个人学习、经验分享以及其他非商业性或非盈利性用途使用。
+                </span>
+              </li>
+
+              <li>
+                <span>
+                  Design by{" "}
+                  <a
+                    href="https://github.com/EurekaSeveN7"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    EurekaSeveN7
+                  </a>
+                </span>
+              </li>
+
+              <li>
+                <a
+                  href="http://beian.miit.gov.cn"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  2019-2020蜀ICP备19040308号
+                </a>
+              </li>
             </ul>
           </div>
         </footer>
       </section>
     );
   }
+  handleScroll() {
+    let scrollTop = document.documentElement.scrollTop; //滚动条滚动高度
+    this.checkScrollHeight(scrollTop);
+  }
+
   load() {
     NProgress.configure({
       minimum: 0.1,
@@ -58,6 +92,18 @@ class Index extends React.Component {
       NProgress.done();
     }, 500);
   }
+  checkScrollHeight(e) {
+    if (e > 600) {
+      this.setState({
+        imgShow: false,
+      });
+    } else {
+      this.setState({
+        imgShow: true,
+      });
+    }
+  }
+
   getDailyImg() {
     axios.get("http://localhost:3080/getDailyImg").then((res) => {
       this.setState({
@@ -72,7 +118,9 @@ class Index extends React.Component {
   componentWillMount() {
     this.getDailyImg();
   }
-  componentDidMount() {}
+  componentDidMount() {
+    window.addEventListener("scroll", this.handleScroll);
+  }
 }
 class Header extends React.Component {
   constructor(props) {

@@ -42,7 +42,7 @@ const Article = () => {
     //Object.assign() 方法用于将所有可枚举属性的值从一个或多个源对象复制到目标对象。它将返回目标对象。
     /*
           Object.assign()---浅拷贝
-          
+
 
             const target = { a: 1, b: 2 };
             const source = { b: 4, c: 5 };
@@ -76,7 +76,7 @@ const Article = () => {
             将x属性和y属性添加到Point类的对象实例。
           }
         }
-        给对象添加方法
+        给Person对象的原型添加方法
         Object.assign(Person.prototype,{
           sayAge(){},
           sayHello(){}
@@ -135,6 +135,7 @@ const Article = () => {
   return (
     <div>
       评论组件
+      
       <ul>
         {/* Keys 是 React 用于追踪哪些列表中元素被修改、被添加或者被移除的辅助标识。
         

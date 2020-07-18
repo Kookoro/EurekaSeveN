@@ -33,6 +33,7 @@ app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/", indexRouter);
 app.use("/getDailyImg", indexRouter);
+app.use("/getAnimateImg", indexRouter);
 app.use("/users", usersRouter);
 app.use("/users/helloworld", usersRouter);
 // catch 404 and forward to error handler

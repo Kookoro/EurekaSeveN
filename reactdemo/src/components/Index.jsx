@@ -24,10 +24,11 @@ class Index extends React.Component {
         </div>
         <div className="banner">
           <div className="img_container">
+           
             {this.state.imgShow ? (
               <img
                 src={this.state.imgUrl}
-                alt="image"
+                
                 className="index_image"
                 id="scream"
               />
@@ -63,12 +64,12 @@ class Index extends React.Component {
               </li>
 
               <li>
-                <a
+                2019-2020<a
                   href="http://beian.miit.gov.cn"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  2019-2020蜀ICP备19040308号
+                 蜀ICP备19040308号
                 </a>
               </li>
             </ul>
@@ -114,9 +115,19 @@ class Index extends React.Component {
       this.load();
     });
   }
-
+  getAnimateImg() {
+    axios.get("http://localhost:3080/getAnimateImg").then((res) => {
+      this.setState({
+        // imgUrl: "http://www.bing.com/" + res.data.imgUrl,
+        imgUrl: `${res.data.imgUrl}`, //必应每日图片接口
+        imgShow: true,
+      });
+      this.load();
+    });
+  }
   componentWillMount() {
     this.getDailyImg();
+    // this.getAnimateImg();
   }
   componentDidMount() {
     window.addEventListener("scroll", this.handleScroll);

@@ -1,4 +1,4 @@
-import React,{useEffect,useState} from "react";
+import React, { useEffect, useState } from "react";
 import "../scss/index.scss";
 import axios from "axios";
 import { Input } from "antd";
@@ -12,21 +12,22 @@ const Index2 = () => {
     imgShow: false,
     imgUrl: "",
   });
+ 
   useEffect(() => {
+    const getDailyImg = () => {
+      axios.get("http://localhost:3080/getDailyImg").then((res) => {
+        setState({
+          // imgUrl: "http://www.bing.com/" + res.data.imgUrl,
+          imgUrl: `http://www.bing.com/${res.data.imgUrl}`, //必应每日图片接口
+          imgShow: true,
+        });
+        load();
+      });
+    };
     //componentWillMount
     getDailyImg();
   }, []);
-  const getDailyImg = () => {
 
-    axios.get("http://localhost:3080/getDailyImg").then((res) => {
-      setState({
-        // imgUrl: "http://www.bing.com/" + res.data.imgUrl,
-        imgUrl: `http://www.bing.com/${res.data.imgUrl}`, //必应每日图片接口
-        imgShow: true,
-      });
-      load();
-    });
-  };
   const load = () => {
     NProgress.configure({
       minimum: 0.1,
@@ -45,7 +46,7 @@ const Index2 = () => {
       <div className="banner">
         <div className="img_container">
           {state.imgShow ? (
-            <img src={state.imgUrl} className="index_image" id="scream" />
+            <img src={state.imgUrl} className="index_image" id="scream" alt='' />
           ) : null}
         </div>
       </div>
@@ -119,6 +120,7 @@ class Index extends React.Component {
                 src={this.state.imgUrl}
                 className="index_image"
                 id="scream"
+                alt=""
               />
             ) : null}
           </div>
@@ -225,25 +227,24 @@ class Index extends React.Component {
   }
 }
 class Header extends React.Component {
-  constructor(props) {
-    super(props);
-  }
+
+ 
   render() {
     return (
       <section className="header_main_container">
         <div className="header_left">
           <ul className="menu_container">
             <li>
-              <a href="">首页</a>
+              <a href=" ">首页</a>
             </li>
             <li>
-              <a href="">归档</a>
+              <a href=" ">归档</a>
             </li>
             <li>
-              <a href="">标签</a>
+              <a href=" ">标签</a>
             </li>
             <li>
-              <a href="">关于</a>
+              <a href=" ">关于</a>
             </li>
           </ul>
         </div>

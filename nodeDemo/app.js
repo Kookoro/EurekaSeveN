@@ -32,6 +32,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/", indexRouter);
+
 app.use("/getDailyImg", indexRouter);
 app.use("/getAnimateImg", indexRouter);
 app.use("/users", usersRouter);

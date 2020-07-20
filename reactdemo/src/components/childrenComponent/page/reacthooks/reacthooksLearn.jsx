@@ -11,10 +11,11 @@ const Demo = () => {
   }, [count]);
   useEffect(() => {
     console.log("create default img");
-  }, []);//
+  }, []); //只执行componentDidMount
   useEffect(() => {
     console.log("default update lifecycle");
-  }, );//
+  }); //
+
   return (
     <div>
       <h1>count:{count}</h1>

@@ -10,24 +10,44 @@ const { Search } = Input;
 const Index2 = () => {
   const [state, setState] = useState({
     imgShow: false,
-    imgUrl: "",
   });
- 
+  const [imgUrl, setImgUrl] = useState("");
   useEffect(() => {
     const getDailyImg = () => {
       axios.get("http://localhost:3080/getDailyImg").then((res) => {
         setState({
           // imgUrl: "http://www.bing.com/" + res.data.imgUrl,
-          imgUrl: `http://www.bing.com/${res.data.imgUrl}`, //必应每日图片接口
           imgShow: true,
         });
+        setImgUrl(`http://www.bing.com/${res.data.imgUrl}`); //必应每日图片接口)
         load();
       });
     };
     //componentWillMount
     getDailyImg();
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, []);
 
+  const checkScrollHeight = (e) => {
+    if (e > 600) {
+      setState({
+        ...state,
+        imgShow: false,
+      });
+    } else {
+      setState({
+        ...state,
+        imgShow: true,
+      });
+    }
+  };
+  const handleScroll = () => {
+    let scrollTop = document.documentElement.scrollTop; //滚动条滚动高度
+    checkScrollHeight(scrollTop);
+  };
   const load = () => {
     NProgress.configure({
       minimum: 0.1,
@@ -46,7 +66,7 @@ const Index2 = () => {
       <div className="banner">
         <div className="img_container">
           {state.imgShow ? (
-            <img src={state.imgUrl} className="index_image" id="scream" alt='' />
+            <img src={imgUrl} className="index_image" id="scream" alt="" />
           ) : null}
         </div>
       </div>
@@ -63,7 +83,7 @@ const Index2 = () => {
                   fontSize: "12px",
                 }}
               >
-                本网站仅作为个人学习、经验分享以及其他非商业性或非盈利性用途使用。
+                本网站仅作个人学习、经验分享以及其他非商业性或非盈利性用途使用。
               </span>
             </li>
 
@@ -227,8 +247,6 @@ class Index extends React.Component {
   }
 }
 class Header extends React.Component {
-
- 
   render() {
     return (
       <section className="header_main_container">

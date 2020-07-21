@@ -40,9 +40,12 @@ app.use("/users/helloworld", usersRouter);
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
   next(createError(404));
+  //捕获 404 并抛给错误处理器
 });
 
 // error handler
+
+// 错误处理器
 app.use(function (err, req, res, next) {
   // set locals, only providing error in development
   res.locals.message = err.message;

@@ -22,7 +22,7 @@ const Demo = () => {
   }, [count]);
   useEffect(() => {
     console.log("create default img");
-  }, []);//
+  }, []); //只执行componentDidMount
   useEffect(() => {
     console.log("default update lifecycle");
   }, );//

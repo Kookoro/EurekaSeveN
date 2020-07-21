@@ -1,19 +1,46 @@
-body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, /* structural elements 结构元素 */
-dl, dt, dd, ul, ol, li, /* list elements 列表元素 */
-pre, /* text formatting elements 文本格式元素 */
-fieldset, lengend, button, input, textarea, /* form elements 表单元素 */
-th, td {
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+hr,
+p,
+blockquote,
+/* structural elements 结构元素 */
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+/* list elements 列表元素 */
+pre,
+/* text formatting elements 文本格式元素 */
+fieldset,
+lengend,
+button,
+input,
+textarea,
+/* form elements 表单元素 */
+th,
+td {
   /* table elements 表格元素 */
   margin: 0;
   padding: 0;
 }
+
 #nprogress .bar {
   background: #cccccc !important; //自定义颜色
 }
+
 $white: #f6f6f6;
+
 li {
   list-style: none;
 }
+
 html {
   background-color: $white;
   --backgroundColor: #231b30;
@@ -23,13 +50,16 @@ html {
   --divider: #3e4b5e;
   --scrollBarColor: #cccccc;
 }
+
 ::-webkit-scrollbar {
   width: 5px;
   height: 5px;
 }
+
 ::-webkit-scrollbar-thumb {
   background: var(--scrollBarColor);
 }
+
 ::-webkit-scrollbar-track {
   background: $white;
 }
@@ -43,25 +73,31 @@ html {
   top: 0;
   position: sticky;
   position: -webkit-sticky;
+
   .header_main_container {
     display: flex;
     justify-content: space-between;
+
     .header_right {
       position: relative;
       margin: auto 0;
       padding-right: 2%;
+
       .ant-input-affix-wrapper {
         border-radius: 20px;
+
         input.ant-input:focus {
           border-color: $white;
         }
       }
     }
   }
+
   .header_left {
     height: 50px;
     width: 200px;
     padding-left: 3%;
+
     .menu_container {
       display: flex;
       list-style: none;
@@ -69,19 +105,23 @@ html {
       align-items: center;
 
       height: 100%;
+
       li {
         margin: 0 auto;
       }
+
       a {
         color: #7f7f7f;
         text-decoration: none;
       }
+
       a:hover {
         color: black;
       }
     }
   }
 }
+
 .content {
   position: sticky;
   height: 2200px;
@@ -90,44 +130,50 @@ html {
   background-color: white;
   box-shadow: 0 1px 3px rgba(26, 26, 26, 0.1);
 }
+
 .banner {
   width: 100%;
   background-color: $white;
   position: fixed;
   z-index: 1;
-  .img_clock_container{
+
+  .img_clock_container {
     position: absolute;
     width: 200px;
     height: 100px;
     right: 3%;
     z-index: 2;
-   
   }
-  .img_clock_container::after{
-    content: '';
+
+  .img_clock_container::after {
+    content: "";
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(255,255,255,0.8);
+    background-color: rgba(255, 255, 255, 0.8);
     z-index: -1;
   }
 }
+
 .index_image {
   width: 100%;
   height: 500px;
   object-fit: cover;
 }
+
 footer {
   width: 100%;
   height: 200px;
   display: flex;
   justify-content: center;
   align-items: center;
+
   a {
     color: #5f5f5f;
   }
+
   ul {
     text-align: center;
   }

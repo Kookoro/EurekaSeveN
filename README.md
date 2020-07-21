@@ -12,7 +12,7 @@
 
 ## 2020/06/24
 
-Express+Nodejs 开搞，买了本《深入浅出 Nodejs》看了前 3 章发现还是一句都写不出来
+Express + Nodejs 开搞，买了本《深入浅出 Nodejs》看了前 3 章发现还是一句都写不出来
 
 ## 2020/06/28
 
@@ -20,10 +20,9 @@ Express 出乎意外的好上手，但还需要一段时间才能掌握
 
 ## 2020/07/20
 
-React Hooks真香！！！
+React Hooks 真香！！！
 
-
-把首页用react hooks重构了，传统的class组件更改为函数组件，基本上告别了this！
+把首页用 react hooks 重构了，传统的 class component 更改为 function component，基本上告别了 this！
 
 # 可能用到的资料书签(随缘收集)
 
@@ -42,6 +41,7 @@ React Hooks真香！！！
   - [Mobx 学习总结](https://segmentfault.com/a/1190000013810512)
 - [Nodejs](http://nodejs.cn/api/)
 - [Express](https://www.expressjs.com.cn/)
+  - [MDN-搭建 Express 框架](https://developer.mozilla.org/zh-CN/docs/Learn/Server-side/Express_Nodejs/skeleton_website)
   - [Express-Github](https://github.com/expressjs/express)
   - [RESTfulAPI 设计指南](http://www.ruanyifeng.com/blog/2014/05/restful_api.html)
 - [MongoDB](https://www.mongodb.com/)

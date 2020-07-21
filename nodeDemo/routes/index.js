@@ -26,18 +26,19 @@ router.get("/getDailyImg", (req, res, next) => {
   );
 });
 router.get("/getAnimateImg", (req, res, next) => {
-  request(
-    "https://konachan.com/post.json?tags=nobody&sky",
-    function (error, response, body) {
-      console.log(body)
-      if (!error && response.statusCode == 200) {
-        // console.log(body.image[0].url);
-        
-        body = JSON.parse(body);
-        const imgUrl = body[5].jpeg_url;
-        res.json({ imgUrl });
-      }
+  request("https://konachan.com/post.json?tags=nobody&sky", function (
+    error,
+    response,
+    body
+  ) {
+    console.log(body);
+    if (!error && response.statusCode == 200) {
+      // console.log(body.image[0].url);
+
+      body = JSON.parse(body);
+      const imgUrl = body[5].jpeg_url;
+      res.json({ imgUrl });
     }
-  );
+  });
 });
 module.exports = router;

@@ -1,6 +1,6 @@
 # 博客 www.belos.xyz
 
-# 前端技术栈:react react-router mobx antd
+# 前端技术栈:react react-router antd
 
 # 后端:node.js mongodb express
 
@@ -24,6 +24,10 @@ React Hooks 真香！！！
 
 把首页用 react hooks 重构了，传统的 class component 更改为 function component，基本上告别了 this！
 
+## 2020/07/22
+
+mongoDB数据库搭建起来
+
 # 可能用到的资料书签(随缘收集)
 
 - [React 中文文档](https://react.docschina.org/)
@@ -45,6 +49,7 @@ React Hooks 真香！！！
   - [Express-Github](https://github.com/expressjs/express)
   - [RESTfulAPI 设计指南](http://www.ruanyifeng.com/blog/2014/05/restful_api.html)
 - [MongoDB](https://www.mongodb.com/)
+  - [MongoDB教程](https://www.runoob.com/mongodb/mongodb-tutorial.html)
 - [Webpack](https://www.jianshu.com/p/42e11515c10f)
 - [TypeScript](https://www.tslang.cn/docs/home.html)
   - [TypeScript-Github](https://github.com/Microsoft/TypeScript)

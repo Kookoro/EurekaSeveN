@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "../scss/index.scss";
 import axios from "axios";
-import { Input } from "antd";
+import { Input, Button } from "antd";
 import NProgress from "nprogress";
 import "nprogress/nprogress.css";
 import Demo from "../components/childrenComponent/page/reacthooks/reacthooksLearn";
@@ -44,6 +44,7 @@ const Index2 = () => {
       });
     }
   };
+
   const handleScroll = () => {
     let scrollTop = document.documentElement.scrollTop; //滚动条滚动高度
     checkScrollHeight(scrollTop);
@@ -72,6 +73,7 @@ const Index2 = () => {
       </div>
       <div className="content">
         <Demo />
+        <User />
       </div>
       <footer>
         <div className="foot-container">
@@ -116,7 +118,80 @@ const Index2 = () => {
     </section>
   );
 };
-
+const User = () => {
+  const [userInfo, setUserInfo] = useState({
+    id: "",
+    name: "",
+    age: 0,
+    sex: "",
+  });
+  const onInputChange = (attr, value) => {
+    setUserInfo({
+      ...userInfo,
+      [attr]: value,
+    });
+  };
+  const postMessage = () => {
+    axios.post("http://localhost:3080/addUserMsg", userInfo).then((res) => {
+      console.log(res);
+    });
+  };
+  return (
+    <section>
+      <ul
+        style={{
+          display: "flex",
+        }}
+      >
+        <li>
+          <span>编号:</span>
+          <Input
+            placeholder="编号"
+            type="text"
+            name="id"
+            onChange={(e) => {
+              onInputChange(e.target.name, e.target.value);
+            }}
+          />
+        </li>
+        <li>
+          <span>姓名:</span>
+          <Input
+            placeholder="姓名"
+            type="text"
+            name="name"
+            onChange={(e) => {
+              onInputChange(e.target.name, e.target.value);
+            }}
+          />
+        </li>
+        <li>
+          <span>年龄:</span>
+          <Input
+            placeholder="年龄"
+            type="text"
+            name="age"
+            onChange={(e) => {
+              onInputChange(e.target.name, e.target.value);
+            }}
+          />
+        </li>
+        <li>
+          <span>性别:</span>
+          <Input
+            placeholder="性别"
+            type="text"
+            name="sex"
+            onChange={(e) => {
+              onInputChange(e.target.name, e.target.value);
+            }}
+          />
+        </li>
+        <Button onClick={postMessage}>注册</Button>
+      </ul>
+    </section>
+  );
+};
 class Index extends React.Component {
   constructor(props) {
     super(props);
@@ -246,6 +321,7 @@ class Index extends React.Component {
     window.addEventListener("scroll", this.handleScroll);
   }
 }
+
 class Header extends React.Component {
   render() {
     return (

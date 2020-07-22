@@ -17,7 +17,7 @@ const Counter = () => {
   );
 };
 const ReducerDemo = () => {
-  const [count,dispatch] = useReducer((state, action) => {
+  const [count, dispatch] = useReducer((state, action) => {
     switch (action.type) {
       case "add":
         return state + 1;
@@ -30,16 +30,24 @@ const ReducerDemo = () => {
   //@params1:处理函数
   //@params2:初始值
   return (
-      <div>
-          <h2>现在的分数是:{count}</h2>
-          <Button onClick={()=>{
-              dispatch({type:'add'})
-          }}>加</Button>
-          <Button onClick={()=>{
-              dispatch({type:'sub'})
-          }}>减</Button>
-      </div>
-  )
+    <div>
+      <h2>现在的分数是:{count}</h2>
+      <Button
+        onClick={() => {
+          dispatch({ type: "add" });
+        }}
+      >
+        加
+      </Button>
+      <Button
+        onClick={() => {
+          dispatch({ type: "sub" });
+        }}
+      >
+        减
+      </Button>
+    </div>
+  );
 };
 const Demo = () => {
   const [count, setCount] = useState(0);
@@ -78,7 +86,7 @@ const Demo = () => {
       <CountContext.Provider value={count}>
         <Counter></Counter>
       </CountContext.Provider>
-    <ReducerDemo></ReducerDemo>
+      <ReducerDemo></ReducerDemo>
       <Button
         onClick={() => {
           setCount(count + 1);

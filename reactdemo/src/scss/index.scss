@@ -35,7 +35,8 @@ td {
   background: #cccccc !important; //自定义颜色
 }
 
-$white: #f6f6f6;
+$white: #f9f9f9;
+
 
 li {
   list-style: none;
@@ -162,6 +163,31 @@ html {
   height: 500px;
   object-fit: cover;
 }
+
+.main_index_container{
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  background-color: $white;
+  padding-top: 10px;
+  .main_content_container{
+    width: 730px;
+    height: 100%;
+    background-color: white;
+  }
+  .user_info_container{
+    width: 260px;
+    height: 300px;
+    background-color: white;
+    margin-right: 10px;
+    border-radius: 2px;
+    .user_info_avatar_container{
+
+    }
+  }
+}
+
+
 
 footer {
   width: 100%;

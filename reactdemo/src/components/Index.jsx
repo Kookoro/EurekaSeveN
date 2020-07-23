@@ -7,6 +7,25 @@ import "nprogress/nprogress.css";
 import Demo from "../components/childrenComponent/page/reacthooks/reacthooksLearn";
 const { Search } = Input;
 
+
+
+const Content = ()=>{
+  return(
+    <section className="main_index_container">
+        <div className='user_info_container'>
+         
+          <div className="user_info_avatar_container">avatar</div>
+          <span></span>
+          </div>
+        <div className="main_content_container">
+          content
+        </div>
+
+    </section>
+  )
+}
+
+
 const Index2 = () => {
   const [state, setState] = useState({
     imgShow: false,
@@ -72,8 +91,9 @@ const Index2 = () => {
         </div>
       </div>
       <div className="content">
-        <Demo />
-        <User />
+        <Content></Content>
+        {/* <Demo />
+        <User /> */}
       </div>
       <footer>
         <div className="foot-container">

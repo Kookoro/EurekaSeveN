@@ -177,12 +177,18 @@ html {
   }
   .user_info_container{
     width: 260px;
-    height: 300px;
+    height: 400px;
     background-color: white;
     margin-right: 10px;
     border-radius: 2px;
     .user_info_avatar_container{
-
+        width: 150px;
+        height: 150px;
+        position: relative;
+        margin: 0 auto;
+        // transform: translate(-50%,-50%);
+        border-radius: 50%;
+        background-color: saddlebrown;
     }
   }
 }

@@ -7,24 +7,26 @@ import "nprogress/nprogress.css";
 import Demo from "../components/childrenComponent/page/reacthooks/reacthooksLearn";
 const { Search } = Input;
 
-
-
-const Content = ()=>{
-  return(
+const Content = () => {
+  let [value, setValue] = useState(1);
+  const changeTab = () => {
+    setValue(++value);
+  };
+  return (
     <section className="main_index_container">
-        <div className='user_info_container'>
-         
-          <div className="user_info_avatar_container">avatar</div>
-          <span></span>
-          </div>
-        <div className="main_content_container">
-          content
-        </div>
+      <div className="user_info_container">
+        <div className="user_info_avatar_container">avatar</div>
 
+        <span></span>
+      </div>
+      <div className="main_content_container">
+        content
+        <Tab type={value}></Tab>
+        <Button onClick={changeTab}>下一步</Button>
+      </div>
     </section>
-  )
-}
-
+  );
+};
 
 const Index2 = () => {
   const [state, setState] = useState({
@@ -347,6 +349,7 @@ class Header extends React.Component {
     return (
       <section className="header_main_container">
         <div className="header_left">
+          <div className="header_userName">橘皮果酱 </div>
           <ul className="menu_container">
             <li>
               <a href=" ">首页</a>
@@ -369,4 +372,33 @@ class Header extends React.Component {
     );
   }
 }
+
+const Tab = (props) => {
+  const e = props;
+  return (
+    <div>
+      {e.type == "1" ? (
+        <div
+          style={{ width: "100px", height: "100px", backgroundColor: "red" }}
+        ></div>
+      ) : null}
+      {e.type == "2" ? (
+        <div
+          style={{ width: "100px", height: "100px", backgroundColor: "blue" }}
+        ></div>
+      ) : null}
+      {e.type == "3" ? (
+        <div
+          style={{ width: "100px", height: "100px", backgroundColor: "black" }}
+        ></div>
+      ) : null}
+      {e.type == "4" ? (
+        <div
+          style={{ width: "100px", height: "100px", backgroundColor: "yellow" }}
+        ></div>
+      ) : null}
+    </div>
+  );
+};
+
 export default Index2;

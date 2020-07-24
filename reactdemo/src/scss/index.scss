@@ -37,7 +37,6 @@ td {
 
 $white: #f9f9f9;
 
-
 li {
   list-style: none;
 }
@@ -95,16 +94,21 @@ html {
   }
 
   .header_left {
+    display: flex;
     height: 50px;
-    width: 200px;
-    padding-left: 3%;
 
+    padding-left: 2%;
+    .header_userName {
+      position: relative;
+      margin: auto 20px;
+      font-size: 18px;
+    }
     .menu_container {
       display: flex;
       list-style: none;
-      justify-content: center;
+      justify-content: space-between;
       align-items: center;
-
+      width: 180px;
       height: 100%;
 
       li {
@@ -164,36 +168,34 @@ html {
   object-fit: cover;
 }
 
-.main_index_container{
+.main_index_container {
   display: flex;
   height: 100%;
   justify-content: center;
   background-color: $white;
   padding-top: 10px;
-  .main_content_container{
+  .main_content_container {
     width: 730px;
     height: 100%;
     background-color: white;
   }
-  .user_info_container{
+  .user_info_container {
     width: 260px;
     height: 400px;
     background-color: white;
     margin-right: 10px;
     border-radius: 2px;
-    .user_info_avatar_container{
-        width: 150px;
-        height: 150px;
-        position: relative;
-        margin: 0 auto;
-        // transform: translate(-50%,-50%);
-        border-radius: 50%;
-        background-color: saddlebrown;
+    .user_info_avatar_container {
+      width: 150px;
+      height: 150px;
+      position: relative;
+      margin: 0 auto;
+      // transform: translate(-50%,-50%);
+      border-radius: 50%;
+      background-color: saddlebrown;
     }
   }
 }
-
-
 
 footer {
   width: 100%;

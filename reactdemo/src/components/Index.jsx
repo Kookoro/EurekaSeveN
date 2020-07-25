@@ -377,22 +377,22 @@ const Tab = (props) => {
   const e = props;
   return (
     <div>
-      {e.type == "1" ? (
+      {e.type === "1" ? (
         <div
           style={{ width: "100px", height: "100px", backgroundColor: "red" }}
         ></div>
       ) : null}
-      {e.type == "2" ? (
+      {e.type ==="2" ? (
         <div
           style={{ width: "100px", height: "100px", backgroundColor: "blue" }}
         ></div>
       ) : null}
-      {e.type == "3" ? (
+      {e.type ==="3" ? (
         <div
           style={{ width: "100px", height: "100px", backgroundColor: "black" }}
         ></div>
       ) : null}
-      {e.type == "4" ? (
+      {e.type === "4" ? (
         <div
           style={{ width: "100px", height: "100px", backgroundColor: "yellow" }}
         ></div>

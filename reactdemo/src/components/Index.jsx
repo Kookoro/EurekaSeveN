@@ -21,7 +21,7 @@ const Content = () => {
       </div>
       <div className="main_content_container">
         content
-        <Tab type={value}></Tab>
+        {/* <Tab type={value}></Tab> */}
         <Button onClick={changeTab}>下一步</Button>
       </div>
     </section>

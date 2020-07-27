@@ -1,4 +1,4 @@
-# 博客 www.belos.xyz
+# 个人博客 
 
 # 前端技术栈:react react-router antd
 

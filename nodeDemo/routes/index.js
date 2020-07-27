@@ -76,7 +76,7 @@ router.get("/getUserMsg", (req, res) => {
   const userModelConnect = mongoose.model("userList", userModel, "userList");
   userModelConnect.find(
     {
-      age: { $gt: 20 },
+      age: { $gt: 29 },
     },
     (error, data) => {
       console.log(data);

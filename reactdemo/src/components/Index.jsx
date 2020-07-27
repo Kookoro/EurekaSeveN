@@ -23,7 +23,7 @@ const Content = () => {
       </div>
       <div className="main_content_container">
         content
-        <Tab type={value}></Tab>
+        {/* <Tab type={value}></Tab> */}
         <Button onClick={changeTab}>下一步</Button>
       </div>
     </section>
@@ -400,22 +400,22 @@ const Tab = (props) => {
   const e = props;
   return (
     <div>
-      {e.type == "1" ? (
+      {e.type === "1" ? (
         <div
           style={{ width: "100px", height: "100px", backgroundColor: "red" }}
         ></div>
       ) : null}
-      {e.type == "2" ? (
+      {e.type ==="2" ? (
         <div
           style={{ width: "100px", height: "100px", backgroundColor: "blue" }}
         ></div>
       ) : null}
-      {e.type == "3" ? (
+      {e.type ==="3" ? (
         <div
           style={{ width: "100px", height: "100px", backgroundColor: "black" }}
         ></div>
       ) : null}
-      {e.type == "4" ? (
+      {e.type === "4" ? (
         <div
           style={{ width: "100px", height: "100px", backgroundColor: "yellow" }}
         ></div>

@@ -33,9 +33,14 @@ const userModel = new mongoose.Schema({
   name: String,
   age: Number,
   sex: String,
+  date: {
+    type: Date,
+    default: Date.now,
+  },
 });
 
 router.get("/", function (req, res, next) {
+  res.type("html");
   res.render("index", {
     title: "Express",
   });
@@ -67,6 +72,18 @@ router.post("/addUserMsg", (req, res, next) => {
   console.log(data);
 });
 
+router.get("/getUserMsg", (req, res) => {
+  const userModelConnect = mongoose.model("userList", userModel, "userList");
+  userModelConnect.find(
+    {
+      age: { $gt: 20 },
+    },
+    (error, data) => {
+      console.log(data);
+    }
+  );
+});
+
 router.get("/getDailyImg", (req, res, next) => {
   request(
     "https://cn.bing.com/HPImageArchive.aspx?format=js&idx=0&n=1&mkt=zh-CN",
@@ -91,7 +108,8 @@ router.get("/getAnimateImg", (req, res, next) => {
       // console.log(body.image[0].url);
 
       body = JSON.parse(body);
-      const imgUrl = body[5].jpeg_url;
+      const random = Math.floor(Math.random() * 20 + 1);
+      const imgUrl = body[random].jpeg_url;
       res.json({ imgUrl });
     }
   });

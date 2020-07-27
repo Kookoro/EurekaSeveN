@@ -2,10 +2,12 @@ import React, { useEffect, useState } from "react";
 import "../scss/index.scss";
 import axios from "axios";
 import { Input, Button } from "antd";
-import NProgress from "nprogress";
+
 import "nprogress/nprogress.css";
 import Demo from "../components/childrenComponent/page/reacthooks/reacthooksLearn";
 const { Search } = Input;
+
+//进度条插件配置
 
 const Content = () => {
   let [value, setValue] = useState(1);
@@ -34,17 +36,33 @@ const Index2 = () => {
   });
   const [imgUrl, setImgUrl] = useState("");
   useEffect(() => {
+    const getUserMsg = () => {
+      axios.get("");
+    };
     const getDailyImg = () => {
+      // NProgress.start();
       axios.get("http://localhost:3080/getDailyImg").then((res) => {
+        // NProgress.done();
         setState({
           // imgUrl: "http://www.bing.com/" + res.data.imgUrl,
           imgShow: true,
         });
         setImgUrl(`http://www.bing.com/${res.data.imgUrl}`); //必应每日图片接口)
-        load();
+      });
+    };
+
+    const getAnimateImg = () => {
+      axios.get("http://localhost:3080/getAnimateImg").then((res) => {
+        setState({
+          // imgUrl: "http://www.bing.com/" + res.data.imgUrl,
+
+          imgShow: true,
+        });
+        setImgUrl(`${res.data.imgUrl}`);
       });
     };
     //componentWillMount
+    // getAnimateImg();
     getDailyImg();
     window.addEventListener("scroll", handleScroll);
     return () => {
@@ -70,22 +88,14 @@ const Index2 = () => {
     let scrollTop = document.documentElement.scrollTop; //滚动条滚动高度
     checkScrollHeight(scrollTop);
   };
-  const load = () => {
-    NProgress.configure({
-      minimum: 0.1,
-      showSpinner: false,
-    });
-    NProgress.start();
-    setTimeout(() => {
-      NProgress.done();
-    }, 500);
-  };
+
   return (
     <section>
       <div className="header">
         <Header></Header>
       </div>
       <div className="banner">
+        <div className="banner_title_container">{/* <h1>交响诗篇</h1> */}</div>
         <div className="img_container">
           {state.imgShow ? (
             <img src={imgUrl} className="index_image" id="scream" alt="" />
@@ -93,9 +103,9 @@ const Index2 = () => {
         </div>
       </div>
       <div className="content">
-        <Content></Content>
-        {/* <Demo />
-        <User /> */}
+        {/* <Content></Content> */}
+        <Demo />
+        <User />
       </div>
       <footer>
         <div className="foot-container">
@@ -140,9 +150,10 @@ const Index2 = () => {
     </section>
   );
 };
+
 const User = () => {
   const [userInfo, setUserInfo] = useState({
-    id: "",
+    _id: "",
     name: "",
     age: 0,
     sex: "",
@@ -158,8 +169,30 @@ const User = () => {
       console.log(res);
     });
   };
+  const getMessage = () => {
+    axios.get("http://localhost:3080/getUserMsg", {}).then((res) => {
+      console.log(res);
+    });
+  };
+  useEffect(() => {
+    getMessage();
+  }, []);
   return (
     <section>
+      <ul>
+        <li>
+          <span>id:{userInfo.id}</span>
+        </li>
+        <li>
+          <span>name:{userInfo.name}</span>
+        </li>
+        <li>
+          <span>age:{userInfo.age}</span>
+        </li>
+        <li>
+          <span>sex:{userInfo.sex}</span>
+        </li>
+      </ul>
       <ul
         style={{
           display: "flex",
@@ -293,16 +326,6 @@ class Index extends React.Component {
     this.checkScrollHeight(scrollTop);
   }
 
-  load() {
-    NProgress.configure({
-      minimum: 0.1,
-      showSpinner: false,
-    });
-    NProgress.start();
-    setTimeout(() => {
-      NProgress.done();
-    }, 500);
-  }
   checkScrollHeight(e) {
     if (e > 600) {
       this.setState({

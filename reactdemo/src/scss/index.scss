@@ -32,7 +32,7 @@ td {
 }
 
 #nprogress .bar {
-  background: #cccccc !important; //自定义颜色
+  background: #62d9fb !important; //自定义颜色
 }
 
 $white: #f9f9f9;
@@ -66,7 +66,7 @@ html {
 
 .header {
   width: 100%;
-  background-color: #ffffff;
+  background-color: rgba(255, 255, 255, 1);
   z-index: 3;
   -webkit-box-shadow: 0 1px 3px rgba(26, 26, 26, 0.1);
   box-shadow: 0 1px 3px rgba(26, 26, 26, 0.1);
@@ -126,7 +126,7 @@ html {
     }
   }
 }
-
+//内容
 .content {
   position: sticky;
   height: 2200px;
@@ -135,13 +135,22 @@ html {
   background-color: white;
   box-shadow: 0 1px 3px rgba(26, 26, 26, 0.1);
 }
-
+//图
 .banner {
   width: 100%;
   background-color: $white;
   position: fixed;
   z-index: 1;
-
+  .banner_title_container {
+    font-size: 44px;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    h1 {
+      color: #f9f9f9;
+    }
+  }
   .img_clock_container {
     position: absolute;
     width: 200px;

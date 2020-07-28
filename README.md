@@ -4,6 +4,11 @@
 
 # 后端:node.js mongodb express mongoose 
 
+## 2020/07/28
+TypeScript迁移打算 
+Express => Nestjs
+首页重构 计划中
+
 ## 2020/07/22
 
 mongoDB数据库搭建起来

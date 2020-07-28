@@ -8,7 +8,8 @@ import Demo from "../components/childrenComponent/page/reacthooks/reacthooksLear
 const { Search } = Input;
 
 //进度条插件配置
-
+//change branch 
+//create new branch home from home
 const Content = () => {
   let [value, setValue] = useState(1);
   const changeTab = () => {
@@ -22,7 +23,7 @@ const Content = () => {
         <span></span>
       </div>
       <div className="main_content_container">
-        content
+        content 
         {/* <Tab type={value}></Tab> */}
         <Button onClick={changeTab}>下一步</Button>
       </div>

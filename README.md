@@ -1,8 +1,28 @@
-# 博客 www.belos.xyz
+# 个人博客 
+✨名称灵感来自最爱的一部动画———交响诗篇
+# 前端技术栈:react with hooks react-router antd  
 
-# 前端技术栈:react react-router antd
+# 后端:node.js mongodb express mongoose 
 
-# 后端:node.js mongodb express
+## 2020/07/22
+
+mongoDB数据库搭建起来
+
+## 2020/07/20
+
+React Hooks 真香！！！
+
+
+## 2020/06/28
+
+Express 出乎意外的好上手，但还需要一段时间才能掌握
+
+
+
+## 2020/06/24
+
+Express + Nodejs 开搞，买了本《深入浅出 Nodejs》看了前 3 章发现还是一句都写不出来
+
 
 域名已备案，后台在苦等毕业后（2020 年 6 月 😔 快了），工作稳定了自己学 Nodejs 后开搞。
 
@@ -10,23 +30,11 @@
 
 估计以后会把这个自己 xjb 搞的东西用 Typescript 重构一下吧，估计也都排到 Nodejs 掌握以后了。
 
-## 2020/06/24
 
-Express + Nodejs 开搞，买了本《深入浅出 Nodejs》看了前 3 章发现还是一句都写不出来
-
-## 2020/06/28
-
-Express 出乎意外的好上手，但还需要一段时间才能掌握
-
-## 2020/07/20
-
-React Hooks 真香！！！
 
 把首页用 react hooks 重构了，传统的 class component 更改为 function component，基本上告别了 this！
 
-## 2020/07/22
 
-mongoDB数据库搭建起来
 
 # 可能用到的资料书签(随缘收集)
 

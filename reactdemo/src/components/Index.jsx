@@ -2,14 +2,12 @@ import React, { useEffect, useState } from "react";
 import "../scss/index.scss";
 import axios from "axios";
 import { Input, Button } from "antd";
-
 import "nprogress/nprogress.css";
 import Demo from "../components/childrenComponent/page/reacthooks/reacthooksLearn";
 const { Search } = Input;
 
 //进度条插件配置
-//change branch 
-//create new branch home from home
+
 const Content = () => {
   let [value, setValue] = useState(1);
   const changeTab = () => {
@@ -23,7 +21,7 @@ const Content = () => {
         <span></span>
       </div>
       <div className="main_content_container">
-        content 
+        content
         {/* <Tab type={value}></Tab> */}
         <Button onClick={changeTab}>下一步</Button>
       </div>
@@ -154,7 +152,7 @@ const Index2 = () => {
 
 const User = () => {
   const [userInfo, setUserInfo] = useState({
-    _id: "",
+    id: "",
     name: "",
     age: 0,
     sex: "",
@@ -406,12 +404,12 @@ const Tab = (props) => {
           style={{ width: "100px", height: "100px", backgroundColor: "red" }}
         ></div>
       ) : null}
-      {e.type ==="2" ? (
+      {e.type === "2" ? (
         <div
           style={{ width: "100px", height: "100px", backgroundColor: "blue" }}
         ></div>
       ) : null}
-      {e.type ==="3" ? (
+      {e.type === "3" ? (
         <div
           style={{ width: "100px", height: "100px", backgroundColor: "black" }}
         ></div>

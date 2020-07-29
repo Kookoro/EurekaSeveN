@@ -4,6 +4,10 @@
 
 # 后端:node.js mongodb express mongoose 
 
+## 2020/07/29
+Express=>Nestjs迁移打算
+遇到一个Eslint冲突的问题，卸载Vscode自带Eslint后解决
+
 ## 2020/07/28
 TypeScript迁移打算 
 Express => Nestjs

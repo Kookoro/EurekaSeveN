@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link, BrowserRouter as Router } from "react-router-dom";
 import { Layout, Menu, Drawer, Input } from "antd";
 import "../css/menu.css";
-import ChildMenu from "../components/childrenComponent/ChildMenu";
+import ChildMenu from "./childrenComponent/ChildMenu";
 import NewBreadcrumb from "./childrenComponent/page/Breadcrumb";
 import { GithubOutlined, HomeOutlined } from "@ant-design/icons";
 import NProgress from "nprogress";

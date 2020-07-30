@@ -69,6 +69,8 @@ const Index2 = () => {
     };
   }, []);
 
+  //监听滚动条高度
+  //控制图片显示
   const checkScrollHeight = (e) => {
     if (e > 600) {
       setState({
@@ -82,7 +84,7 @@ const Index2 = () => {
       });
     }
   };
-
+  //滚动事件
   const handleScroll = () => {
     let scrollTop = document.documentElement.scrollTop; //滚动条滚动高度
     checkScrollHeight(scrollTop);
@@ -173,6 +175,9 @@ const User = () => {
       console.log(res);
     });
   };
+  const test = () => {
+    axios.post("http://192.168.1.124:8443/api/login", {});
+  };
   useEffect(() => {
     getMessage();
   }, []);
@@ -241,7 +246,8 @@ const User = () => {
             }}
           />
         </li>
-        <Button onClick={postMessage}>注册</Button>
+        {/* <Button onClick={postMessage}>注册</Button> */}
+        <Button onClick={test}>注册</Button>
       </ul>
     </section>
   );

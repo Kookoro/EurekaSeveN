@@ -2,14 +2,12 @@ import React, { useEffect, useState } from "react";
 import "../scss/index.scss";
 import axios from "axios";
 import { Input, Button } from "antd";
-
 import "nprogress/nprogress.css";
 import Demo from "../components/childrenComponent/page/reacthooks/reacthooksLearn";
 const { Search } = Input;
 
 //进度条插件配置
-//change branch 
-//create new branch home from home
+
 const Content = () => {
   let [value, setValue] = useState(1);
   const changeTab = () => {
@@ -23,7 +21,7 @@ const Content = () => {
         <span></span>
       </div>
       <div className="main_content_container">
-        content 
+        content
         {/* <Tab type={value}></Tab> */}
         <Button onClick={changeTab}>下一步</Button>
       </div>
@@ -71,6 +69,8 @@ const Index2 = () => {
     };
   }, []);
 
+  //监听滚动条高度
+  //控制图片显示
   const checkScrollHeight = (e) => {
     if (e > 600) {
       setState({
@@ -84,7 +84,7 @@ const Index2 = () => {
       });
     }
   };
-
+  //滚动事件
   const handleScroll = () => {
     let scrollTop = document.documentElement.scrollTop; //滚动条滚动高度
     checkScrollHeight(scrollTop);
@@ -154,7 +154,7 @@ const Index2 = () => {
 
 const User = () => {
   const [userInfo, setUserInfo] = useState({
-    _id: "",
+    id: "",
     name: "",
     age: 0,
     sex: "",
@@ -174,6 +174,9 @@ const User = () => {
     axios.get("http://localhost:3080/getUserMsg", {}).then((res) => {
       console.log(res);
     });
+  };
+  const test = () => {
+    axios.post("http://192.168.1.124:8443/api/login", {});
   };
   useEffect(() => {
     getMessage();
@@ -243,7 +246,8 @@ const User = () => {
             }}
           />
         </li>
-        <Button onClick={postMessage}>注册</Button>
+        {/* <Button onClick={postMessage}>注册</Button> */}
+        <Button onClick={test}>注册</Button>
       </ul>
     </section>
   );
@@ -406,12 +410,12 @@ const Tab = (props) => {
           style={{ width: "100px", height: "100px", backgroundColor: "red" }}
         ></div>
       ) : null}
-      {e.type ==="2" ? (
+      {e.type === "2" ? (
         <div
           style={{ width: "100px", height: "100px", backgroundColor: "blue" }}
         ></div>
       ) : null}
-      {e.type ==="3" ? (
+      {e.type === "3" ? (
         <div
           style={{ width: "100px", height: "100px", backgroundColor: "black" }}
         ></div>

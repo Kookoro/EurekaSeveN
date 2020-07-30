@@ -33,10 +33,6 @@ const userModel = new mongoose.Schema({
   name: String,
   age: Number,
   sex: String,
-  date: {
-    type: Date,
-    default: Date.now,
-  },
 });
 
 router.get("/", function (req, res, next) {
@@ -55,6 +51,9 @@ router.post("/addUserMsg", (req, res, next) => {
   const data = req.body;
   const userList = [];
   if (data) {
+    if (data.age > 30) {
+      return new Error("年龄超过范围！");
+    }
     userList.push(data);
     const userModelConnect = mongoose.model("userList", userModel, "userList");
     userModelConnect.insertMany(userList, (err, result) => {
@@ -63,9 +62,6 @@ router.post("/addUserMsg", (req, res, next) => {
         throw err;
       }
       console.log("数据添加成功:", result);
-      res.send({
-        res: "ok",
-      });
     });
   }
 

@@ -1,8 +1,4 @@
-import {
-  observable,
-  action,
-  computed
-} from "mobx";
+import { observable, action, computed } from "mobx";
 
 /**
  * React 和 MobX 是一对强力组合。React 通过提供机制把应用状态转换为可渲染组件树并对其进行渲染。而MobX提供机制来存储和更新应用状态供 React 使用。

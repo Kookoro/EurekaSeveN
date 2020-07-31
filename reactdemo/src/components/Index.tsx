@@ -35,9 +35,9 @@ const Index2 = () => {
   });
   const [imgUrl, setImgUrl] = useState("");
   useEffect(() => {
-    const getUserMsg = () => {
-      axios.get("");
-    };
+    // const getUserMsg = () => {
+    //   axios.get("");
+    // };
     const getDailyImg = () => {
       // NProgress.start();
       axios.get("http://localhost:3080/getDailyImg").then((res) => {

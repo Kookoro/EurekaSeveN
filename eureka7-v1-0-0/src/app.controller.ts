@@ -2,7 +2,7 @@ import { Controller, Get, Req } from '@nestjs/common';
 import { AppService } from './app.service';
 import { Request } from 'express';
 
-@Controller('index')
+@Controller()
 export class AppController {
   constructor(private readonly appService: AppService) {}
 
@@ -10,6 +10,8 @@ export class AppController {
   getHello(): string {
     return this.appService.getHello();
   }
+
+
 
   @Get('user')
   getUserMsg(): object {

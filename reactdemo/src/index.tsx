@@ -6,7 +6,8 @@ import * as serviceWorker from "./serviceWorker";
 import NProgress from "nprogress";
 import "nprogress/nprogress.css";
 import axios from "axios";
-
+import { connect } from "react-redux";
+import { addNameCreater, addAgeCreater, addNameAsync } from "./redux/actions";
 //配置顶部进度条，捕获axios请求
 NProgress.configure({
   minimum: 0.1,
@@ -32,9 +33,7 @@ axios.interceptors.response.use((config) => {
 
 ReactDOM.render(
   // <App />,
-
   <Router></Router>,
-
   document.getElementById("root")
 );
 serviceWorker.unregister();

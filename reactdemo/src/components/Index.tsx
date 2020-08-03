@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, FunctionComponent, Props } from "react";
 import "../scss/index.scss";
 import axios from "axios";
 import { Input, Button } from "antd";
@@ -8,8 +8,8 @@ const { Search } = Input;
 
 //进度条插件配置
 
-const Content = () => {
-  let [value, setValue] = useState(1);
+const Content: FunctionComponent = () => {
+  let [value, setValue] = useState<number>(1);
   const changeTab = () => {
     setValue(++value);
   };
@@ -29,16 +29,16 @@ const Content = () => {
   );
 };
 
-const Index2 = () => {
+const Index2: FunctionComponent = () => {
   const [state, setState] = useState({
     imgShow: false,
   });
-  const [imgUrl, setImgUrl] = useState("");
+  const [imgUrl, setImgUrl] = useState<string>("");
   useEffect(() => {
-    const getUserMsg = () => {
+    const getUserMsg: Function = () => {
       axios.get("");
     };
-    const getDailyImg = () => {
+    const getDailyImg: Function = () => {
       // NProgress.start();
       axios.get("http://localhost:3080/getDailyImg").then((res) => {
         // NProgress.done();
@@ -71,7 +71,7 @@ const Index2 = () => {
 
   //监听滚动条高度
   //控制图片显示
-  const checkScrollHeight = (e) => {
+  const checkScrollHeight = (e: number) => {
     if (e > 600) {
       setState({
         ...state,

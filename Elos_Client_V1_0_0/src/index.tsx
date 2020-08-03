@@ -8,7 +8,7 @@ import "nprogress/nprogress.css";
 import axios from "axios";
 import { connect } from "react-redux";
 import { addNameCreater, addAgeCreater, addNameAsync } from "./redux/actions";
-//配置顶部进度条，捕获axios请求
+//配置全局顶部进度条，捕获axios请求
 NProgress.configure({
   minimum: 0.1,
   showSpinner: false,

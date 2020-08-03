@@ -9,6 +9,9 @@ import axios from "axios";
 import { connect } from "react-redux";
 import { addNameCreater, addAgeCreater, addNameAsync } from "./redux/actions";
 //配置全局顶部进度条，捕获axios请求
+
+
+//test
 NProgress.configure({
   minimum: 0.1,
   showSpinner: false,

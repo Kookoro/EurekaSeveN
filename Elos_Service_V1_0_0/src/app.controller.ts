@@ -1,8 +1,8 @@
-import { Controller, Get, Req } from '@nestjs/common';
+import { Controller, Get, Req, Post } from '@nestjs/common';
 import { AppService } from './app.service';
 import { Request } from 'express';
 
-@Controller('index')
+@Controller()
 export class AppController {
   constructor(private readonly appService: AppService) {}
 
@@ -15,5 +15,11 @@ export class AppController {
   getUserMsg(): object {
     // console.log('ok');
     return this.appService.getUserMsg();
+  }
+  @Get('xss')
+  createXssAttack(@Req() request: Request): any {
+    return {
+      img: `<img onerror="alert('attacked!!!11')">`,
+    };
   }
 }

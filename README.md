@@ -1,10 +1,9 @@
 # 个人博客
 
-✨ 名称灵感来自最爱的一部动画———交响诗篇
 
 # 前端技术栈:react with hooks react-router antd
 
-# 后端:node.js mongodb express mongoose
+# 后端:node.js mongodb NestJS mongoose
 
 ## 2020/07/30
 

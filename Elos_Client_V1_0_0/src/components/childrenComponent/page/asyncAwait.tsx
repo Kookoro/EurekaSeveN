@@ -120,7 +120,7 @@
  */
 import React from "react";
 
-class AsyncText extends React.Component {
+class AsyncText extends React.Component<any,any> {
   constructor(props) {
     super(props);
     this.state = {

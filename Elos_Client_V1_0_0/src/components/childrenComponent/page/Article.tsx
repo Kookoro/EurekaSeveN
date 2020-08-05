@@ -4,7 +4,7 @@ import { Button, Input, Alert } from "antd";
 // import "../css/article.css";
 import "../../../css/article.css";
 const Article = () => {
-  let s1 = "";
+  let s1:string = "";
   const [isNull, setIsNull] = useState(false);
   const [state, setstate] = useState({
     list: [
@@ -33,9 +33,7 @@ const Article = () => {
     title: "",
     content: "",
   });
-  const showS = () => {
-    console.log(s1.state.value);
-  };
+
   const onInputChange = (e) => {
     const inputValue = e.target.value,
       inputName = e.target.name;
@@ -159,7 +157,7 @@ const Article = () => {
                 onClick={(e) => {
                   deleteComment(e);
                 }}
-                index={key}
+               
               >
                 删除评论
               </Button>
@@ -195,8 +193,8 @@ const Article = () => {
         }}
       ></Input>
       <Button onClick={addArticle}>发表文章</Button>
-      <Input ref={(s) => (s1 = s)}></Input>
-      <Button onClick={showS}>click</Button>
+      <Input ></Input>
+      <Button >click</Button>
     </div>
   );
 };

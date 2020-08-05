@@ -13,7 +13,7 @@ const breadcrumbNameMap = {
   "/Article/Content/0003": "0003",
 };
 
-class NewBreadcrumb extends React.Component {
+class NewBreadcrumb extends React.Component<any,any> {
   constructor(props) {
     super(props);
     this.state = {
@@ -22,12 +22,10 @@ class NewBreadcrumb extends React.Component {
     };
   }
   getPath = () => {
-    this.state.pathSnippets = this.props.location.pathname
-      .split("/")
-      .filter((i) => i);
-    // this.setState({
-    //   pathSnippets: this.props.location.pathname.split("/").filter((i) => i),
-    // });
+//  
+    this.setState({
+      pathSnippets: this.props.location.pathname.split("/").filter((i) => i),
+    });
     this.setState({
       extraBreadcrumbItems: this.state.pathSnippets.map((_, index) => {
         const url = `/${this.state.pathSnippets.slice(0, index + 1).join("/")}`;

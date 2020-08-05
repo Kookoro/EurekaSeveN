@@ -1,5 +1,7 @@
 //组件允许你将 UI 拆分为独立可复用的代码片段，并对每个片段进行独立构思
 
+import React from "react";
+
 //组件在概念上类似于JS函数,其接受任意props作为参数,同时返回用于渲染页面得jsx element
 
 //ps : 组件无论是使用函数声明还是class声明,都不能修改自身的props
@@ -130,7 +132,7 @@ class XXX extends React.component{
     */
 
 //React 生命周期方法
-class XXX extends React.Component {
+class XXX extends React.Component<any,any> {
   constructor(props) {
     super(props);
     //属性
@@ -173,7 +175,8 @@ class XXX extends React.Component {
   //销毁
   componentWillUnmount() {}
   //更新
-  shouldComponentUpdate() {}
+  
+  shouldComponentUpdate():any {}
   componentWillUpdate() {} // 更新前
   componentDidUpdate() {} //更新后
   componentWillReceiveProps() {} //接受props前

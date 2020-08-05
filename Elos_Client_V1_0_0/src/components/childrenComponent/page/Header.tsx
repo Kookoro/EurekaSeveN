@@ -2,10 +2,10 @@ import React, { Component } from "react";
 import Content from "./Content";
 import Clock from "./Clock";
 import LoginControl from "./LoginControl";
-class MyHeader extends Component {
+class MyHeader extends Component<any,any> {
+  childmakeMoney: any;
   constructor(props) {
     super(props);
-    debugger;
     this.childmakeMoney = this.props.makeMoney;
   }
   render() {
@@ -24,9 +24,7 @@ class MyHeader extends Component {
               >
                 {item.content} {item.userName}
                 <button
-                  onClick={() => {
-                    handle();
-                  }}
+               
                 >
                   删除
                 </button>
@@ -40,9 +38,7 @@ class MyHeader extends Component {
       </div>
     );
 
-    function handle(index) {
-      this.datas.unshift(index);
-    }
+   
   }
 }
 

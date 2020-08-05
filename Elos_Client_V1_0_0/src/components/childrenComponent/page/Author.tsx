@@ -35,7 +35,7 @@ let ob = observable({
  *
  *
  */
-class Auther extends Component {
+class Auther extends Component<any,any> {
   constructor(props) {
     super(props);
     this.state = {

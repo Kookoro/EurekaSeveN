@@ -1,14 +1,14 @@
 import React, { useEffect, useState, FunctionComponent, Props } from "react";
 import "../scss/index.scss";
 import axios from "axios";
-import { Input, Button } from "antd";
-import "nprogress/nprogress.css";
+import { Input, Button, Modal } from "antd";
 import Demo from "./childrenComponent/page/reacthooks/reacthooksLearn";
+import Dialog from "./homepage/Dialog";
 const { Search } = Input;
 
 //进度条插件配置
 
-const Content: FunctionComponent = () => {
+const Content = () => {
   let [value, setValue] = useState<number>(1);
   const changeTab = () => {
     setValue(++value);
@@ -71,7 +71,7 @@ const Index2: FunctionComponent = () => {
 
   //监听滚动条高度
   //控制图片显示
-  const checkScrollHeight = (e: number) => {
+  const checkScrollHeight: Function = (e: number) => {
     if (e > 600) {
       setState({
         ...state,
@@ -105,8 +105,8 @@ const Index2: FunctionComponent = () => {
       </div>
       <div className="content">
         {/* <Content></Content> */}
-        <Demo />
-        <User />
+        <User></User>
+        {/* <User></User> */}
       </div>
       <footer>
         <div className="foot-container">
@@ -152,14 +152,17 @@ const Index2: FunctionComponent = () => {
   );
 };
 
-const User = () => {
+const User: FunctionComponent = () => {
   const [userInfo, setUserInfo] = useState({
     id: "",
     name: "",
     age: 0,
     sex: "",
   });
-  const onInputChange = (attr, value) => {
+  const [state, setstate] = useState({
+    visible: false,
+  });
+  const onInputChange = (attr: string, value: string) => {
     setUserInfo({
       ...userInfo,
       [attr]: value,
@@ -181,6 +184,24 @@ const User = () => {
   useEffect(() => {
     getMessage();
   }, []);
+
+  const showModel = () => {
+    setstate({
+      visible: true,
+    });
+  };
+  const handleOk = (e: any) => {
+    console.log(e);
+    setstate({
+      visible: false,
+    });
+  };
+  const handleCancel = (e: any) => {
+    console.log(e);
+    setstate({
+      visible: false,
+    });
+  };
   return (
     <section>
       <ul>
@@ -247,133 +268,68 @@ const User = () => {
           />
         </li>
         {/* <Button onClick={postMessage}>注册</Button> */}
-        <Button onClick={test}>注册</Button>
+        <Button onClick={showModel}>注册</Button>
+        <Dialog state={state}></Dialog>
+        {/* <Modal
+          centered
+          title="个人信息"
+          okText="保存"
+          cancelText="取消"
+          visible={state.visible}
+          onOk={handleOk}
+          onCancel={handleCancel}
+        >
+          <div>
+            <span>姓名：</span>
+            <Input></Input>
+          </div>
+          <div>
+            <span>性别：</span>
+            <Input></Input>
+          </div>
+          <div>
+            <span>年龄：</span>
+            <Input></Input>
+          </div>
+          <div>
+            <span>职位：</span>
+            <Input></Input>
+          </div>
+        </Modal> */}
       </ul>
     </section>
   );
 };
-// class Index extends React.Component {
-//   constructor(props) {
-//     super(props);
-//     this.state = {
-//       imgUrl: "",
-//       imgShow: false,
-//       scrollHeight: 0,
-//     };
-//     this.handleScroll = this.handleScroll.bind(this);
-//   }
-//   render() {
-//     return (
-//       <section>
-//         <div className="header">
-//           <Header></Header>
-//         </div>
-//         <div className="banner">
-//           <div className="img_container">
-//             {this.state.imgShow ? (
-//               <img
-//                 src={this.state.imgUrl}
-//                 className="index_image"
-//                 id="scream"
-//                 alt=""
-//               />
-//             ) : null}
-//           </div>
-//         </div>
-//         <div className="content">
-//           <Demo />
-//         </div>
-//         <footer>
-//           <div className="foot-container">
-//             <ul>
-//               <li>不要哀求，学会争取，若是如此，终有所获。</li>
-//               <li>
-//                 <span
-//                   style={{
-//                     fontSize: "12px",
-//                   }}
-//                 >
-//                   本网站仅作为个人学习、经验分享以及其他非商业性或非盈利性用途使用。
-//                 </span>
-//               </li>
+const Header: FunctionComponent = () => {
+  return (
+    <div>
+      <section className="header_main_container">
+        <div className="header_left">
+          <div className="header_userName">橘皮果酱 </div>
+          <ul className="menu_container">
+            <li>
+              <a href=" ">首页</a>
+            </li>
+            <li>
+              <a href=" ">归档</a>
+            </li>
+            <li>
+              <a href=" ">标签</a>
+            </li>
+            <li>
+              <a href=" ">关于</a>
+            </li>
+          </ul>
+        </div>
+        <div className="header_right">
+          <Search className="input_search" placeholder="搜索"></Search>
+        </div>
+      </section>
+    </div>
+  );
+};
 
-//               <li>
-//                 <span>
-
-//                   Design by{" "}
-//                   <a
-//                     href="https://github.com/EurekaSeveN7"
-//                     target="_blank"
-//                     rel="noopener noreferrer"
-//                   >
-//                     EurekaSeveN7
-//                   </a>
-//                 </span>
-//               </li>
-
-//               <li>
-//                 2019-2020
-//                 <a
-//                   href="http://beian.miit.gov.cn"
-//                   target="_blank"
-//                   rel="noopener noreferrer"
-//                 >
-//                   蜀ICP备19040308号
-//                 </a>
-//               </li>
-//             </ul>
-//           </div>
-//         </footer>
-//       </section>
-//     );
-//   }
-//   handleScroll() {
-//     let scrollTop = document.documentElement.scrollTop; //滚动条滚动高度
-//     this.checkScrollHeight(scrollTop);
-//   }
-
-//   checkScrollHeight(e) {
-//     if (e > 600) {
-//       this.setState({
-//         imgShow: false,
-//       });
-//     } else {
-//       this.setState({
-//         imgShow: true,
-//       });
-//     }
-//   }
-
-//   getDailyImg() {
-//     axios.get("http://localhost:3080/getDailyImg").then((res) => {
-//       this.setState({
-//         // imgUrl: "http://www.bing.com/" + res.data.imgUrl,
-//         imgUrl: `http://www.bing.com/${res.data.imgUrl}`, //必应每日图片接口
-//         imgShow: true,
-//       });
-//       this.load();
-//     });
-//   }
-//   getAnimateImg() {
-//     axios.get("http://localhost:3080/getAnimateImg").then((res) => {
-//       this.setState({
-//         // imgUrl: "http://www.bing.com/" + res.data.imgUrl,
-//         imgUrl: `${res.data.imgUrl}`, //必应每日图片接口
-//         imgShow: true,
-//       });
-//       this.load();
-//     });
-//   }
-//   componentWillMount() {
-//     this.getDailyImg();
-//     // this.getAnimateImg();
-//   }
-//   componentDidMount() {
-//     window.addEventListener("scroll", this.handleScroll);
-//   }
-// }
-
-class Header extends React.Component {
+class Header1 extends React.Component {
   render() {
     return (
       <section className="header_main_container">

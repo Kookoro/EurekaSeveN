@@ -1,7 +1,7 @@
 import React from "react";
 import { Calendar } from "antd";
 
-function onPanelChange(value, mode) {
+function onPanelChange(value: any, mode: any) {
   console.log(value, mode);
 }
 

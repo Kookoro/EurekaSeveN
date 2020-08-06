@@ -9,21 +9,26 @@ import {
 } from "react-router-dom";
 import Auther from "./Author";
 import Header from "./Header";
-function UserGreeting(props) {
+
+function UserGreeting() {
   return <h1>欢迎回来！</h1>;
 }
 
-function GuestGreeting(props) {
+function GuestGreeting() {
   return <h1>请先登录</h1>;
 }
-function Greeting(props) {
+function Greeting(props: { isLoggedIn: any }) {
   const isLoggedIn = props.isLoggedIn;
   if (isLoggedIn) {
     return <UserGreeting />;
   }
   return <GuestGreeting />;
 }
-function LoginButton(props) {
+function LoginButton(props: {
+  onClick:
+    | ((event: React.MouseEvent<HTMLElement, MouseEvent>) => void)
+    | undefined;
+}) {
   return (
     <Button type="primary" onClick={props.onClick}>
       Login
@@ -37,7 +42,8 @@ function LogoutButton(props) {
     newVal: 1,
   });
   useEffect(() => {
-    document.querySelector(".titles").style.width = store.newVal * 20 + "px";
+    const target: any = document.querySelector(".titles");
+    target.style.width = store.newVal * 20 + "px";
   });
   function add() {
     setStore({ ...store, newVal: store.newVal + 1 });
@@ -76,21 +82,21 @@ function Counter(props) {
       : window.localStorage.getItem("count")
   );
   useEffect(() => {
-    window.localStorage.setItem("count", parseFloat(count)); // 插入 对象转字符串
+    window.localStorage.setItem("count", String(count)); // 插入 对象转字符串
   });
   return (
     <div>
       <p>You clicked {count} times</p>
       <Button
         onClick={() => {
-          setCount(parseFloat(count) + 1);
+          setCount(Number(count) + 1);
         }}
       >
         Click me
       </Button>
       <Button
         onClick={() => {
-          window.localStorage.setItem("count", 0); // 插入 对象转字符串
+          window.localStorage.setItem("count", "0"); // 插入 对象转字符串
           setCount(0);
         }}
       >
@@ -101,7 +107,8 @@ function Counter(props) {
 }
 
 class Storage {
-  constructor(name) {
+  name: string;
+  constructor() {
     this.name = "Storage";
   }
   setItem(params) {
@@ -111,7 +118,7 @@ class Storage {
       expires: "",
       startTime: new Date().getTime(), //记录何时将值存入缓存，毫秒级
     };
-    let options = {};
+    let options: any = {};
     //将obj与传入的params合并至option中;
     Object.assign(options, obj, params);
     //如果options.expires设置了的话
@@ -174,12 +181,11 @@ function getSt() {
   const value = storage.getItem("name");
   console.log("我是value", value);
 }
-class LoginControl extends React.Component {
+class LoginControl extends React.PureComponent<any, any> {
   constructor(props) {
     super(props);
     this.handleLoginClick = this.handleLoginClick.bind(this);
     this.handleLogoutClick = this.handleLogoutClick.bind(this);
-    this.storage = new Storage();
     this.state = {
       isLoggedIn: false,
       storage: {},

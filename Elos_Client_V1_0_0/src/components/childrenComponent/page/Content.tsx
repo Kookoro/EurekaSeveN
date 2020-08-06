@@ -6,7 +6,7 @@ const Content = (props) => {
   let history = useHistory();
   function handleClick() {
     history.push("/Article");
-    console.log('1');
+    console.log("1");
   }
   return (
     <div>

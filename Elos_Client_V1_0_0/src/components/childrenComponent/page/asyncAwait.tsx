@@ -120,8 +120,8 @@
  */
 import React from "react";
 
-class AsyncText extends React.Component<any,any> {
-  constructor(props) {
+class AsyncText extends React.Component<any, any> {
+  constructor(props: any) {
     super(props);
     this.state = {
       val: "hello async!",
@@ -129,12 +129,12 @@ class AsyncText extends React.Component<any,any> {
   }
 
   render() {
-    const result = this.asyncLearn();
+    const result: Promise<string> = this.asyncLearn();
     // async 函数返回的是一个 Promise 对象，所以在最外层不能用 await 获取其返回值的情况下，我们当然应该用原来的方式：then() 链来处理这个 Promise 对象，就像这样、
-    result.then((e) => {
+    result.then((e: string) => {
       console.log(e);
     });
-    this.returnHelloWorld().then((v) => console.log(v)); //helloworld
+    this.returnHelloWorld().then((v: string) => console.log(v)); //helloworld
 
     //async 内部抛出的错误会导致返回的Promise对象变为reject状态，
     return <div></div>;

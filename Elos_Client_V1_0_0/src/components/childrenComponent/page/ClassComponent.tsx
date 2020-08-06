@@ -7,12 +7,14 @@ import React from "react";
 //ps : 组件无论是使用函数声明还是class声明,都不能修改自身的props
 
 //react规定,所有React组件都必须保护其props不被更改 eg:
-
-function sum(a, b) {
+interface title {
+  name: string;
+}
+function sum(a: number, b: number) {
   return a + b; //纯函数,不会更改a,b的值,且多次调用返回相同结果
 }
 
-function sum2(title, name) {
+function sum2(title: title, name: string) {
   title.name += name; //该函数更改了其入参title
 }
 
@@ -132,7 +134,7 @@ class XXX extends React.component{
     */
 
 //React 生命周期方法
-class XXX extends React.Component<any,any> {
+class XXX extends React.Component<any, any> {
   constructor(props) {
     super(props);
     //属性
@@ -175,8 +177,10 @@ class XXX extends React.Component<any,any> {
   //销毁
   componentWillUnmount() {}
   //更新
-  
-  shouldComponentUpdate():any {}
+
+  shouldComponentUpdate(): boolean {
+    return true;
+  }
   componentWillUpdate() {} // 更新前
   componentDidUpdate() {} //更新后
   componentWillReceiveProps() {} //接受props前

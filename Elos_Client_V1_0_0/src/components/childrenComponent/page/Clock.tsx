@@ -1,13 +1,13 @@
-import React from 'react'
+import React from "react";
 import axios from "axios";
 import "../../../css/clock.css";
 import { Button } from "antd";
-class StdClock extends React.Component<any,any> {
+class StdClock extends React.Component<any, any> {
   timerID: any;
-  
+
   constructor(props) {
     super(props);
-    this.timerID = ''
+    this.timerID = "";
     this.state = {
       nowDate: "",
     };
@@ -39,11 +39,10 @@ class StdClock extends React.Component<any,any> {
   }
   componentWillUnmount() {
     clearInterval(this.timerID);
-   
   }
 }
-class Clock extends React.Component<any,any> {
-  stdClock:any
+class Clock extends React.Component<any, any> {
+  stdClock: any;
   constructor(props) {
     super(props);
     this.state = {
@@ -60,7 +59,7 @@ class Clock extends React.Component<any,any> {
     //会在组件已经被渲染到dom中后执行
     // this.timerID = setInterval(() => this.tick(), 1000);
   }
- 
+
   tick() {
     // this.setState({
     //     date: new Date(),

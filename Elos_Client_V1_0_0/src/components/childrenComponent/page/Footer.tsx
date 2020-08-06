@@ -10,7 +10,7 @@ const Footer = () => {
   useEffect(() => {
     // Update the document title using the browser API
     //Effect Hook 可以让你能够在 Function 组件中执行副作用（side effects）：
-    const box1:any = document.querySelector("#box1");
+    const box1: any = document.querySelector("#box1");
     box1.innerHTML = `You clicked ${count} times`;
   });
 

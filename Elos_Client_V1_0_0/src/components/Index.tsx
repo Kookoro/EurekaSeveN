@@ -5,8 +5,10 @@ import { Input, Button, Modal } from "antd";
 import Demo from "./childrenComponent/page/reacthooks/reacthooksLearn";
 import Dialog from "./homepage/Dialog";
 import { Select } from "antd";
+import HomePageCalendar from "./homepage/Calender";
 const { Search } = Input;
 const { Option } = Select;
+
 //进度条插件配置
 
 const Content = () => {
@@ -17,29 +19,43 @@ const Content = () => {
   return (
     <section className="main_index_container">
       <div className="user_info_container">
-        <div className="user_info_avatar_container">avatar</div>
+        <div>
+          <div className="user_info_avatar_container">
+            <img
+              src="https://avatars0.githubusercontent.com/u/42001218?s=460&u=a5f166860cc8ab4b2956197b590eb255b126387a&v=4"
+              alt=""
+            />
+          </div>
 
-        <span></span>
+          <span></span>
+        </div>
+        <div>
+          <HomePageCalendar />
+        </div>
       </div>
       <div className="main_content_container">
         content
         {/* <Tab type={value}></Tab> */}
-        <Button onClick={changeTab}>下一步</Button>
+        <Button onClick={changeTab}></Button>
       </div>
     </section>
   );
 };
 
 const Index2: FunctionComponent = () => {
+  const creed: string = "不要哀求，学会争取，若是如此，终有所获。";
+  const licence: string =
+    "本网站仅作个人学习、经验分享以及其他非商业性或非盈利性用途使用。";
+  const recordCode: string = "蜀ICP备19040308号";
   const [state, setState] = useState({
     imgShow: false,
   });
   const [imgUrl, setImgUrl] = useState<string>("");
   useEffect(() => {
-    const getUserMsg: Function = () => {
+    const getUserMsg: Function = (): void => {
       axios.get("");
     };
-    const getDailyImg: Function = () => {
+    const getDailyImg: Function = (): void => {
       // NProgress.start();
       axios.get("http://localhost:3080/getDailyImg").then((res) => {
         // NProgress.done();
@@ -72,7 +88,7 @@ const Index2: FunctionComponent = () => {
 
   //监听滚动条高度
   //控制图片显示
-  const checkScrollHeight: Function = (e: number) => {
+  const checkScrollHeight: Function = (e: number): void => {
     if (e > 600) {
       setState({
         ...state,
@@ -86,8 +102,8 @@ const Index2: FunctionComponent = () => {
     }
   };
   //滚动事件
-  const handleScroll = () => {
-    let scrollTop = document.documentElement.scrollTop; //滚动条滚动高度
+  const handleScroll = (): void => {
+    const scrollTop: number = document.documentElement.scrollTop; //滚动条滚动高度
     checkScrollHeight(scrollTop);
   };
 
@@ -97,7 +113,9 @@ const Index2: FunctionComponent = () => {
         <Header></Header>
       </div>
       <div className="banner">
-        <div className="banner_title_container">{/* <h1>交响诗篇</h1> */}</div>
+        <div className="banner_title_container">
+          <h1>TsuBaSa's Blog</h1>
+        </div>
         <div className="img_container">
           {state.imgShow ? (
             <img src={imgUrl} className="index_image" id="scream" alt="" />
@@ -105,21 +123,21 @@ const Index2: FunctionComponent = () => {
         </div>
       </div>
       <div className="content">
-        {/* <Content></Content> */}
-        <User></User>
+        <Content></Content>
+        {/* <User></User> */}
         {/* <User></User> */}
       </div>
       <footer>
         <div className="foot-container">
           <ul>
-            <li>不要哀求，学会争取，若是如此，终有所获。</li>
+            <li>{creed}</li>
             <li>
               <span
                 style={{
                   fontSize: "12px",
                 }}
               >
-                本网站仅作个人学习、经验分享以及其他非商业性或非盈利性用途使用。
+                {licence}
               </span>
             </li>
 
@@ -127,23 +145,24 @@ const Index2: FunctionComponent = () => {
               <span>
                 Design by{" "}
                 <a
-                  href="https://github.com/EurekaSeveN7"
+                  href="https://github.com/Tsu8sa"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  EurekaSeveN7
+                  Tsu8sa
                 </a>
               </span>
             </li>
 
             <li>
-              2019-2020
+              2019-{new Date().getFullYear()}
+              &nbsp;
               <a
                 href="http://beian.miit.gov.cn"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                蜀ICP备19040308号
+                {recordCode}
               </a>
             </li>
           </ul>
@@ -306,7 +325,7 @@ const Header: FunctionComponent = () => {
     <div>
       <section className="header_main_container">
         <div className="header_left">
-          <div className="header_userName">橘皮果酱 </div>
+          <span className="header_userName">TsuBaSa </span>
           <ul className="menu_container">
             <li>
               <a href=" ">首页</a>
@@ -320,10 +339,13 @@ const Header: FunctionComponent = () => {
             <li>
               <a href=" ">关于</a>
             </li>
+            <li>
+              <a href=" ">天气</a>
+            </li>
           </ul>
         </div>
         <div className="header_right">
-          <Search className="input_search" placeholder="搜索"></Search>
+          <Search className="input_search" placeholder="搜索文章"></Search>
         </div>
       </section>
     </div>
@@ -335,7 +357,7 @@ class Header1 extends React.Component {
     return (
       <section className="header_main_container">
         <div className="header_left">
-          <div className="header_userName">橘皮果酱 </div>
+          <div className="header_userName">TsuBaSa </div>
           <ul className="menu_container">
             <li>
               <a href=" ">首页</a>

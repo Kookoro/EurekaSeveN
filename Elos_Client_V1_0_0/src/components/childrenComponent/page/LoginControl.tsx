@@ -36,7 +36,11 @@ function LoginButton(props: {
   );
 }
 
-function LogoutButton(props) {
+function LogoutButton(props: {
+  onClick:
+    | ((event: React.MouseEvent<HTMLElement, MouseEvent>) => void)
+    | undefined;
+}) {
   const [store, setStore] = useState({
     val: 0,
     newVal: 1,
@@ -75,7 +79,7 @@ function LogoutButton(props) {
     </div>
   );
 }
-function Counter(props) {
+function Counter(props: any) {
   const [count, setCount] = useState(
     window.localStorage.getItem("count") === null
       ? 0
@@ -105,17 +109,22 @@ function Counter(props) {
     </div>
   );
 }
-
+interface Value {
+  name: string;
+  value: string;
+  expires: number;
+}
 class Storage {
   name: string;
   constructor() {
     this.name = "Storage";
   }
-  setItem(params) {
+
+  setItem(params: Value) {
     let obj = {
       name: "",
       value: "",
-      expires: "",
+      expires: "", //过期时间
       startTime: new Date().getTime(), //记录何时将值存入缓存，毫秒级
     };
     let options: any = {};
@@ -134,9 +143,9 @@ class Storage {
       localStorage.setItem(options.name, options.value);
     }
   }
-  getItem(name) {
+  getItem(name: string) {
     const value = localStorage.getItem(name);
-    let item;
+    let item: any;
     if (!value) {
       return "无数据";
     }
@@ -147,6 +156,7 @@ class Storage {
       item = value;
     }
     if (item.startTime) {
+      //如果有开始时间 取读取的时间
       const date = new Date().getTime();
       //何时将值取出减去刚存入的时间，与item.expires比较，如果大于就是过期了，如果小于或等于就还没过期
       if (date - item.startTime > item.expires) {
@@ -161,7 +171,7 @@ class Storage {
       return item;
     }
   }
-  removeItem(name) {
+  removeItem(name: string) {
     localStorage.removeItem(name);
   }
   clear() {
@@ -182,7 +192,7 @@ function getSt() {
   console.log("我是value", value);
 }
 class LoginControl extends React.PureComponent<any, any> {
-  constructor(props) {
+  constructor(props: any) {
     super(props);
     this.handleLoginClick = this.handleLoginClick.bind(this);
     this.handleLogoutClick = this.handleLogoutClick.bind(this);
@@ -218,9 +228,8 @@ class LoginControl extends React.PureComponent<any, any> {
   render() {
     const isLoggedIn = this.state.isLoggedIn;
     // function Cat(name) {}
-    const fn = () => {};
-    console.log(Object.prototype.toString.call(Function.prototype.__proto__));
-    console.log(fn.__proto__ === Function.prototype);
+    const fn: any = () => {};
+
     // const a = new Cat();
     // const two = new Object();
 
@@ -228,7 +237,7 @@ class LoginControl extends React.PureComponent<any, any> {
     // console.log("a:value", a.__proto__);
     // console.log("two:proto", two.__proto__);
     // console.log(Cat.prototype.__proto__.__proto__);
-    let button;
+    let button: JSX.Element;
     return (
       <div>
         <Counter name="parentSendMsg"></Counter>

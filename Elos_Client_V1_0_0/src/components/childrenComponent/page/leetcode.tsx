@@ -1,6 +1,6 @@
 import React from "react";
 import { Button, Input } from "antd";
-class LeetCode extends React.Component<any,any> {
+class LeetCode extends React.Component<any, any> {
   constructor(props) {
     super(props);
     this.state = {
@@ -11,9 +11,9 @@ class LeetCode extends React.Component<any,any> {
     };
     this.kidsWithCandies = this.kidsWithCandies.bind(this);
   }
-  kidsWithCandies(candies, extraCandies) {
+  kidsWithCandies(candies: string | any[], extraCandies: any) {
     //leetcode  https://leetcode-cn.com/problems/qiu-12n-lcof/
-    let result2:Array<boolean> =[],
+    let result2: Array<boolean> = [],
       status = false;
     for (let i = 0; i < candies.length; i++) {
       for (let j = 0; j < candies.length; j++) {

@@ -129,8 +129,8 @@ const HomePage = () => {
   //     // });
   //   };
 
-  const cloneDeep = (obj) => {
-    let result;
+  const cloneDeep = (obj: { [x: string]: any }) => {
+    let result: any;
     const type = Object.prototype.toString.call(obj);
     if (typeof obj === "object") {
       switch (type) {
@@ -180,7 +180,7 @@ const HomePage = () => {
   };
 
   const NBreadcrumb = React.forwardRef((props, ref) => {
-    return <NewBreadcrumb ref={ref}></NewBreadcrumb>;
+    return <NewBreadcrumb></NewBreadcrumb>;
   });
   // window.addEventListener("scroll", (e) => {
   //   const header = document.querySelector(".header");
@@ -190,7 +190,7 @@ const HomePage = () => {
   //     header.style.display = "flex";
   //   }
   // });
-  const backToTop = (e) => {
+  const backToTop = () => {
     document.body.scrollTop = 0;
     document.documentElement.scrollTop = 0;
   };
@@ -217,7 +217,7 @@ const HomePage = () => {
   //   NewBreadcrumb.getPath();
   // }
   document.body.onscroll = (e) => {
-    const menu = document.querySelector(".menu-container");
+    const menu: any = document.querySelector(".menu-container");
     if (window.scrollY > 150) {
       menu.style.position = "fixed";
       menu.style.top = "53px";
@@ -286,8 +286,8 @@ const HomePage = () => {
                 onClose={onClose}
                 visible={states.visible}
               >
-                <p>演示案例1</p>
-                <p>演示案例2</p>
+                <p>演示案例123</p>
+                <p>演示案例22</p>
                 <p>演示案例3</p>
                 <p>演示案例4</p>
                 <p>演示案例5</p>

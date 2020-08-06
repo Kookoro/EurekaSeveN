@@ -7,7 +7,7 @@ import React, {
 } from "react";
 import { Button } from "antd";
 
-const CountContext = createContext();
+const CountContext = createContext("");
 const Counter = () => {
   const context = useContext(CountContext);
   return (
@@ -83,7 +83,7 @@ const Demo = () => {
     <div>
       <h1>count:{count}</h1>
       <h1>weight:{weight}</h1>
-      <CountContext.Provider value={count}>
+      <CountContext.Provider value={String(count)}>
         <Counter></Counter>
       </CountContext.Provider>
       <ReducerDemo></ReducerDemo>

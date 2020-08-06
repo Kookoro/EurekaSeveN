@@ -4,8 +4,9 @@ import axios from "axios";
 import { Input, Button, Modal } from "antd";
 import Demo from "./childrenComponent/page/reacthooks/reacthooksLearn";
 import Dialog from "./homepage/Dialog";
+import { Select } from "antd";
 const { Search } = Input;
-
+const { Option } = Select;
 //进度条插件配置
 
 const Content = () => {

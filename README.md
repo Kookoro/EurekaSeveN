@@ -1,28 +1,35 @@
 # 个人博客
 
-
 # 前端技术栈:react with hooks react-router antd
 
 # 后端:node.js mongodb NestJS mongoose
 
+## 2020/08/07
+
+日历显示每日文章数据，类似 Github Commit 记录。
+
+## 2020/08/06
+
+首页重构完成
+
 ## 2020/07/30
 
-将前端项目更改为 TypeScript 语法
+将前端项目更改为 TypeScript 语法。
 
 ## 2020/07/29
 
-Express=>Nestjs 迁移打算
-遇到一个 Eslint 冲突的问题，卸载 Vscode 自带 Eslint 后解决
+Express=>Nestjs 迁移打算。
+遇到一个 Eslint 冲突的问题，卸载 Vscode 自带 Eslint 后解决。
 
 ## 2020/07/28
 
-TypeScript 迁移打算
-Express => Nestjs
-首页重构 计划中
+TypeScript 迁移打算。
+Express => Nestjs。
+首页重构 计划中。
 
 ## 2020/07/22
 
-mongoDB 数据库搭建起来
+mongoDB 数据库搭建起来。
 
 ## 2020/07/20
 

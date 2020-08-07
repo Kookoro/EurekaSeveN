@@ -24,7 +24,7 @@ const HomePageCalendar: FunctionComponent = () => {
 };
 
 const dateCellRender = (value) => {
-  const listData = [
+  const listData: Array<{ date: string; count: number }> = [
     {
       date: "2020-07-31",
       count: 1,

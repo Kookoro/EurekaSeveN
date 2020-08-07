@@ -43,12 +43,9 @@ const Content = () => {
 };
 
 const Index2: FunctionComponent = () => {
-  const creed: string = "不要哀求，学会争取，若是如此，终有所获。";
-  const licence: string =
-    "本网站仅作个人学习、经验分享以及其他非商业性或非盈利性用途使用。";
-  const recordCode: string = "蜀ICP备19040308号";
   const [state, setState] = useState({
     imgShow: false,
+    naviBarShow: false,
   });
   const [imgUrl, setImgUrl] = useState<string>("");
   useEffect(() => {
@@ -60,6 +57,7 @@ const Index2: FunctionComponent = () => {
       axios.get("http://localhost:3080/getDailyImg").then((res) => {
         // NProgress.done();
         setState({
+          ...state,
           // imgUrl: "http://www.bing.com/" + res.data.imgUrl,
           imgShow: true,
         });
@@ -71,7 +69,7 @@ const Index2: FunctionComponent = () => {
       axios.get("http://localhost:3080/getAnimateImg").then((res) => {
         setState({
           // imgUrl: "http://www.bing.com/" + res.data.imgUrl,
-
+          ...state,
           imgShow: true,
         });
         setImgUrl(`${res.data.imgUrl}`);
@@ -132,20 +130,20 @@ const Index2: FunctionComponent = () => {
       <footer>
         <div className="foot-container">
           <ul>
-            <li>{creed}</li>
+            <li>不要哀求，学会争取，若是如此，终有所获。</li>
             <li>
               <span
                 style={{
                   fontSize: "12px",
                 }}
               >
-                {licence}
+                本网站仅作个人学习、经验分享以及其他非商业性或非盈利性用途使用。
               </span>
             </li>
 
             <li>
               <span>
-                Design by{" "}
+                Created by{" "}
                 <a
                   href="https://github.com/Tsu8sa"
                   target="_blank"
@@ -164,7 +162,7 @@ const Index2: FunctionComponent = () => {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                {recordCode}
+                蜀ICP备19040308号
               </a>
             </li>
           </ul>
@@ -224,6 +222,7 @@ const User: FunctionComponent = () => {
       visible: false,
     });
   };
+
   return (
     <section>
       <ul>

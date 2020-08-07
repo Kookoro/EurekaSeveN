@@ -1,0 +1,26 @@
+//下划线颜色
+$markColor: #282a36;
+
+.calendar-mark-1 {
+  border-top: 2px solid rgba($color: $markColor, $alpha: 0.25);
+}
+.calendar-mark-2 {
+  border-top: 2px solid rgba($color: $markColor, $alpha: 0.5);
+}
+
+.calendar-mark-3 {
+  border-top: 2px solid rgba($color: $markColor, $alpha: 0.75);
+}
+
+.calendar-mark-4 {
+  border-top: 2px solid rgba($color: $markColor, $alpha: 1);
+}
+.calender-title {
+  height: 30px;
+  line-height: 30px;
+  background-color: #ffffff;
+  border-bottom: 1px solid#F0F0F0;
+  span {
+    margin: 0 10px;
+  }
+}

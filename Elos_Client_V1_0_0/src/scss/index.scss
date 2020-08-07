@@ -104,6 +104,9 @@ html {
       margin: auto 20px;
       width: 80px;
       font-size: 18px;
+      text-align: center;
+      background-color: black;
+      color: white;
     }
     .menu_container {
       display: flex;
@@ -135,7 +138,7 @@ html {
   margin-top: 500px;
   z-index: 2;
   background-color: white;
-  box-shadow: 0 1px 3px rgba(26, 26, 26, 0.1);
+  // box-shadow: 0 1px 3px rgba(26, 26, 26, 0.1);
 }
 //图
 .banner {
@@ -193,13 +196,16 @@ html {
   }
   .user_info_container {
     width: 260px;
-    height: 400px;
+    height: 330px;
     background-color: white;
     margin-right: 10px;
     border-radius: 6px; //头像外框圆角
     box-shadow: 0 1px 3px rgba(26, 26, 26, 0.1);
     position: sticky;
     top: 70px;
+    .user_info_total_container {
+      height: 100%;
+    }
     .user_info_avatar_container {
       width: 170px;
       height: 170px;

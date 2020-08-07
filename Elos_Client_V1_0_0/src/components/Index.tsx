@@ -1,15 +1,10 @@
-import React, { useEffect, useState, FunctionComponent, Props } from "react";
+import React, { useEffect, useState, FunctionComponent } from "react";
 import "../scss/index.scss";
 import axios from "axios";
-import { Input, Button, Modal } from "antd";
-import Demo from "./childrenComponent/page/reacthooks/reacthooksLearn";
+import { Input, Button } from "antd";
 import Dialog from "./homepage/Dialog";
-import { Select } from "antd";
 import HomePageCalendar from "./homepage/Calender";
 const { Search } = Input;
-const { Option } = Select;
-
-//进度条插件配置
 
 const Content = () => {
   let [value, setValue] = useState<number>(1);
@@ -53,9 +48,7 @@ const Index2: FunctionComponent = () => {
       axios.get("");
     };
     const getDailyImg: Function = (): void => {
-      // NProgress.start();
       axios.get("http://localhost:3080/getDailyImg").then((res) => {
-        // NProgress.done();
         setState({
           ...state,
           // imgUrl: "http://www.bing.com/" + res.data.imgUrl,
@@ -65,7 +58,7 @@ const Index2: FunctionComponent = () => {
       });
     };
 
-    const getAnimateImg = () => {
+    const getAnimateImg = (): void => {
       axios.get("http://localhost:3080/getAnimateImg").then((res) => {
         setState({
           // imgUrl: "http://www.bing.com/" + res.data.imgUrl,
@@ -76,8 +69,11 @@ const Index2: FunctionComponent = () => {
       });
     };
     //componentWillMount
+
     // getAnimateImg();
-    getDailyImg();
+
+    getDailyImg(); //请求必应每日图片
+
     window.addEventListener("scroll", handleScroll);
     return () => {
       window.removeEventListener("scroll", handleScroll);

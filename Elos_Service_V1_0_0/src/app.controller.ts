@@ -18,6 +18,7 @@ export class AppController {
     // console.log('ok');
     return this.appService.getUserMsg();
   }
+  
   @Get('xss')
   createXssAttack(@Req() request: Request): any {
     return {

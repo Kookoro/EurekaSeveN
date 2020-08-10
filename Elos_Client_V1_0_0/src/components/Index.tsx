@@ -47,6 +47,7 @@ const Index2: FunctionComponent = () => {
     const getUserMsg: Function = (): void => {
       axios.get("");
     };
+
     const getDailyImg: Function = (): void => {
       axios.get("http://localhost:3080/getDailyImg").then((res) => {
         setState({

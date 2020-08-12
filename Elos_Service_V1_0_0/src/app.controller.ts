@@ -27,6 +27,7 @@ export class AppController {
   }
   @Get('id')
   getUserId(){
+    
     return {
       user:'123'
     }

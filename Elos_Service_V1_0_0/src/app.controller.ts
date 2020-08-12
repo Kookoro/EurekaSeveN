@@ -25,4 +25,10 @@ export class AppController {
       img: `<img onerror="alert('attacked!!!11')">`,
     };
   }
+  @Get('id')
+  getUserId(){
+    return {
+      user:'123'
+    }
+  }
 }

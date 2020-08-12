@@ -1,8 +1,8 @@
 # 个人博客
 
-# 前端技术栈:react with hooks react-router antd
+# 前端技术栈:React Hooks React-router antd TypeScript
 
-# 后端:node.js mongodb NestJS mongoose
+# 后端:Node.js MongoDB NestJS Mongoose
 
 ## 2020/08/07
 

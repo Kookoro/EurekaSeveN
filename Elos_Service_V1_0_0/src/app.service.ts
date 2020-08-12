@@ -12,4 +12,9 @@ export class AppService {
       name: 'linlin',
     };
   }
+  getUserId(){
+    return {
+      user:'2'
+    }
+  }
 }

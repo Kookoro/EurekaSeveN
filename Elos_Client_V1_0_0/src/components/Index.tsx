@@ -1,4 +1,4 @@
-import React, { useEffect, useState, FunctionComponent } from "react";
+import React, { useEffect, useState, FunctionComponent,  } from "react";
 import "../scss/index.scss";
 import axios from "axios";
 import { Input, Button } from "antd";
@@ -8,15 +8,20 @@ const { Search } = Input;
 
 const Content = () => {
   let [value, setValue] = useState<number>(1);
-  const changeTab = () => {
+  const changeTab = ():void => {
     setValue(++value);
   };
+  const sayParentFn = (value:string): void => {
+    console.log("调用了父组件方法"+value);
+  };
+  const ref = React.createRef();
+  
   return (
-    <section className="main_index_container">
+    <section  className="main_index_container">
       <div className="user_info_container">
         <div className="user_info_total_container">
           <div className="user_info_avatar_container">
-            <img
+            <img 
               src="https://avatars0.githubusercontent.com/u/42001218?s=460&u=a5f166860cc8ab4b2956197b590eb255b126387a&v=4"
               alt=""
             />
@@ -25,13 +30,18 @@ const Content = () => {
           <span></span>
         </div>
         <div>
-          <HomePageCalendar />
+          <HomePageCalendar ref={ref} sayParentFn={sayParentFn} />
         </div>
       </div>
       <div className="main_content_container">
         content
+        <Button onClick={()=>{
+          console.log(ref)
+        }}>
+          父组件调用子组件
+        </Button>
         {/* <Tab type={value}></Tab> */}
-        <Button onClick={changeTab}></Button>
+        {/* <Button onClick={changeTab}></Button> */}
       </div>
     </section>
   );

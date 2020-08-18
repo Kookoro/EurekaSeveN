@@ -14,6 +14,7 @@ app.all("*", (req, res, next) => {
   res.header("Access-Control-Allow-Headers", "Content-Type");
   res.header("Access-Control-Allow-Methods", "*");
   res.header("Content-Type", "application/json;charset=utf-8");
+  res.header("Set-Cookie", "HttpOnly;Secure;SameSite=Strict");
   next();
 });
 // view engine setup

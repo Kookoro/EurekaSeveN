@@ -2,15 +2,20 @@ import React, { FunctionComponent, ReactNode } from "react";
 import { Calendar } from "antd";
 import localeCN from "antd/lib/calendar/locale/zh_CN.js";
 import "../../scss/calender.scss";
-const HomePageCalendar: FunctionComponent = () => {
+const HomePageCalendar = (props) => {
   const onPanelChange = (value, mode) => {
     console.log(value, mode);
   };
+  const childFn = ()=>{
+    
+  }
   return (
     <section>
       <div className="site-calendar-demo-card">
         <div className="calender-title">
-          <span>共0篇文章</span>
+          <span onClick={()=>{
+            props.sayParentFn('子组件参数')
+          }}>共0篇文章</span>
         </div>
         <Calendar
           locale={localeCN}

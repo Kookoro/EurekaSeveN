@@ -1,6 +1,6 @@
 import React, { useEffect, useState, FunctionComponent } from "react";
 import "../scss/index.scss";
-import axios from "axios";
+import axios, { AxiosResponse } from "axios";
 import { Input, Button } from "antd";
 import Dialog from "./homepage/Dialog";
 import HomePageCalendar from "./homepage/Calender";
@@ -61,25 +61,29 @@ const Index2: FunctionComponent = () => {
     };
 
     const getDailyImg: Function = (): void => {
-      axios.get("http://localhost:3080/getDailyImg").then((res) => {
-        setState({
-          ...state,
-          // imgUrl: "http://www.bing.com/" + res.data.imgUrl,
-          imgShow: true,
+      axios
+        .get("http://localhost:3080/getDailyImg")
+        .then((res: AxiosResponse) => {
+          setState({
+            ...state,
+            // imgUrl: "http://www.bing.com/" + res.data.imgUrl,
+            imgShow: true,
+          });
+          setImgUrl(`http://www.bing.com/${res.data.imgUrl}`); //必应每日图片接口)
         });
-        setImgUrl(`http://www.bing.com/${res.data.imgUrl}`); //必应每日图片接口)
-      });
     };
 
     const getAnimateImg = (): void => {
-      axios.get("http://localhost:3080/getAnimateImg").then((res) => {
-        setState({
-          // imgUrl: "http://www.bing.com/" + res.data.imgUrl,
-          ...state,
-          imgShow: true,
+      axios
+        .get("http://localhost:3080/getAnimateImg")
+        .then((res: AxiosResponse) => {
+          setState({
+            // imgUrl: "http://www.bing.com/" + res.data.imgUrl,
+            ...state,
+            imgShow: true,
+          });
+          setImgUrl(`${res.data.imgUrl}`);
         });
-        setImgUrl(`${res.data.imgUrl}`);
-      });
     };
     //componentWillMount
 

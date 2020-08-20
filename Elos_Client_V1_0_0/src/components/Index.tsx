@@ -1,4 +1,4 @@
-import React, { useEffect, useState, FunctionComponent,  } from "react";
+import React, { useEffect, useState, FunctionComponent } from "react";
 import "../scss/index.scss";
 import axios from "axios";
 import { Input, Button } from "antd";
@@ -8,20 +8,20 @@ const { Search } = Input;
 
 const Content = () => {
   let [value, setValue] = useState<number>(1);
-  const changeTab = ():void => {
+  const changeTab = (): void => {
     setValue(++value);
   };
-  const sayParentFn = (value:string): void => {
-    console.log("调用了父组件方法"+value);
+  const sayParentFn = (value: string): void => {
+    console.log("调用了父组件方法" + value);
   };
   const ref = React.createRef();
-  
+
   return (
-    <section  className="main_index_container">
+    <section className="main_index_container">
       <div className="user_info_container">
         <div className="user_info_total_container">
           <div className="user_info_avatar_container">
-            <img 
+            <img
               src="https://avatars0.githubusercontent.com/u/42001218?s=460&u=a5f166860cc8ab4b2956197b590eb255b126387a&v=4"
               alt=""
             />
@@ -35,9 +35,11 @@ const Content = () => {
       </div>
       <div className="main_content_container">
         content
-        <Button onClick={()=>{
-          console.log(ref)
-        }}>
+        <Button
+          onClick={() => {
+            console.log(ref);
+          }}
+        >
           父组件调用子组件
         </Button>
         {/* <Tab type={value}></Tab> */}
@@ -295,35 +297,8 @@ const User: FunctionComponent = () => {
             }}
           />
         </li>
-        {/* <Button onClick={postMessage}>注册</Button> */}
         <Button onClick={showModel}>注册</Button>
         <Dialog state={state}></Dialog>
-        {/* <Modal
-          centered
-          title="个人信息"
-          okText="保存"
-          cancelText="取消"
-          visible={state.visible}
-          onOk={handleOk}
-          onCancel={handleCancel}
-        >
-          <div>
-            <span>姓名：</span>
-            <Input></Input>
-          </div>
-          <div>
-            <span>性别：</span>
-            <Input></Input>
-          </div>
-          <div>
-            <span>年龄：</span>
-            <Input></Input>
-          </div>
-          <div>
-            <span>职位：</span>
-            <Input></Input>
-          </div>
-        </Modal> */}
       </ul>
     </section>
   );

@@ -19,7 +19,7 @@ const { Search } = Input;
 }
 
 ReactDOM.render(<APP />, document.getElementById("root"));
-====================================================               
+================================================              
 会被babel编译成
 function App() {
   return React.createElement(

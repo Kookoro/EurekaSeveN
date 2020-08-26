@@ -11,7 +11,6 @@ function NewCalendar() {
       <div className="site-calendar-demo-card">
         <Calendar fullscreen={false} onPanelChange={onPanelChange} />
       </div>
-      ,
     </div>
   );
 }

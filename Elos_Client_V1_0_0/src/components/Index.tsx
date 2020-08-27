@@ -1,8 +1,9 @@
-import React, { useEffect, useState, FunctionComponent } from "react";
+import React, { useEffect, useState, FunctionComponent, useRef } from "react";
 import "../scss/index.scss";
 import axios, { AxiosResponse } from "axios";
 import { Input, Button } from "antd";
 import Dialog from "./homepage/Dialog";
+import ChildComp from "./childrenComponent/page/reacthooks/useImperativeHandle";
 import HomePageCalendar from "./homepage/Calender";
 const { Search } = Input;
 
@@ -15,7 +16,10 @@ const Content = () => {
     console.log("调用了父组件方法" + value);
   };
   const ref = React.createRef();
-
+  const childRef: any = useRef();
+  const updateChildValue = () => {
+    childRef.current.changeVal(99);
+  };
   return (
     <section className="main_index_container">
       <div className="user_info_container">
@@ -35,6 +39,8 @@ const Content = () => {
       </div>
       <div className="main_content_container">
         content
+        <ChildComp ref={childRef}></ChildComp>
+        <Button onClick={updateChildValue}>useRef</Button>
         <Button
           onClick={() => {
             console.log(ref);
@@ -50,7 +56,11 @@ const Content = () => {
 };
 
 const Index2: FunctionComponent = () => {
-  const [state, setState] = useState({
+  interface ImgState {
+    imgShow: boolean;
+    naviBarShow: boolean;
+  }
+  const [state, setState] = useState<ImgState>({
     imgShow: false,
     naviBarShow: false,
   });
@@ -89,8 +99,28 @@ const Index2: FunctionComponent = () => {
 
     // getAnimateImg();
 
-    getDailyImg(); //请求必应每日图片
+    const checkScrollHeight: Function = (e: number): void => {
+      if (e > 600) {
+        setState({
+          ...state,
+          imgShow: false,
+        });
+      } else {
+        setState({
+          ...state,
+          imgShow: true,
+        });
+      }
+      if (e > 300) {
+      }
+    };
 
+    getDailyImg(); //请求必应每日图片
+    //滚动事件
+    const handleScroll = (): void => {
+      const scrollTop: number = document.documentElement.scrollTop; //滚动条滚动高度
+      checkScrollHeight(scrollTop);
+    };
     window.addEventListener("scroll", handleScroll);
     return () => {
       window.removeEventListener("scroll", handleScroll);
@@ -99,26 +129,6 @@ const Index2: FunctionComponent = () => {
 
   //监听滚动条高度
   //控制图片显示
-  const checkScrollHeight: Function = (e: number): void => {
-    if (e > 600) {
-      setState({
-        ...state,
-        imgShow: false,
-      });
-    } else {
-      setState({
-        ...state,
-        imgShow: true,
-      });
-    }
-    if (e > 300) {
-    }
-  };
-  //滚动事件
-  const handleScroll = (): void => {
-    const scrollTop: number = document.documentElement.scrollTop; //滚动条滚动高度
-    checkScrollHeight(scrollTop);
-  };
 
   return (
     <section>

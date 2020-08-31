@@ -20,6 +20,15 @@ const Content = () => {
   const updateChildValue = () => {
     childRef.current.changeVal(99);
   };
+  const getMsg = () => {
+    axios
+      .get(
+        "http://192.168.1.202:12030/I9ATTAPI/API/v1/att_QueryPeriodByDate?date=2020-01-06&offset=3"
+      )
+      .then((res: AxiosResponse) => {
+        console.log(res);
+      });
+  };
   return (
     <section className="main_index_container">
       <div className="user_info_container">
@@ -48,6 +57,7 @@ const Content = () => {
         >
           父组件调用子组件
         </Button>
+        <Button onClick={getMsg}>click</Button>
         {/* <Tab type={value}></Tab> */}
         {/* <Button onClick={changeTab}></Button> */}
       </div>
@@ -65,6 +75,7 @@ const Index2: FunctionComponent = () => {
     naviBarShow: false,
   });
   const [imgUrl, setImgUrl] = useState<string>("");
+
   useEffect(() => {
     const getUserMsg: Function = (): void => {
       axios.get("");
@@ -147,6 +158,7 @@ const Index2: FunctionComponent = () => {
       </div>
       <div className="content">
         <Content></Content>
+
         {/* <User></User> */}
         {/* <User></User> */}
       </div>

@@ -9,7 +9,7 @@ const Footer = () => {
   // 类似于 componentDidMount 和 ComponentDidUpdate
   useEffect(() => {
     // Update the document title using the browser API
-    //Effect Hook 可以让你能够在 Function 组件中执行副作用（side effects）：
+    //Effect Hook 可以让你能够在 Function 组件中执行副作用（side effects）：如
     const box1: any = document.querySelector("#box1");
     box1.innerHTML = `You clicked ${count} times`;
   });
@@ -20,7 +20,7 @@ const Footer = () => {
   */
   return (
     <div>
-      <div> react 双向数据绑定 </div>{" "}
+      <div> react 双向数据绑定 </div>
       <Input
         placeholder="请输入"
         onChange={(e) => {
@@ -28,14 +28,13 @@ const Footer = () => {
             value: e.target.value,
           });
         }}
-      />{" "}
+      />
       <Button
         onClick={() => {
           setCount(count + 20);
         }}
       >
-        {" "}
-        点击{" "}
+        点击
       </Button>
       <h1> {state.value} </h1> <h1> 你点击了{count}次 </h1>
       <div

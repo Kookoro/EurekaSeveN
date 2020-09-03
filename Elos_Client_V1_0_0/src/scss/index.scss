@@ -32,7 +32,7 @@ td {
 }
 
 #nprogress .bar {
-  background: #62d9fb !important; //自定义颜色
+  background: #000000 !important; //自定义颜色
 }
 
 $white: #f9f9f9;
@@ -190,7 +190,7 @@ html {
   background-color: $white;
   padding-top: 10px;
   .main_content_container {
-    width: 730px;
+    width: 770px;
     height: 100%;
     background-color: white;
     box-shadow: 0 1px 3px rgba(26, 26, 26, 0.1);

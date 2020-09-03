@@ -5,8 +5,8 @@ import { Input, Button } from "antd";
 import Dialog from "./homepage/Dialog";
 import ChildComp from "./childrenComponent/page/reacthooks/useImperativeHandle";
 import HomePageCalendar from "./homepage/Calender";
+import MenuBars from "./homepage/MenuBars";
 const { Search } = Input;
-
 const Content = () => {
   let [value, setValue] = useState<number>(1);
   const changeTab = (): void => {
@@ -31,7 +31,6 @@ const Content = () => {
               alt=""
             />
           </div>
-
           <span></span>
         </div>
         <div>
@@ -42,13 +41,7 @@ const Content = () => {
         content
         <ChildComp ref={childRef}></ChildComp>
         <Button onClick={updateChildValue}>useRef</Button>
-        <Button
-          onClick={() => {
-            console.log(ref);
-          }}
-        >
-          父组件调用子组件
-        </Button>
+        <Button onClick={() => {}}>父组件调用子组件</Button>
         {/* <Tab type={value}></Tab> */}
         {/* <Button onClick={changeTab}></Button> */}
       </div>
@@ -326,7 +319,7 @@ const Header: FunctionComponent = () => {
       <section className="header_main_container">
         <div className="header_left">
           <span className="header_userName">TsuBaSa </span>
-          <ul className="menu_container">
+          {/* <ul className="menu_container">
             <li>
               <a href=" ">首页</a>
             </li>
@@ -342,7 +335,8 @@ const Header: FunctionComponent = () => {
             <li>
               <a href=" ">天气</a>
             </li>
-          </ul>
+          </ul> */}
+          <MenuBars></MenuBars>
         </div>
         <div className="header_right">
           <Search className="input_search" placeholder="搜索文章"></Search>
@@ -351,35 +345,6 @@ const Header: FunctionComponent = () => {
     </div>
   );
 };
-
-class Header1 extends React.Component {
-  render() {
-    return (
-      <section className="header_main_container">
-        <div className="header_left">
-          <div className="header_userName">TsuBaSa </div>
-          <ul className="menu_container">
-            <li>
-              <a href=" ">首页</a>
-            </li>
-            <li>
-              <a href=" ">归档</a>
-            </li>
-            <li>
-              <a href=" ">标签</a>
-            </li>
-            <li>
-              <a href=" ">关于</a>
-            </li>
-          </ul>
-        </div>
-        <div className="header_right">
-          <Search className="input_search" placeholder="搜索"></Search>
-        </div>
-      </section>
-    );
-  }
-}
 
 const Tab = (props: any) => {
   const e = props;

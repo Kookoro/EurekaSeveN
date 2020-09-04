@@ -2,7 +2,10 @@ import React, { FunctionComponent, ReactNode } from "react";
 import { Calendar } from "antd";
 import localeCN from "antd/lib/calendar/locale/zh_CN.js";
 import "../../scss/calender.scss";
-const HomePageCalendar = (props) => {
+const HomePageCalendar = (props: {
+  sayParentFn: (arg0: string) => void;
+  ref: unknown;
+}) => {
   const onPanelChange = (value, mode) => {};
   const childFn = () => {};
   return (
@@ -28,7 +31,7 @@ const HomePageCalendar = (props) => {
   );
 };
 
-const dateCellRender = (value) => {
+const dateCellRender = (value: { format: (arg0: string) => string }) => {
   const listData: Array<{ date: string; count: number }> = [
     {
       date: "2020-07-31",

@@ -4,7 +4,7 @@ import localeCN from "antd/lib/calendar/locale/zh_CN.js";
 import "../../scss/calender.scss";
 const HomePageCalendar = (props: {
   sayParentFn: (arg0: string) => void;
-  ref: unknown;
+  sref: unknown;
 }) => {
   const onPanelChange = (value, mode) => {};
   const childFn = () => {};

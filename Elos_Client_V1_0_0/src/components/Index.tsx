@@ -3,7 +3,6 @@ import "../scss/index.scss";
 import axios, { AxiosResponse } from "axios";
 import { Input, Button } from "antd";
 import Dialog from "./homepage/Dialog";
-import ChildComp from "./childrenComponent/page/reacthooks/useImperativeHandle";
 import HomePageCalendar from "./homepage/Calender";
 import MenuBars from "./homepage/MenuBars";
 const { Search } = Input;
@@ -20,7 +19,13 @@ const Content = () => {
   const updateChildValue = () => {
     childRef.current.changeVal(99);
   };
-
+  const scrollToTop = () => {
+    const c = document.documentElement.scrollTop || document.body.scrollTop;
+    if (c > 0) {
+      window.requestAnimationFrame(scrollToTop);
+      window.scrollTo(0, c - c / 8);
+    }
+  };
   return (
     <section className="main_index_container">
       <div className="user_info_container">
@@ -29,17 +34,17 @@ const Content = () => {
             <img
               src="https://avatars0.githubusercontent.com/u/42001218?s=460&u=a5f166860cc8ab4b2956197b590eb255b126387a&v=4"
               alt=""
+              onClick={scrollToTop}
             />
           </div>
           <span></span>
         </div>
         <div>
-          <HomePageCalendar ref={ref} sayParentFn={sayParentFn} />
+          <HomePageCalendar sref={ref} sayParentFn={sayParentFn} />
         </div>
       </div>
       <div className="main_content_container">
         content
-        <ChildComp ref={childRef}></ChildComp>
         <Button onClick={updateChildValue}>useRef</Button>
         <Button onClick={() => {}}>父组件调用子组件</Button>
         {/* <Tab type={value}></Tab> */}

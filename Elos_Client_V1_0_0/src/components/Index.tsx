@@ -313,23 +313,6 @@ const Header: FunctionComponent = () => {
       <section className="header_main_container">
         <div className="header_left">
           <span className="header_userName">TsuBaSa </span>
-          {/* <ul className="menu_container">
-            <li>
-              <a href=" ">首页</a>
-            </li>
-            <li>
-              <a href=" ">归档</a>
-            </li>
-            <li>
-              <a href=" ">标签</a>
-            </li>
-            <li>
-              <a href=" ">关于</a>
-            </li>
-            <li>
-              <a href=" ">天气</a>
-            </li>
-          </ul> */}
           <MenuBars></MenuBars>
         </div>
         <div className="header_right">

@@ -221,18 +221,10 @@ const User: FunctionComponent = () => {
       [attr]: value,
     });
   };
-  const postMessage = () => {
-    axios.post("http://localhost:3080/addUserMsg", userInfo).then((res) => {
-      console.log(res);
-    });
-  };
   const getMessage = () => {
     axios.get("http://localhost:3080/getUserMsg", {}).then((res) => {
       console.log(res);
     });
-  };
-  const test = () => {
-    axios.post("http://192.168.1.124:8443/api/login", {});
   };
   useEffect(() => {
     getMessage();
@@ -241,18 +233,6 @@ const User: FunctionComponent = () => {
   const showModel = () => {
     setstate({
       visible: true,
-    });
-  };
-  const handleOk = (e: any) => {
-    console.log(e);
-    setstate({
-      visible: false,
-    });
-  };
-  const handleCancel = (e: any) => {
-    console.log(e);
-    setstate({
-      visible: false,
     });
   };
 

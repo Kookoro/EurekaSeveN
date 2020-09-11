@@ -5,6 +5,7 @@ import { Input, Button } from "antd";
 import Dialog from "./homepage/Dialog";
 import HomePageCalendar from "./homepage/Calender";
 import MenuBars from "./homepage/MenuBars";
+import ToolBar from "./homepage/ToolBar";
 const { Search } = Input;
 const Content = () => {
   let [value, setValue] = useState<number>(1);
@@ -154,9 +155,7 @@ const Index2: FunctionComponent = () => {
       </div>
       <div className="content">
         <Content></Content>
-
-        {/* <User></User> */}
-        {/* <User></User> */}
+        <ToolBar></ToolBar>
       </div>
       <footer>
         <div className="foot-container">

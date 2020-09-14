@@ -1,5 +1,5 @@
 import React, { useEffect, useState, FunctionComponent, useRef } from "react";
-import "../scss/index.scss";
+import "../style/index.scss";
 import axios, { AxiosResponse } from "axios";
 import { Input, Button } from "antd";
 import Dialog from "./homepage/Dialog";

@@ -1,6 +1,6 @@
 import React from "react";
 import { Menu } from "antd";
-import "../../scss/homepage/menuBar.scss";
+import "../../style/homepage/menuBar.scss";
 const MenuBar = () => {
   return (
     <div>

@@ -7,7 +7,6 @@ const HomePageCalendar = (props: {
   sref: unknown;
 }) => {
   const onPanelChange = (value, mode) => {};
-  const childFn = () => {};
   return (
     <section>
       <div className="site-calendar-demo-card">

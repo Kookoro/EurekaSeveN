@@ -55,8 +55,6 @@ const Content = () => {
         content
         <Button onClick={updateChildValue}>useRef</Button>
         <Button onClick={() => {}}>父组件调用子组件</Button>
-        {/* <Tab type={value}></Tab> */}
-        {/* <Button onClick={changeTab}></Button> */}
       </div>
     </section>
   );
@@ -74,11 +72,11 @@ const Index2: FunctionComponent = () => {
   const [imgUrl, setImgUrl] = useState<string>("");
 
   useEffect(() => {
-    const getUserMsg: Function = (): void => {
+    const getUserMsg = (): void => {
       axios.get("");
     };
 
-    const getDailyImg: Function = (): void => {
+    const getDailyImg = (): void => {
       axios
         .get("http://localhost:3080/getDailyImg")
         .then((res: AxiosResponse) => {
@@ -107,7 +105,7 @@ const Index2: FunctionComponent = () => {
 
     // getAnimateImg();
 
-    const checkScrollHeight: Function = (e: number): void => {
+    const checkScrollHeight = (e: number): void => {
       if (e > 600) {
         setState({
           ...state,
@@ -312,7 +310,9 @@ const Header: FunctionComponent = () => {
       <section className="header_main_container">
         <div className="header_left">
           <span className="header_userName">TsuBaSa </span>
-          <MenuBars></MenuBars>
+          <MenuBars>
+            <Button>你好</Button>
+          </MenuBars>
         </div>
         <div className="header_right">
           <Search className="input_search" placeholder="搜索文章"></Search>

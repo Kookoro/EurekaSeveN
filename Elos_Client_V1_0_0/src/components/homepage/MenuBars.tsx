@@ -1,7 +1,14 @@
 import React from "react";
 import { Menu } from "antd";
 import "../../style/homepage/menuBar.scss";
-const MenuBar = () => {
+import { ReactNode } from "react";
+
+interface MenuBar {
+  className?: string;
+  children: ReactNode; //接受一个父组件传过来的组件
+}
+
+const MenuBar: React.FC<MenuBar> = (props: MenuBar) => {
   return (
     <div>
       <Menu mode="horizontal" defaultSelectedKeys={["1"]}>

@@ -322,32 +322,4 @@ const Header: FunctionComponent = () => {
   );
 };
 
-const Tab = (props: any) => {
-  const e = props;
-  return (
-    <div>
-      {e.type === "1" ? (
-        <div
-          style={{ width: "100px", height: "100px", backgroundColor: "red" }}
-        ></div>
-      ) : null}
-      {e.type === "2" ? (
-        <div
-          style={{ width: "100px", height: "100px", backgroundColor: "blue" }}
-        ></div>
-      ) : null}
-      {e.type === "3" ? (
-        <div
-          style={{ width: "100px", height: "100px", backgroundColor: "black" }}
-        ></div>
-      ) : null}
-      {e.type === "4" ? (
-        <div
-          style={{ width: "100px", height: "100px", backgroundColor: "yellow" }}
-        ></div>
-      ) : null}
-    </div>
-  );
-};
-
 export default Index2;

@@ -22,7 +22,6 @@ const Content = () => {
   };
   const scrollToTop = () => {
     const c = document.documentElement.scrollTop || document.body.scrollTop;
-
     const speed = 4; //动画速度 越小越快
 
     if (c > 0) {

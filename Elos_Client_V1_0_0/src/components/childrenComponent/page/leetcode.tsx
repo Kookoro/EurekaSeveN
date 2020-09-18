@@ -1,6 +1,6 @@
 import React from "react";
 import { Button, Input } from "antd";
-class LeetCode extends React.Component<any, any> {
+class LeetCode extends React.Component<number, any> {
   constructor(props) {
     super(props);
     this.state = {

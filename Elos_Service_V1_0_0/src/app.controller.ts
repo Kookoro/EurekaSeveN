@@ -11,14 +11,12 @@ export class AppController {
     return this.appService.getHello();
   }
 
-
-
   @Get('user')
   getUserMsg(): object {
     // console.log('ok');
     return this.appService.getUserMsg();
   }
-  
+
   @Get('xss')
   createXssAttack(@Req() request: Request): any {
     return {
@@ -26,10 +24,9 @@ export class AppController {
     };
   }
   @Get('id')
-  getUserId(){
-    
+  getUserId() {
     return {
-      user:'123'
-    }
+      user: '123',
+    };
   }
 }

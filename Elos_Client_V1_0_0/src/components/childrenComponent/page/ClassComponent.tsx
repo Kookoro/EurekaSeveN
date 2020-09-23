@@ -172,7 +172,7 @@ class XXX extends React.Component<any, any> {
    * }
    *
    */
-  componentWillMount() {}
+  componentWillMount() {} //即将弃用
   componentDidMount() {}
   //销毁
   componentWillUnmount() {}
@@ -181,7 +181,7 @@ class XXX extends React.Component<any, any> {
   shouldComponentUpdate(): boolean {
     return true;
   }
-  componentWillUpdate() {} // 更新前
+  componentWillUpdate() {} // 更新前 即将弃用
   componentDidUpdate() {} //更新后
   componentWillReceiveProps() {} //接受props前
   render() {

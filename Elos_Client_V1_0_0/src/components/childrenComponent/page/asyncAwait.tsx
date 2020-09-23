@@ -12,6 +12,7 @@
  * async await异步编程终极解决方案  对比promise .then
  *
  * async ====“异步”
+ * 
  * await(async wait )[可以翻译成异步等待？ ]
  *
  * async 用于声明一个function 表达该function是异步的，而await用于async函数中，目的是等待一个异步方法执行完成 （ajax setTimeOut setInterval等)
@@ -64,7 +65,7 @@
 
 
   /-------------------------------------------------------------------
-  async函数返回的Promise对象必须等到内部所有的await命令后面的Promise对象执行完成才会发生状态改变
+  async函数返回的 Promise 对象必须等到内部所有的await命令后面的 Promise 对象执行完成才会发生状态改变
 
   除非遇到 return 语句或者 抛出 错误
 

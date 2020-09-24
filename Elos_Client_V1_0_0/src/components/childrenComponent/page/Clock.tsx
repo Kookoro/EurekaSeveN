@@ -2,11 +2,27 @@ import React from "react";
 import axios from "axios";
 import "../../../css/clock.css";
 import { Button } from "antd";
-class StdClock extends React.Component<any, any> {
+
+interface IClockProps {
+  name?: string;
+  onRef?: any;
+}
+interface IClockState {
+  title?: string;
+  nowDate?: string;
+}
+
+class StdClock extends React.Component<IClockProps, IClockState> {
+  public props: IClockProps = {
+    name: "props name",
+  };
+  public state: IClockState = {
+    title: "home state title",
+  };
   timerID: any;
 
-  constructor(props) {
-    super(props);
+  constructor(props: IClockProps, state: IClockState) {
+    super(props, state);
     this.timerID = "";
     this.state = {
       nowDate: "",
@@ -43,7 +59,7 @@ class StdClock extends React.Component<any, any> {
 }
 class Clock extends React.Component<any, any> {
   stdClock: any;
-  constructor(props) {
+  constructor(props: any) {
     super(props);
     this.state = {
       num: 100,

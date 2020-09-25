@@ -56,6 +56,10 @@ const dateCellRender = (value: { format: (arg0: string) => string }) => {
       date: "2020-08-11",
       count: 1,
     },
+    {
+      date: "2020-09-21",
+      count: 1,
+    },
   ];
   const getDay = (): ReactNode | null => {
     let flag: boolean = false;

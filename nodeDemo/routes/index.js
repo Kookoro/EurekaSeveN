@@ -12,21 +12,21 @@ router.use(
     parameterLimit: 1000,
   })
 );
-//连接mongoDB
-mongoose.connect(`${url + db_name}`, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
+// //连接mongoDB
+// mongoose.connect(`${url + db_name}`, {
+//   useNewUrlParser: true,
+//   useUnifiedTopology: true,
+// });
 
-const db = mongoose.connection;
+// const db = mongoose.connection;
 
-db.on("open", function (err) {
-  if (err) {
-    console.log("数据库连接失败");
-    throw err;
-  }
-  console.log("数据库连接成功");
-});
+// db.on("open", function (err) {
+//   if (err) {
+//     console.log("数据库连接失败");
+//     throw err;
+//   }
+//   console.log("数据库连接成功");
+// });
 
 const userModel = new mongoose.Schema({
   id: String,
@@ -47,26 +47,26 @@ router.get("/users", function (req, res, next) {
   });
 });
 
-// router.post("/addUserMsg", (req, res, next) => {
-//   const data = req.body;
-//   const userList = [];
-//   if (data) {
-//     if (data.age > 30) {
-//       return new Error("年龄超过范围！");
-//     }
-//     userList.push(data);
-//     const userModelConnect = mongoose.model("userList", userModel, "userList");
-//     userModelConnect.insertMany(userList, (err, result) => {
-//       if (err) {
-//         console.log("数据添加失败");
-//         throw err;
-//       }
-//       console.log("数据添加成功:", result);
-//     });
-//   }
+router.post("/addUserMsg", (req, res, next) => {
+  const data = req.body;
+  const userList = [];
+  if (data) {
+    if (data.age > 30) {
+      return new Error("年龄超过范围！");
+    }
+    userList.push(data);
+    const userModelConnect = mongoose.model("userList", userModel, "userList");
+    userModelConnect.insertMany(userList, (err, result) => {
+      if (err) {
+        console.log("数据添加失败");
+        throw err;
+      }
+      console.log("数据添加成功:", result);
+    });
+  }
 
-//   console.log(data);
-// });
+  console.log(data);
+});
 
 router.get("/getUserMsg", (req, res) => {
   const userModelConnect = mongoose.model("userList", userModel, "userList");

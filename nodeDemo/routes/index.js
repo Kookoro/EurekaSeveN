@@ -47,26 +47,26 @@ router.get("/users", function (req, res, next) {
   });
 });
 
-router.post("/addUserMsg", (req, res, next) => {
-  const data = req.body;
-  const userList = [];
-  if (data) {
-    if (data.age > 30) {
-      return new Error("年龄超过范围！");
-    }
-    userList.push(data);
-    const userModelConnect = mongoose.model("userList", userModel, "userList");
-    userModelConnect.insertMany(userList, (err, result) => {
-      if (err) {
-        console.log("数据添加失败");
-        throw err;
-      }
-      console.log("数据添加成功:", result);
-    });
-  }
+// router.post("/addUserMsg", (req, res, next) => {
+//   const data = req.body;
+//   const userList = [];
+//   if (data) {
+//     if (data.age > 30) {
+//       return new Error("年龄超过范围！");
+//     }
+//     userList.push(data);
+//     const userModelConnect = mongoose.model("userList", userModel, "userList");
+//     userModelConnect.insertMany(userList, (err, result) => {
+//       if (err) {
+//         console.log("数据添加失败");
+//         throw err;
+//       }
+//       console.log("数据添加成功:", result);
+//     });
+//   }
 
-  console.log(data);
-});
+//   console.log(data);
+// });
 
 router.get("/getUserMsg", (req, res) => {
   const userModelConnect = mongoose.model("userList", userModel, "userList");
@@ -94,20 +94,19 @@ router.get("/getDailyImg", (req, res, next) => {
   );
 });
 router.get("/getAnimateImg", (req, res, next) => {
-  request("https://konachan.com/post.json?tags=nobody&sky", function (
-    error,
-    response,
-    body
-  ) {
-    console.log(body);
-    if (!error && response.statusCode == 200) {
-      // console.log(body.image[0].url);
+  request(
+    "https://konachan.com/post.json?tags=nobody&sky",
+    function (error, response, body) {
+      console.log(body);
+      if (!error && response.statusCode == 200) {
+        // console.log(body.image[0].url);
 
-      body = JSON.parse(body);
-      const random = Math.floor(Math.random() * 20 + 1);
-      const imgUrl = body[random].jpeg_url;
-      res.json({ imgUrl });
+        body = JSON.parse(body);
+        const random = Math.floor(Math.random() * 20 + 1);
+        const imgUrl = body[random].jpeg_url;
+        res.json({ imgUrl });
+      }
     }
-  });
+  );
 });
 module.exports = router;

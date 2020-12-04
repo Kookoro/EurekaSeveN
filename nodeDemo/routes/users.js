@@ -7,6 +7,7 @@ router.get("/", function (req, res, next) {
 });
 
 router.get("/helloworld", function (req, res, next) {
+  console.log("11");
   res.json({
     mes: "helloworld11！",
     status: true,

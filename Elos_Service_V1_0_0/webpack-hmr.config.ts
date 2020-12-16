@@ -5,7 +5,7 @@ const StartServerPlugin = require('start-server-webpack-plugin');
 module.exports = function(options) {
   return {
     ...options,
-    entry: ['webpack/hot/poll?100', options.entry],
+    entry: ['webpack/hot/poll?100', options.entry, './src/main.ts'],
     watch: true,
     externals: [
       nodeExternals({

@@ -16,6 +16,14 @@ interface DtofindUrl {
   id?: string;
   num: string;
 }
+
+interface DTOlist{
+  id:string;
+  ntype:number;
+  ncount:number;
+
+}
+
 @Controller('api')
 export class IndexController {
   @Get('user')
@@ -47,6 +55,23 @@ export class IndexController {
       result: array[body.num],
     });
   }
+
+
+  @Get('info')
+  getInfo():DTOlist[]{
+    return [
+      {
+        id:'00001',
+        ntype:0,
+        ncount:20,
+      },
+      {
+        id:'00002',
+        ntype:1,
+        ncount:55,
+      }
+    ]
+  } 
 
   @Get('notice')
   getMessage(): Message[] {

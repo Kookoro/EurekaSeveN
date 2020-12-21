@@ -17,11 +17,10 @@ interface DtofindUrl {
   num: string;
 }
 
-interface DTOlist{
-  id:string;
-  ntype:number;
-  ncount:number;
-
+interface DTOlist {
+  id: string;
+  ntype: number;
+  ncount: number;
 }
 
 @Controller('api')
@@ -56,22 +55,21 @@ export class IndexController {
     });
   }
 
-
   @Get('info')
-  getInfo():DTOlist[]{
+  getInfo(): DTOlist[] {
     return [
       {
-        id:'00001',
-        ntype:0,
-        ncount:20,
+        id: '00001',
+        ntype: 0,
+        ncount: 0,
       },
       {
-        id:'00002',
-        ntype:1,
-        ncount:55,
-      }
-    ]
-  } 
+        id: '00002',
+        ntype: 1,
+        ncount: 555,
+      },
+    ];
+  }
 
   @Get('notice')
   getMessage(): Message[] {

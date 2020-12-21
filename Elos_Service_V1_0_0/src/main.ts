@@ -8,7 +8,7 @@ async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
 
   //静态图片地址
-  // app.useStaticAssets('static/images'); //配置静态目录
+  app.useStaticAssets('static/images'); //配置静态目录
   app.useStaticAssets('static/images', {
     prefix: '/images/',
   }); //配置虚拟静态目录

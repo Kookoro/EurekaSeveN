@@ -272,7 +272,7 @@ const HomePage = () => {
               </div>
               <div className="user-info-avatar">
                 <img
-                  src="https://avatars2.githubusercontent.com/u/42001218?s=400&u=5e65204880e8ba2585d5dfa5859526c7d05738a1&v=4"
+                  src="http://106.15.61.198/image/userAvatar.jpg"
                   alt=""
                   style={{
                     height: "100%",

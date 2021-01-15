@@ -109,6 +109,7 @@
     ]
   },
   "devDependencies": {
+    "@types/nprogress": "^0.2.0",
     "compression-webpack-plugin": "^4.0.0",
     "redux-devtools": "^3.6.0",
     "webpack-bundle-analyzer": "^3.7.0"

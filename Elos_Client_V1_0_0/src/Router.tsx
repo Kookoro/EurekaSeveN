@@ -3,9 +3,9 @@ import { Route, BrowserRouter as BRouter } from "react-router-dom";
 import Index from "./components/Index";
 import Calender from "./components/homepage/Calender";
 {
-  /* react路由 */
+  /* 路由 */
 }
-const Router = (props) => {
+const Router = () => {
   return (
     <div>
       <BRouter>

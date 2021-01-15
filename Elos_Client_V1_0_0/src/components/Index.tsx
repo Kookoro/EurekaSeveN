@@ -39,7 +39,7 @@ const Content = () => {
         <div className="user_info_total_container">
           <div className="user_info_avatar_container">
             <img
-              src="https://avatars0.githubusercontent.com/u/42001218?s=460&u=a5f166860cc8ab4b2956197b590eb255b126387a&v=4"
+              src="http://106.15.61.198/image/userAvatar.jpg"
               alt=""
               onClick={scrollToTop}
             />

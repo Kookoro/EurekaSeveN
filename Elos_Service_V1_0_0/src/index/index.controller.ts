@@ -4,8 +4,10 @@ import {
   Get,
   HttpCode,
   Post,
+  Query,
   Response,
 } from '@nestjs/common';
+import { query } from 'express';
 
 interface Message {
   id: string;
@@ -72,7 +74,8 @@ export class IndexController {
   }
 
   @Get('notice')
-  getMessage(): Message[] {
+  getMessage(@Query() query: object): Message[] {
+    console.log(query);
     return [
       {
         id: '000001',

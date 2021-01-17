@@ -10,18 +10,12 @@ export class IndexService {
       adminName: 'TsuBaSa',
     };
   }
-  // async getDailyImg() {
-  //   const http = new HttpService();
-  //   const url = `https://cn.bing.com/HPImageArchive.aspx?format=js&idx=0&n=1&mkt=zh-CN`;
-  //   const response = await http.get(url);
-  //   return response;
-  // }
 
   getDailyImg(): Observable<AxiosResponse<IndexService[]>> {
-    const result = this.httpService.get('https://cn.bing.com/HPImageArchive.aspx?format=js&idx=0&n=1&mkt=zh-CN')
-    return result;
+    return this.httpService.get(
+      'https://cn.bing.com/HPImageArchive.aspx?format=js&idx=0&n=1&mkt=zh-CN',
+    );
   }
-    
 
   getUserMsg(): object {
     return {

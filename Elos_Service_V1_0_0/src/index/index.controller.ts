@@ -8,6 +8,7 @@ import {
   Body,
   Param,
 } from '@nestjs/common';
+import { debug } from 'console';
 
 import { IndexService } from './index.service';
 @Controller('index')
@@ -16,7 +17,7 @@ export class IndexController {
 
   @Get('getAdminInfo')
   getAdminInfo() {
-    return this.indexService.getAdminInfo();
+    return this.indexService.findAdmin()
   }
   @Get('getDailyImg')
   getDailyImg(@Response() response) {
@@ -24,4 +25,5 @@ export class IndexController {
       return response.status(HttpStatus.OK).json(res.data);
     });
   }
+
 }

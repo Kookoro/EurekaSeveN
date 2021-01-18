@@ -1,10 +1,21 @@
 import { Injectable, HttpService } from '@nestjs/common';
 import { Observable } from 'rxjs';
-import { DTOAdminInfo } from './dto/index.dto';
 import { AxiosResponse } from 'axios';
+import { DTOAdminInfo } from './index.dto';
+import { Admin } from './index.interface';
+import { Model } from 'mongoose';
+import { InjectModel } from '@nestjs/mongoose';
+import { AdminSchema } from './index.schema';
+
 @Injectable()
 export class IndexService {
-  constructor(private readonly httpService: HttpService) {}
+  constructor(
+    //将集合名注入
+    @InjectModel('Administrator') private readonly adminModel,
+
+    private readonly httpService: HttpService,
+  
+  ) {}
   getAdminInfo(): DTOAdminInfo {
     return {
       adminName: 'TsuBaSa',
@@ -28,5 +39,8 @@ export class IndexService {
     return {
       user: '2',
     };
+  }
+  async findAdmin(){
+    return await this.adminModel.find().exec();
   }
 }

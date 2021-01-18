@@ -1,8 +1,9 @@
-import { Module } from '@nestjs/common';
+import { HttpModule, Module } from '@nestjs/common';
 import { IndexController } from './index.controller';
 import { IndexService } from './index.service';
+
 @Module({
-  imports: [],
+  imports: [HttpModule],
   controllers: [IndexController],
   providers: [IndexService],
 })

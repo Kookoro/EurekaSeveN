@@ -2,16 +2,15 @@ import { Injectable, HttpService } from '@nestjs/common';
 import { DTOAdminInfo } from './index.dto';
 @Injectable()
 export class IndexService {
-  // constructor(private readonly http: HttpService) {}
+  constructor(private readonly httpService: HttpService) {}
   getAdminInfo(): DTOAdminInfo {
     return {
       adminName: 'TsuBaSa',
     };
   }
-  async getDailyImg() {
-    const http = new HttpService();
+  getDailyImg() {
     const url = `https://cn.bing.com/HPImageArchive.aspx?format=js&idx=0&n=1&mkt=zh-CN`;
-    const response = await http.get(url);
+    const response = this.httpService.get(url);
     return response;
   }
   getUserMsg(): object {

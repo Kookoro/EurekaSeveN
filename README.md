@@ -2,7 +2,7 @@
 
 # 前端技术栈:React Hooks React-router antd TypeScript
 
-# 后端:Node.js MongoDB NestJS Mongoose
+# 后端:Node.js MongoDB NestJS MongoDB
 
 ## 2020/08/07
 

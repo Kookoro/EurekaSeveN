@@ -16,7 +16,7 @@ const HomePageCalendar = (props: {
               props.sayParentFn("子组件参数");
             }}
           >
-            共0篇日志
+            共0篇记录
           </span>
         </div>
         <Calendar

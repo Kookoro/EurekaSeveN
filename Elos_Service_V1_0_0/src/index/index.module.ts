@@ -3,12 +3,7 @@ import { IndexController } from './index.controller';
 import { IndexService } from './index.service';
 
 @Module({
-  imports: [
-    HttpModule.register({
-      timeout: 5000,
-      maxRedirects: 5,
-    }),
-  ],
+  imports: [HttpModule],
   controllers: [IndexController],
   providers: [IndexService],
 })

@@ -75,19 +75,18 @@ const Index2: FunctionComponent = () => {
       axios.get("");
     };
 
-    const getDailyImg = (): void => {
+    (function getDailyImg() {
       axios
-        .get("http://localhost:3080/getDailyImg")
+        .get("http://localhost:3090/index/getDailyImg")
         .then((res: AxiosResponse) => {
           setState({
             ...state,
             // imgUrl: "http://www.bing.com/" + res.data.imgUrl,
             imgShow: true,
           });
-          setImgUrl(`http://www.bing.com/${res.data.imgUrl}`); //必应每日图片接口)
+          setImgUrl(`http://www.bing.com/${res.data.images[0].url}`); //必应每日图片接口)
         });
-    };
-
+    })();
     const getAnimateImg = (): void => {
       axios
         .get("http://localhost:3080/getAnimateImg")
@@ -120,7 +119,6 @@ const Index2: FunctionComponent = () => {
       }
     };
 
-    getDailyImg(); //请求必应每日图片
     //滚动事件
     const handleScroll = (): void => {
       const scrollTop: number = document.documentElement.scrollTop; //滚动条滚动高度

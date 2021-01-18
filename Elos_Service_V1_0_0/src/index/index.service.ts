@@ -10,9 +10,8 @@ import { AdminSchema } from './index.schema';
 @Injectable()
 export class IndexService {
   constructor(
-    //将集合名注入
-    @InjectModel('Administrator') private readonly adminModel,
-
+    //将集合名注入   表名
+    @InjectModel('Administrator') private readonly adminModel:Model<Admin> ,
     private readonly httpService: HttpService,
   
   ) {}
@@ -40,7 +39,7 @@ export class IndexService {
       user: '2',
     };
   }
-  async findAdmin(){
+  async findAdmin():Promise<Admin[]>{
     return await this.adminModel.find().exec();
   }
 }

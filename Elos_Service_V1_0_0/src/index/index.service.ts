@@ -1,5 +1,7 @@
 import { Injectable, HttpService } from '@nestjs/common';
-import { DTOAdminInfo } from './index.dto';
+import { Observable } from 'rxjs';
+import { DTOAdminInfo } from './dto/index.dto';
+import { AxiosResponse } from 'axios';
 @Injectable()
 export class IndexService {
   constructor(private readonly httpService: HttpService) {}
@@ -8,11 +10,13 @@ export class IndexService {
       adminName: 'TsuBaSa',
     };
   }
-  getDailyImg() {
-    const url = `https://cn.bing.com/HPImageArchive.aspx?format=js&idx=0&n=1&mkt=zh-CN`;
-    const response = this.httpService.get(url);
-    return response;
+
+  getDailyImg(): Observable<AxiosResponse<IndexService[]>> {
+    return this.httpService.get(
+      'https://cn.bing.com/HPImageArchive.aspx?format=js&idx=0&n=1&mkt=zh-CN',
+    );
   }
+
   getUserMsg(): object {
     return {
       obj: '1',

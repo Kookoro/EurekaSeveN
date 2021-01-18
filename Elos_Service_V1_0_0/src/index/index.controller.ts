@@ -1,4 +1,5 @@
-import { Controller, Get, Inject } from '@nestjs/common';
+import { Controller, Get, Inject, Response,HttpStatus } from '@nestjs/common';
+
 import { IndexService } from './index.service';
 @Controller('index')
 export class IndexController {
@@ -9,8 +10,10 @@ export class IndexController {
     return this.indexService.getAdminInfo();
   }
   @Get('getDailyImg')
-  getDailyImg() {
-    return this.indexService.getDailyImg();
+  getDailyImg(@Response() response) {
+    this.indexService.getDailyImg().subscribe(res => {
+      return response.status(HttpStatus.OK).json(res.data)
+    });
   }
 }
 

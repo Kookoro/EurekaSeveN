@@ -6,5 +6,8 @@ export class RegisterInfoDTO {
   readonly mobile: number;
 }
 export interface DTOAdminInfo {
-  readonly adminName: string | number;
+  readonly sname?: String;
+  readonly sjobname?: String;
+  readonly semail?: String;
+  readonly sweibo?: String;
 }

@@ -22,7 +22,7 @@ const Content = () => {
   };
   const scrollToTop = () => {
     const c = document.documentElement.scrollTop || document.body.scrollTop;
-    const speed = 4; //动画速度 越小越快
+    const speed = 2; //动画速度 越小越快
 
     if (c > 0) {
       /*
@@ -69,7 +69,7 @@ const Index2: FunctionComponent = () => {
     naviBarShow: false,
   });
   const [imgUrl, setImgUrl] = useState<string>("");
-
+  const [imgAlt, setImgAlt] = useState<string>("");
   useEffect(() => {
     const getUserMsg = (): void => {
       axios.get("");
@@ -85,23 +85,21 @@ const Index2: FunctionComponent = () => {
             imgShow: true,
           });
           setImgUrl(`http://www.bing.com/${res.data.images[0].url}`); //必应每日图片接口)
+          setImgAlt(``);
         });
     })();
-    const getAnimateImg = (): void => {
-      axios
-        .get("http://localhost:3080/getAnimateImg")
-        .then((res: AxiosResponse) => {
-          setState({
-            // imgUrl: "http://www.bing.com/" + res.data.imgUrl,
-            ...state,
-            imgShow: true,
-          });
-          setImgUrl(`${res.data.imgUrl}`);
-        });
-    };
-    //componentWillMount
-
-    // getAnimateImg();
+    // const getAnimateImg = (): void => {
+    //   axios
+    //     .get("http://localhost:3080/getAnimateImg")
+    //     .then((res: AxiosResponse) => {
+    //       setState({
+    //         // imgUrl: "http://www.bing.com/" + res.data.imgUrl,
+    //         ...state,
+    //         imgShow: true,
+    //       });
+    //       setImgUrl(`${res.data.imgUrl}`);
+    //     });
+    // };
 
     const checkScrollHeight = (e: number): void => {
       if (e > 600) {
@@ -143,9 +141,11 @@ const Index2: FunctionComponent = () => {
           <h1>TsuBaSa's Blog</h1>
         </div>
         <div className="img_container">
-          {state.imgShow ? (
-            <img src={imgUrl} className="index_image" id="scream" alt="" />
-          ) : null}
+          {/* {state.imgShow ? (
+            <img src={imgUrl
+            } className="index_image" id="scream" alt="" />
+          ) : null} */}
+          <img src={imgUrl} className="index_image" id="scream" alt="" />
         </div>
       </div>
       <div className="content">
@@ -199,108 +199,6 @@ const Index2: FunctionComponent = () => {
   );
 };
 
-const User: FunctionComponent = () => {
-  const [userInfo, setUserInfo] = useState({
-    id: "",
-    name: "",
-    age: 0,
-    sex: "",
-  });
-  const [state, setstate] = useState({
-    visible: false,
-  });
-  const onInputChange = (attr: string, value: string) => {
-    setUserInfo({
-      ...userInfo,
-      [attr]: value,
-    });
-  };
-  const getMessage = () => {
-    axios.get("http://localhost:3080/getUserMsg", {}).then((res) => {
-      console.log(res);
-    });
-  };
-  useEffect(() => {
-    getMessage();
-  }, []);
-
-  const showModel = () => {
-    setstate({
-      visible: true,
-    });
-  };
-
-  return (
-    <section>
-      <ul>
-        <li>
-          <span>id:{userInfo.id}</span>
-        </li>
-        <li>
-          <span>name:{userInfo.name}</span>
-        </li>
-        <li>
-          <span>age:{userInfo.age}</span>
-        </li>
-        <li>
-          <span>sex:{userInfo.sex}</span>
-        </li>
-      </ul>
-      <ul
-        style={{
-          display: "flex",
-        }}
-      >
-        <li>
-          <span>编号:</span>
-          <Input
-            placeholder="编号"
-            type="text"
-            name="id"
-            onChange={(e) => {
-              onInputChange(e.target.name, e.target.value);
-            }}
-          />
-        </li>
-        <li>
-          <span>姓名:</span>
-          <Input
-            placeholder="姓名"
-            type="text"
-            name="name"
-            onChange={(e) => {
-              onInputChange(e.target.name, e.target.value);
-            }}
-          />
-        </li>
-        <li>
-          <span>年龄:</span>
-          <Input
-            placeholder="年龄"
-            type="text"
-            name="age"
-            onChange={(e) => {
-              onInputChange(e.target.name, e.target.value);
-            }}
-          />
-        </li>
-        <li>
-          <span>性别:</span>
-          <Input
-            placeholder="性别"
-            type="text"
-            name="sex"
-            onChange={(e) => {
-              onInputChange(e.target.name, e.target.value);
-            }}
-          />
-        </li>
-        <Button onClick={showModel}>注册</Button>
-        <Dialog state={state}></Dialog>
-      </ul>
-    </section>
-  );
-};
 const Header: FunctionComponent = () => {
   return (
     <div>

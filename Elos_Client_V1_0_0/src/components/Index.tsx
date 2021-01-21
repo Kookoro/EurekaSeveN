@@ -39,7 +39,7 @@ const Content = () => {
         <div className="user_info_total_container">
           <div className="user_info_avatar_container">
             <img
-              src="http://106.15.61.198/image/userAvatar.jpg"
+              src="http://127.0.0.1/image/userAvatar.jpg"
               alt=""
               onClick={scrollToTop}
             />
@@ -76,17 +76,15 @@ const Index2: FunctionComponent = () => {
     };
 
     (function getDailyImg() {
-      axios
-        .get("http://localhost:3090/index/getDailyImg")
-        .then((res: AxiosResponse) => {
-          setState({
-            ...state,
-            // imgUrl: "http://www.bing.com/" + res.data.imgUrl,
-            imgShow: true,
-          });
-          setImgUrl(`http://www.bing.com/${res.data.images[0].url}`); //必应每日图片接口)
-          setImgAlt(``);
+      axios.get("/index/getDailyImg").then((res: AxiosResponse) => {
+        setState({
+          ...state,
+          // imgUrl: "http://www.bing.com/" + res.data.imgUrl,
+          imgShow: true,
         });
+        setImgUrl(`http://www.bing.com/${res.data.images[0].url}`); //必应每日图片接口)
+        setImgAlt(``);
+      });
     })();
     // const getAnimateImg = (): void => {
     //   axios

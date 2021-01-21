@@ -39,7 +39,7 @@ const Content = () => {
         <div className="user_info_total_container">
           <div className="user_info_avatar_container">
             <img
-              src="http://127.0.0.1/image/userAvatar.jpg"
+              src="http://106.15.61.198//image/userAvatar.jpg"
               alt=""
               onClick={scrollToTop}
             />

@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, BrowserRouter as BRouter } from "react-router-dom";
+import { Route, BrowserRouter as BRouter, Switch } from "react-router-dom";
 import Index from "./components/Index";
 import Calender from "./components/homepage/Calender";
 {
@@ -10,7 +10,7 @@ const Router = () => {
     <div>
       <BRouter>
         <Route path="/" className="router" component={Index} />
-        <Route path="/Calender" className="router" component={Calender} />
+        <Route path="/about" className="router" component={Calender} />
       </BRouter>
     </div>
   );

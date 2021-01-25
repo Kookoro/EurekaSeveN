@@ -13,10 +13,7 @@ const Content = () => {
     console.log("调用了父组件方法" + value);
   };
   const ref = React.createRef();
-  const childRef: any = useRef();
-  const updateChildValue = () => {
-    childRef.current.changeVal(99);
-  };
+
   const scrollToTop = () => {
     const c = document.documentElement.scrollTop || document.body.scrollTop;
     const speed = 2; //动画速度 越小越快
@@ -47,16 +44,12 @@ const Content = () => {
           <HomePageCalendar sref={ref} sayParentFn={sayParentFn} />
         </div>
       </div>
-      <div className="main_content_container">
-        content
-        <Button onClick={updateChildValue}>useRef</Button>
-        <Button onClick={() => {}}>父组件调用子组件</Button>
-      </div>
+      <div className="main_content_container"></div>
     </section>
   );
 };
 
-const Index2: FunctionComponent = () => {
+const Index: FunctionComponent = () => {
   interface ImgState {
     imgShow: boolean;
     naviBarShow: boolean;
@@ -66,12 +59,7 @@ const Index2: FunctionComponent = () => {
     naviBarShow: false,
   });
   const [imgUrl, setImgUrl] = useState<string>("");
-  const [imgAlt, setImgAlt] = useState<string>("");
   useEffect(() => {
-    const getUserMsg = (): void => {
-      axios.get("");
-    };
-
     (function getDailyImg() {
       axios.get("/index/getDailyImg").then((res: AxiosResponse) => {
         setState({
@@ -80,7 +68,6 @@ const Index2: FunctionComponent = () => {
           imgShow: true,
         });
         setImgUrl(`http://www.bing.com/${res.data.images[0].url}`); //必应每日图片接口)
-        setImgAlt(``);
       });
     })();
     // const getAnimateImg = (): void => {
@@ -107,8 +94,6 @@ const Index2: FunctionComponent = () => {
           ...state,
           imgShow: true,
         });
-      }
-      if (e > 300) {
       }
     };
 
@@ -152,7 +137,13 @@ const Index2: FunctionComponent = () => {
         <div className="foot-container">
           <ul>
             <li className="foot-saying">
-              不要哀求，学会争取，若是如此，终有所获。
+              <a
+                target="_blank"
+                style={{ color: "#ececec" }}
+                href="https://www.imdb.com/title/tt0765491/"
+              >
+                不要哀求，学会争取，若是如此，终有所获。
+              </a>
             </li>
             <li>
               <span
@@ -166,7 +157,7 @@ const Index2: FunctionComponent = () => {
 
             <li>
               <span>
-                Created by{" "}
+                Created by
                 <a
                   href="https://github.com/Tsu8sa"
                   target="_blank"
@@ -213,4 +204,4 @@ const Header: FunctionComponent = () => {
   );
 };
 
-export default Index2;
+export default Index;

@@ -2,16 +2,13 @@ import React, { useEffect, useState, FunctionComponent, useRef } from "react";
 import "../style/index.scss";
 import axios, { AxiosResponse } from "axios";
 import { Input, Button } from "antd";
-import Dialog from "./homepage/Dialog";
 import HomePageCalendar from "./homepage/Calender";
 import MenuBars from "./homepage/MenuBars";
 import ToolBar from "./homepage/ToolBar";
 const { Search } = Input;
 const Content = () => {
   let [value, setValue] = useState<number>(1);
-  const changeTab = (): void => {
-    setValue(++value);
-  };
+
   const sayParentFn = (value: string): void => {
     console.log("调用了父组件方法" + value);
   };
@@ -138,11 +135,12 @@ const Index2: FunctionComponent = () => {
         <div className="banner_title_container">
           <h1>TsuBaSa's Blog</h1>
         </div>
-        <div className="img_container">
-          {/* {state.imgShow ? (
-            <img src={imgUrl
-            } className="index_image" id="scream" alt="" />
-          ) : null} */}
+        <div
+          style={{
+            visibility: state.imgShow ? "inherit" : "hidden",
+          }}
+          className="img_container"
+        >
           <img src={imgUrl} className="index_image" id="scream" alt="" />
         </div>
       </div>

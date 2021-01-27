@@ -1,14 +1,29 @@
 import React, { useEffect, useState, FunctionComponent, useRef } from "react";
 import "../style/index.scss";
 import axios, { AxiosResponse } from "axios";
-import { Input, Button } from "antd";
-import HomePageCalendar from "./homepage/Calender";
-import Navigator from "./homepage/Navigator";
-import ToolBar from "./homepage/ToolBar";
+import { Input } from "antd";
+import HomePageCalendar from "./homepage/component-calender/component-calender";
+import Navigator from "./homepage/component-navigator/component-navigator";
+import ToolBar from "./homepage/component-toolBar/component-toolBar";
 import ArticlesList from "./homepage/component-articlesList/component-articlesList";
 
 import { Route } from "react-router-dom";
 const { Search } = Input;
+
+const scrollToTop = () => {
+  const c = document.documentElement.scrollTop || document.body.scrollTop;
+  const speed = 2; //动画速度 越小越快
+
+  if (c > 0) {
+    /*
+      window.requestAnimationFrame() 
+      你希望执行一个动画，并且要求浏览器在下次重绘之前调用指定的回调函数更新动画。该方法需要传入一个 *回调函数* 作为参数，该回调函数会在浏览器下一次重绘之前执行
+    */
+    window.requestAnimationFrame(scrollToTop);
+    window.scrollTo(0, c - c / speed);
+  }
+};
+
 const Content = () => {
   let [value, setValue] = useState<number>(1);
 
@@ -17,19 +32,6 @@ const Content = () => {
   };
   const ref = React.createRef();
 
-  const scrollToTop = () => {
-    const c = document.documentElement.scrollTop || document.body.scrollTop;
-    const speed = 2; //动画速度 越小越快
-
-    if (c > 0) {
-      /*
-        window.requestAnimationFrame() 
-        你希望执行一个动画，并且要求浏览器在下次重绘之前调用指定的回调函数更新动画。该方法需要传入一个 *回调函数* 作为参数，该回调函数会在浏览器下一次重绘之前执行
-      */
-      window.requestAnimationFrame(scrollToTop);
-      window.scrollTo(0, c - c / speed);
-    }
-  };
   return (
     <section className="main_index_container">
       <div className="user_info_container">
@@ -139,7 +141,7 @@ const Index: FunctionComponent = () => {
       </div>
       <div className="content">
         <Content></Content>
-        <ToolBar></ToolBar>
+        <ToolBar click={scrollToTop}></ToolBar>
       </div>
 
       <footer>
@@ -196,14 +198,23 @@ const Index: FunctionComponent = () => {
 };
 
 const Header: FunctionComponent = () => {
+  const child = useRef(null);
+  function sendFn(fn): void {
+    fn();
+  }
+  function getChildMethods() {
+    console.log(child);
+  }
+
   return (
     <div>
       <section className="header_main_container">
         <div className="header_left">
-          <span className="header_userName">TsuBaSa </span>
-          <Navigator>
-            <Button>你好</Button>
-          </Navigator>
+          <span className="header_userName" onClick={getChildMethods}>
+            TsuBaSa
+          </span>
+          {/* 导航条 */}
+          <Navigator ref={child} sendfn={sendFn}></Navigator>
         </div>
         <div className="header_right">
           <Search className="input_search" placeholder="搜索文章"></Search>

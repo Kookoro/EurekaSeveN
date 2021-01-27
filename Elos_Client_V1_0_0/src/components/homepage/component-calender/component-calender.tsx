@@ -1,7 +1,8 @@
 import React, { FunctionComponent, ReactNode } from "react";
 import { Calendar } from "antd";
 import localeCN from "antd/lib/calendar/locale/zh_CN.js";
-import "../../style/calender.scss";
+import "./component-calender.scss";
+
 const HomePageCalendar = (props: {
   sayParentFn: (arg0: string) => void;
   sref: unknown;

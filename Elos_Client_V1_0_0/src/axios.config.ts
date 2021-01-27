@@ -8,7 +8,9 @@ export const ajaxConfig = () => {
     showSpinner: false,
   });
 
+  //后端地址
   axios.defaults.baseURL = "http://127.0.0.1:3090";
+
   axios.defaults.headers.post["Content-Type"] =
     "application/json; charset=utf-8";
   // axios.defaults.withCredentials = true; //设置cross跨域 并设置访问权限 允许跨域携带cookie信息

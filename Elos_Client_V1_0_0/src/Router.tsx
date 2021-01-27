@@ -1,7 +1,7 @@
 import React from "react";
 import { Route, HashRouter, Switch } from "react-router-dom";
 import Index from "./components/Homepage";
-import Calender from "./components/homepage/Calender";
+
 {
   /* 路由 */
 }

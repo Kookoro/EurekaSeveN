@@ -1,12 +1,12 @@
 import React, { useEffect, useState, FunctionComponent, useRef } from "react";
-import "../style/index.scss";
+import "./Homepage.scss";
 import axios, { AxiosResponse } from "axios";
-import { Input } from "antd";
+import { Input, Popover } from "antd";
 import HomePageCalendar from "./homepage/component-calender/component-calender";
 import Navigator from "./homepage/component-navigator/component-navigator";
 import ToolBar from "./homepage/component-toolBar/component-toolBar";
 import ArticlesList from "./homepage/component-articlesList/component-articlesList";
-
+import { Icon } from "../component.common";
 import { Route } from "react-router-dom";
 const { Search } = Input;
 
@@ -68,6 +68,8 @@ const Index: FunctionComponent = () => {
     naviBarShow: false,
   });
   const [imgUrl, setImgUrl] = useState<string>("");
+  const [imgCopyright, setCopyRight] = useState<string>("");
+  const [imgCopyrightLink, setCopyRightLink] = useState<string>("");
   useEffect(() => {
     (function getDailyImg() {
       axios.get("/index/getDailyImg").then((res: AxiosResponse) => {
@@ -77,6 +79,8 @@ const Index: FunctionComponent = () => {
           imgShow: true,
         });
         setImgUrl(`http://www.bing.com/${res.data.images[0].url}`); //必应每日图片接口)
+        setCopyRight(res.data.images[0].copyright);
+        setCopyRightLink(res.data.images[0].copyrightlink);
       });
     })();
     // const getAnimateImg = (): void => {
@@ -138,6 +142,18 @@ const Index: FunctionComponent = () => {
         >
           <img src={imgUrl} className="index_image" id="scream" alt="" />
         </div>
+        <Popover
+          placement="left"
+          content={
+            <a target="_blank" href={imgCopyrightLink}>
+              {imgCopyright}
+            </a>
+          }
+        >
+          <div data-copyright={imgCopyright} className="imgCopyright-icon">
+            <Icon.InfoCircleOutlined />
+          </div>
+        </Popover>
       </div>
       <div className="content">
         <Content></Content>

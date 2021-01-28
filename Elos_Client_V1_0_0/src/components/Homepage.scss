@@ -174,6 +174,19 @@ html {
     background-color: rgba(255, 255, 255, 0.8);
     z-index: -1;
   }
+  .imgCopyright-icon {
+    font-size: 20px;
+    color: rgba(255, 255, 255, 0.6);
+    bottom: 10px;
+    right: 10px;
+    position: absolute;
+    z-index: 3;
+    cursor: pointer;
+  }
+  .imgCopyright-icon:hover {
+    color: white;
+    content: attr(data-copyright);
+  }
 }
 //首页img标签
 .index_image {

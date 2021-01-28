@@ -5,3 +5,15 @@
 .tox-tinymce {
   border-radius: 4px;
 }
+.view-editor {
+  margin-bottom: 10px;
+}
+.view-header-container {
+  margin: 10px 0;
+  display: flex;
+  .view-header-text {
+    width: 80px;
+    text-align: center;
+    line-height: 32px;
+  }
+}

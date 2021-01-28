@@ -1,40 +1,89 @@
-import React, { useState } from "react";
+import React, { useLayoutEffect, useState } from "react";
 import "../component-articlesList/component-articlesList.scss";
 import { Editor } from "@tinymce/tinymce-react";
+import { Button, Input, Space } from "antd";
+import { Prompt } from "react-router-dom";
 // Render the Slate context.
 
 const ArticlesList: React.FC = () => {
-  const [value, setValue] = useState("<p></p>");
+  const INIT_VALUE = `<p></p>`;
+  const [value, setValue] = useState(INIT_VALUE);
+  const [editorShow, seteditorShow] = useState(false);
+
+  useLayoutEffect(() => {
+    console.log("willMount!!");
+  }, [Editor]);
   const handleEditorChange = (e) => {
-    setValue(e.target.getContent());
+    setValue(e.target.getContent() ? e.target.getContent() : INIT_VALUE);
+  };
+  const readerOptions = {
+    menubar: false,
+    statusbar: false,
+    language: "zh_CN",
+    plugins: "codesample",
+    toolbar: false,
+    min_height: 400,
+  };
+
+  const editorOptions = {
+    menubar: false,
+    min_height: 230,
+    max_height: 230,
+    statusbar: false,
+    language: "zh_CN",
+    skin: "oxide-light",
+    plugins:
+      "preview searchreplace autolink directionality visualblocks visualchars fullscreen image link template code codesample table charmap hr pagebreak nonbreaking anchor insertdatetime advlist lists wordcount imagetools textpattern help emoticons autosave autoresize formatpainter",
+    toolbar:
+      " undo redo restoredraft | cut copy paste pastetext | forecolor backcolor bold italic underline strikethrough link anchor | alignleft aligncenter alignright alignjustify outdent indent | styleselect formatselect fontselect fontsizeselect | bullist numlist | blockquote subscript superscript removeformat | table image media charmap emoticons hr pagebreak insertdatetime print preview | fullscreen | bdmap indent2em lineheight formatpainter axupimgs | codesample code",
+    fontsize_formats: "12px 14px 16px 18px 24px 36px 48px 56px 72px",
+    font_formats:
+      "微软雅黑=Microsoft YaHei,Helvetica Neue,PingFang SC,sans-serif;苹果苹方=PingFang SC,Microsoft YaHei,sans-serif;宋体=simsun,serif;仿宋体=FangSong,serif;黑体=SimHei,sans-serif;Arial=arial,helvetica,sans-serif;Arial Black=arial black,avant garde;Book Antiqua=book antiqua,palatino;",
+    init_instance_callback() {
+      //编辑器加载完成回调
+    },
+    setup(editor: {
+      on: (arg0: string, arg1: { (e: any): void; (e: any): void }) => void;
+    }) {
+      editor.on("init", (e) => {
+        seteditorShow(true);
+      });
+    },
   };
   return (
     <div className="view-container">
-      <div dangerouslySetInnerHTML={{ __html: value }}></div>
       <div className="view-edit-container">
-        <Editor
-          initialValue="<p></p>"
-          init={{
-            height: 280,
-            menubar: false,
-            statusbar: false,
-            apikey: "cxvj1cgf4r46llfs065c721epo0n3d6ejvxwa1ah0ej5m3na",
-            language: "zh_CN",
-            font_formats:
-              "微软雅黑=Microsoft YaHei,Helvetica Neue,PingFang SC,sans-serif;苹果苹方=PingFang SC,Microsoft YaHei,sans-serif;宋体=simsun,serif;仿宋体=FangSong,serif;黑体=SimHei,sans-serif;Arial=arial,helvetica,sans-serif;Arial Black=arial black,avant garde;Book Antiqua=book antiqua,palatino;",
-            plugins: [
-              "advlist autolink lists link image code",
-              "charmap print preview anchor help",
-              "searchreplace visualblocks ",
-              "insertdatetime media table paste wordcount",
-            ],
-            toolbar:
-              "undo redo | formatselect | bold italic | \
-          alignleft aligncenter alignright | \
-          bullist numlist outdent indent | help",
-          }}
-          onChange={handleEditorChange}
-        />
+        <div className="view-editor">
+          <div style={{ display: editorShow ? "block" : "none" }}>
+            <h1 style={{ fontWeight: "bold" }}>撰写新文章</h1>
+            <div className="view-header-container">
+              <span className="view-header-text">文章标题:</span>
+              <Input className="view-header-input"></Input>
+            </div>
+          </div>
+          {/* <Button
+            type="primary"
+            style={{ display: editorShow ? "block" : "none" }}
+          >
+            保存
+          </Button> */}
+          <Editor
+            apiKey="cxvj1cgf4r46llfs065c721epo0n3d6ejvxwa1ah0ej5m3na"
+            initialValue={INIT_VALUE}
+            init={editorOptions}
+            onChange={handleEditorChange}
+          />
+        </div>
+        <div className="view-main">
+          <Editor
+            apiKey="cxvj1cgf4r46llfs065c721epo0n3d6ejvxwa1ah0ej5m3na"
+            initialValue={INIT_VALUE}
+            disabled
+            tagName="div"
+            value={value}
+            init={readerOptions}
+          ></Editor>
+        </div>
       </div>
     </div>
   );

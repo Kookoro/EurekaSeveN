@@ -107,7 +107,6 @@ const MenuBar: React.FC<MenuBar> = React.forwardRef((props, ref) => {
         </Menu.Item>
         <Menu.Item
           key="5" //DeleteFilled
-          icon={toggleIcon}
         >
           垃圾桶
         </Menu.Item>

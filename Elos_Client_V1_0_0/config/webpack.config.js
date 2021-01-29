@@ -25,9 +25,7 @@ const ModuleNotFoundPlugin = require("react-dev-utils/ModuleNotFoundPlugin");
 const ForkTsCheckerWebpackPlugin = require("react-dev-utils/ForkTsCheckerWebpackPlugin");
 const typescriptFormatter = require("react-dev-utils/typescriptFormatter");
 const CompressionPlugin = require("compression-webpack-plugin"); //gzip
-
 const postcssNormalize = require("postcss-normalize");
-
 const appPackageJson = require(paths.appPackageJson);
 const { override, addWebpackPlugin } = require("customize-cra");
 const AntdDayjsWebpackPlugin = require("antd-dayjs-webpack-plugin");
@@ -340,8 +338,10 @@ module.exports = function (webpackEnv) {
         // please link the files into your node_modules/ and let module-resolution kick in.
         // Make sure your source files are compiled, as they will not be processed in any way.
         new ModuleScopePlugin(paths.appSrc, [paths.appPackageJson]),
-        [new AntdDayjsWebpackPlugin()],
-        new BundleAnalyzerPlugin(),
+        new AntdDayjsWebpackPlugin(),
+        new BundleAnalyzerPlugin({
+          analyzerPort: 3012,
+        }),
       ],
     },
     resolveLoader: {
@@ -736,6 +736,12 @@ module.exports = function (webpackEnv) {
         minRatio: 0.8, // 只有压缩率比这个值小的资源才会被处理
       }),
     ].filter(Boolean),
+
+    externals: {
+      react: "React",
+      "react-dom": "ReactDOM",
+    },
+
     // Some libraries import Node modules but don't use them in the browser.
     // Tell webpack to provide empty mocks for them so importing them works.
     node: {

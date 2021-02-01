@@ -1,29 +1,16 @@
 import React, { useEffect, useState, FunctionComponent, useRef } from "react";
-import "./Homepage.scss";
+import { Route } from "react-router-dom";
 import axios, { AxiosResponse } from "axios";
+import "./Homepage.scss";
 import { Input, Popover } from "antd";
 import HomePageCalendar from "./homepage/component-calender/component-calender";
 import Navigator from "./homepage/component-navigator/component-navigator";
 import ToolBar from "./homepage/component-toolBar/component-toolBar";
-import ArticlesList from "./homepage/component-articlesList/component-articlesList";
+import ArticlesEditor from "./homepage/component-articleEditor/component-articleEditor";
 import { Icon } from "../component.common";
-import { Route } from "react-router-dom";
+import { scrollToTop } from "../common/common";
+import ArticleIndex from "./homepage/component-articleIndex/component-articleIndex";
 const { Search } = Input;
-
-const scrollToTop = () => {
-  const c = document.documentElement.scrollTop || document.body.scrollTop;
-  const speed = 2; //动画速度 越小越快
-
-  if (c > 0) {
-    /*
-      window.requestAnimationFrame() 
-      你希望执行一个动画，并且要求浏览器在下次重绘之前调用指定的回调函数更新动画。该方法需要传入一个 *回调函数* 作为参数，该回调函数会在浏览器下一次重绘之前执行
-    */
-    window.requestAnimationFrame(scrollToTop);
-    window.scrollTo(0, c - c / speed);
-  }
-};
-
 const Content = () => {
   let [value, setValue] = useState<number>(1);
 
@@ -49,10 +36,10 @@ const Content = () => {
         </div>
       </div>
       <div className="main_content_container">
-        <Route path="/index1" exact component={ArticlesList}></Route>
-        <Route path="/index2" exact component={ArticlesList}></Route>
-        <Route path="/index3" exact component={ArticlesList}></Route>
-        <Route path="/index4" exact component={ArticlesList}></Route>
+        <Route path="/" exact component={ArticleIndex}></Route>
+        <Route path="/index2" exact component={ArticlesEditor}></Route>
+        <Route path="/index3" exact component={ArticlesEditor}></Route>
+        <Route path="/index4" exact component={ArticlesEditor}></Route>
       </div>
     </section>
   );
@@ -184,7 +171,7 @@ const Index: FunctionComponent = () => {
 
             <li>
               <span>
-                Created by
+                Created by{" "}
                 <a
                   href="https://github.com/Tsu8sa"
                   target="_blank"

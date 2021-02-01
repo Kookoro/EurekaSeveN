@@ -1,8 +1,9 @@
 import React, { useLayoutEffect, useState } from "react";
-import "../component-articlesList/component-articlesList.scss";
+import "../component-articleEditor/component-articleEditor.scss";
 import { Editor } from "@tinymce/tinymce-react";
 import { Button, Input, Space } from "antd";
 import { Prompt } from "react-router-dom";
+import { scrollToTop } from "../../../common/common";
 // Render the Slate context.
 
 const ArticlesList: React.FC = () => {
@@ -61,12 +62,11 @@ const ArticlesList: React.FC = () => {
               <Input className="view-header-input"></Input>
             </div>
           </div>
-          {/* <Button
+          <Button
             type="primary"
             style={{ display: editorShow ? "block" : "none" }}
-          >
-            保存
-          </Button> */}
+            onClick={scrollToTop}
+          ></Button>
           <Editor
             apiKey="cxvj1cgf4r46llfs065c721epo0n3d6ejvxwa1ah0ej5m3na"
             initialValue={INIT_VALUE}

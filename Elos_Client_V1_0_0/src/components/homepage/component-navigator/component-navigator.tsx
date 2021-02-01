@@ -17,10 +17,16 @@ const MenuBar: React.FC<MenuBar> = React.forwardRef((props, ref) => {
     sayHello,
   }));
 
-  const [iconKey, setKey] = useState("1");
+  const [iconKey, setKey] = useState<String>("1");
 
-  function sayHello() {}
+  function sayHello() {
+    setKey((oldValue) => {
+      console.log(oldValue);
+      return "2";
+    });
+  }
   function resetToTop<T>(clickMode): void {
+    sayHello();
     props.sendfn(sayHello);
 
     const c = document.documentElement.scrollTop || document.body.scrollTop;

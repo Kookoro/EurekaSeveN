@@ -5,7 +5,7 @@ export class RegisterInfoDTO {
   readonly repassword: string;
   readonly mobile: number;
 }
-export interface DTOAdminInfo {
+export class DTOAdminInfo {
   readonly sname?: String;
   readonly sjobname?: String;
   readonly semail?: String;

@@ -57,6 +57,7 @@ const Index: FunctionComponent = () => {
   const [imgUrl, setImgUrl] = useState<string>("");
   const [imgCopyright, setCopyRight] = useState<string>("");
   const [imgCopyrightLink, setCopyRightLink] = useState<string>("");
+
   useEffect(() => {
     (function getDailyImg() {
       axios.get("/index/getDailyImg").then((res: AxiosResponse) => {
@@ -70,18 +71,6 @@ const Index: FunctionComponent = () => {
         setCopyRightLink(res.data.images[0].copyrightlink);
       });
     })();
-    // const getAnimateImg = (): void => {
-    //   axios
-    //     .get("http://localhost:3080/getAnimateImg")
-    //     .then((res: AxiosResponse) => {
-    //       setState({
-    //         // imgUrl: "http://www.bing.com/" + res.data.imgUrl,
-    //         ...state,
-    //         imgShow: true,
-    //       });
-    //       setImgUrl(`${res.data.imgUrl}`);
-    //     });
-    // };main_content_container
 
     const checkScrollHeight = (e: number): void => {
       if (e > 600) {

@@ -9,6 +9,8 @@ import { Observable } from 'rxjs';
 interface Response<T> {
   data: T;
 }
+const NEED_WARP_DATA = true;
+const NO_NEED_WARP_DATA = false;
 @Injectable()
 export class TransformInterceptor<T>
   implements NestInterceptor<T, Response<T>> {
@@ -16,23 +18,33 @@ export class TransformInterceptor<T>
     context: ExecutionContext,
     next: CallHandler<T>,
   ): Observable<Response<T>> {
-    const handleStart = Date.now();
-    const response = context.switchToHttp().getResponse();
-    const statusCode = response.statusCode;
-    debugger;
-    return next.handle().pipe(
-      map(data => {
-        const handleEnd = Date.now();
-        return {
-          data,
-          code: statusCode,
-          message: '请求成功',
-          currentTime: new Date().toISOString(),
-          stime: handleStart,
-          etime: handleEnd,
-          timeDiff: handleEnd - handleStart + 'ms',
-        };
-      }),
-    );
+    const handleStart = Date.now(); //开始时间
+    const response = context.switchToHttp().getResponse(); //获取response对象
+    const statusCode = response.statusCode; //获取状态码
+
+    if (NEED_WARP_DATA) {
+      return next.handle().pipe(
+        map(data => {
+          const handleEnd = Date.now();
+          return {
+            data,
+            code: statusCode,
+            message: '请求成功',
+            currentTime: new Date().toISOString(),
+            stime: handleStart,
+            etime: handleEnd,
+            timeDiff: handleEnd - handleStart + 'ms',
+          };
+        }),
+      );
+    } else {
+      return next.handle().pipe(
+        map(data => {
+          return {
+            data,
+          };
+        }),
+      );
+    }
   }
 }

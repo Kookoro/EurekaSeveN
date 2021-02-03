@@ -6,11 +6,11 @@ import {
 } from '@nestjs/common';
 import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
+import { NEED_WARP_DATA } from './transform.config';
 interface Response<T> {
   data: T;
 }
-const NEED_WARP_DATA = true;
-const NO_NEED_WARP_DATA = false;
+
 @Injectable()
 export class TransformInterceptor<T>
   implements NestInterceptor<T, Response<T>> {

@@ -6,7 +6,7 @@ import {
 } from '@nestjs/common';
 import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
-import { NEED_WARP_DATA } from './transform.config';
+import { NEED_WARP_DATA } from '../transform.config';
 interface Response<T> {
   data: T;
 }

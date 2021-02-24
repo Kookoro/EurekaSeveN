@@ -9,7 +9,7 @@ export class IndexController {
   getAdminInfo() {
     return this.indexService.findAdmin();
   }
-  @Get('getDailyImg')
+  @Get('image')
   getDailyImg(@Response() response) {
     this.indexService.getDailyImg().subscribe(res => {
       return response.status(HttpStatus.OK).json(res.data);

@@ -60,7 +60,7 @@ const Index: FunctionComponent = () => {
 
   useEffect(() => {
     (function getDailyImg() {
-      axios.get("/index/getDailyImg").then((res: AxiosResponse) => {
+      axios.get("/index/image").then((res: AxiosResponse) => {
         setState({
           ...state,
           // imgUrl: "http://www.bing.com/" + res.data.imgUrl,

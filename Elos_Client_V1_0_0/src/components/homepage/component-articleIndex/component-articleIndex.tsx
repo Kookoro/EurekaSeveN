@@ -1,8 +1,8 @@
 import { Divider } from "antd";
 import React, { FunctionComponent, useEffect } from "react";
 import "./component-articleIndex.scss";
+import { Test } from "../../test/Test";
 interface Parent {}
-
 const ArticleIndex: FunctionComponent = (props: Parent) => {
   function initArticles() {
     console.log("init");
@@ -16,7 +16,9 @@ const ArticleIndex: FunctionComponent = (props: Parent) => {
   return (
     <div className="article-container">
       <div className="article-main">
-        <div className="article-main-item">111</div>
+        <div className="article-main-item">
+          <Test></Test>
+        </div>
         <Divider></Divider>
       </div>
     </div>

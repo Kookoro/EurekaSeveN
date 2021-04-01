@@ -12,8 +12,6 @@ import { scrollToTop } from "../common/common";
 import ArticleIndex from "./homepage/component-articleIndex/component-articleIndex";
 const { Search } = Input;
 const Content = () => {
-  let [value, setValue] = useState<number>(1);
-
   const sayParentFn = (value: string): void => {
     console.log("调用了父组件方法" + value);
   };
@@ -194,9 +192,7 @@ const Header: FunctionComponent = () => {
   function sendFn(fn): void {
     fn();
   }
-  function getChildMethods() {
-    console.log(child);
-  }
+  function getChildMethods() {}
 
   return (
     <div>

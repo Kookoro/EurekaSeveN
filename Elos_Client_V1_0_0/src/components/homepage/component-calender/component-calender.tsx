@@ -3,19 +3,14 @@ import { Calendar } from "antd";
 import localeCN from "antd/lib/calendar/locale/zh_CN.js";
 import "./component-calender.scss";
 
-const HomePageCalendar = (props: {
-  sayParentFn: (arg0: string) => void;
-  sref: unknown;
-}) => {
+const HomePageCalendar = () => {
   const onPanelChange = (value, mode) => {};
   return (
     <section>
       <div className="site-calendar-demo-card">
         <div className="calender-title">
           <span
-            onClick={() => {
-              props.sayParentFn("子组件参数");
-            }}
+           
           >
             共0篇记录
           </span>

@@ -10,27 +10,54 @@ import ArticlesEditor from "./homepage/component-articleEditor/component-article
 import { Icon } from "../component.common";
 import { scrollToTop } from "../common/common";
 import ArticleIndex from "./homepage/component-articleIndex/component-articleIndex";
+import Wave from "./homepage/component-wave/component-wave";
 const { Search } = Input;
 const Content = () => {
-  const sayParentFn = (value: string): void => {
-    console.log("调用了父组件方法" + value);
-  };
-  const ref = React.createRef();
+  const [userInfo, setUserInfo] = useState({
+    sname: "绮夜幽蓝",
+    saddress: "重庆",
+    scountry: "中国",
+    scomment: "",
+  });
+  useEffect(() => {
+    getUserInfo();
+  }, []);
+
+  function getUserInfo() {
+    axios.get("/index/userinfo").then((res: AxiosResponse) => {
+      if (res) {
+        debugger;
+      }
+    });
+  }
 
   return (
+
     <section className="main_index_container">
+          <Wave></Wave>
       <div className="user_info_container">
         <div className="user_info_total_container">
           <div className="user_info_avatar_container">
             <img
-              src="http://106.15.61.198/image/userAvatar.jpg"
+              src="https://belos.xyz/image/userAvatar2.jpg"
               alt=""
               onClick={scrollToTop}
             />
           </div>
+
+          <div className="user_info_container">
+            <div>
+              <span className="user_info_name">{userInfo.sname}</span>
+            </div>
+            <div>
+       
+              <span className="user_info_text">{userInfo.scountry}</span>
+              <span className="user_info_text">{userInfo.saddress}</span>
+            </div>
+          </div>
         </div>
         <div>
-          <HomePageCalendar sref={ref} sayParentFn={sayParentFn} />
+          <HomePageCalendar />
         </div>
       </div>
       <div className="main_content_container">
@@ -129,6 +156,7 @@ const Index: FunctionComponent = () => {
           </div>
         </Popover>
       </div>
+     
       <div className="content">
         <Content></Content>
         <ToolBar click={scrollToTop}></ToolBar>

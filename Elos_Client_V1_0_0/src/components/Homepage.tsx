@@ -11,6 +11,7 @@ import { Icon } from "../component.common";
 import { scrollToTop } from "../common/common";
 import ArticleIndex from "./homepage/component-articleIndex/component-articleIndex";
 import Wave from "./homepage/component-wave/component-wave";
+import SocialLink from "./homepage/component-socialLink/component-socialLink";
 const { Search } = Input;
 const Content = () => {
   const [userInfo, setUserInfo] = useState({
@@ -20,21 +21,19 @@ const Content = () => {
     scomment: "",
   });
   useEffect(() => {
-    getUserInfo();
+    // getUserInfo();
   }, []);
 
   function getUserInfo() {
     axios.get("/index/userinfo").then((res: AxiosResponse) => {
       if (res) {
-        debugger;
       }
     });
   }
 
   return (
-
     <section className="main_index_container">
-          <Wave></Wave>
+      <Wave></Wave>
       <div className="user_info_container">
         <div className="user_info_total_container">
           <div className="user_info_avatar_container">
@@ -50,11 +49,11 @@ const Content = () => {
               <span className="user_info_name">{userInfo.sname}</span>
             </div>
             <div>
-       
               <span className="user_info_text">{userInfo.scountry}</span>
               <span className="user_info_text">{userInfo.saddress}</span>
             </div>
           </div>
+          <SocialLink></SocialLink>
         </div>
         <div>
           <HomePageCalendar />
@@ -86,11 +85,13 @@ const Index: FunctionComponent = () => {
   useEffect(() => {
     (function getDailyImg() {
       axios.get("/index/image").then((res: AxiosResponse) => {
-        setState({
-          ...state,
-          // imgUrl: "http://www.bing.com/" + res.data.imgUrl,
-          imgShow: true,
-        });
+        // setState({
+        //   ...state,
+        //   // imgUrl: "http://www.bing.com/" + res.data.imgUrl,
+        //   imgShow: true,
+        // });
+        const scrollTop: number = document.documentElement.scrollTop; //滚动条滚动高度
+        checkScrollHeight(scrollTop);
         setImgUrl(`http://www.bing.com/${res.data.images[0].url}`); //必应每日图片接口)
         setCopyRight(res.data.images[0].copyright);
         setCopyRightLink(res.data.images[0].copyrightlink);
@@ -117,6 +118,7 @@ const Index: FunctionComponent = () => {
       checkScrollHeight(scrollTop);
     };
     window.addEventListener("scroll", handleScroll);
+
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
@@ -156,7 +158,7 @@ const Index: FunctionComponent = () => {
           </div>
         </Popover>
       </div>
-     
+
       <div className="content">
         <Content></Content>
         <ToolBar click={scrollToTop}></ToolBar>

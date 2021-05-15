@@ -3,7 +3,7 @@ import { Menu } from "antd";
 import { ReactNode } from "react";
 import { Link } from "react-router-dom";
 import "./component-navigator.scss";
-import { DeleteOutlined, DeleteFilled } from "@ant-design/icons";
+
 interface MenuBar {
   className?: string;
   children?: ReactNode; //接受一个父组件传过来的组件
@@ -57,23 +57,6 @@ const MenuBar: React.FC<MenuBar> = React.forwardRef((props, ref) => {
     setKey(selectedItem.key);
   }
 
-  function toggleIcon(key) {
-    debugger;
-    const list = [
-      DeleteOutlined,
-      DeleteOutlined,
-      DeleteOutlined,
-      DeleteOutlined,
-      DeleteOutlined,
-    ];
-    switch (iconKey) {
-      case "5":
-        return iconKey == key ? DeleteFilled : DeleteOutlined;
-
-      default:
-        return list[key - 1];
-    }
-  }
   return (
     <div>
       <Menu

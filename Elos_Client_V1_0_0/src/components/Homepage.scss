@@ -83,7 +83,7 @@ html {
     .header_right {
       position: relative;
       margin: auto 0;
-      padding-right: 2%;
+      padding-right: 1%;
 
       .ant-input-affix-wrapper {
         border-radius: 20px;
@@ -275,6 +275,8 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
+  z-index: 1;
   .foot-saying {
     background-color: #323234;
     color: white;

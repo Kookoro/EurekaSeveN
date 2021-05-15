@@ -11,6 +11,7 @@ import { Icon } from "../component.common";
 import { scrollToTop } from "../common/common";
 import ArticleIndex from "./homepage/component-articleIndex/component-articleIndex";
 import Wave from "./homepage/component-wave/component-wave";
+import SocialLink from "./homepage/component-socialLink/component-socialLink";
 const { Search } = Input;
 const Content = () => {
   const [userInfo, setUserInfo] = useState({
@@ -20,13 +21,12 @@ const Content = () => {
     scomment: "行こう、楽園へ",
   });
   useEffect(() => {
-    getUserInfo();
+    // getUserInfo();
   }, []);
 
   function getUserInfo() {
     axios.get("/index/userinfo").then((res: AxiosResponse) => {
       if (res) {
-        debugger;
       }
     });
   }
@@ -53,6 +53,7 @@ const Content = () => {
             </div>
             <hr className="line" />
           </div>
+          <SocialLink></SocialLink>
         </div>
         <div>
           <HomePageCalendar />
@@ -84,11 +85,13 @@ const Index: FunctionComponent = () => {
   useEffect(() => {
     (function getDailyImg() {
       axios.get("/index/image").then((res: AxiosResponse) => {
-        setState({
-          ...state,
-          // imgUrl: "http://www.bing.com/" + res.data.imgUrl,
-          imgShow: true,
-        });
+        // setState({
+        //   ...state,
+        //   // imgUrl: "http://www.bing.com/" + res.data.imgUrl,
+        //   imgShow: true,
+        // });
+        const scrollTop: number = document.documentElement.scrollTop; //滚动条滚动高度
+        checkScrollHeight(scrollTop);
         setImgUrl(`http://www.bing.com/${res.data.images[0].url}`); //必应每日图片接口)
         setCopyRight(res.data.images[0].copyright);
         setCopyRightLink(res.data.images[0].copyrightlink);
@@ -115,6 +118,7 @@ const Index: FunctionComponent = () => {
       checkScrollHeight(scrollTop);
     };
     window.addEventListener("scroll", handleScroll);
+
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };

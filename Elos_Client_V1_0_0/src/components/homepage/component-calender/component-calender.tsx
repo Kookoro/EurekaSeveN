@@ -9,11 +9,9 @@ const HomePageCalendar = () => {
     <section>
       <div className="site-calendar-demo-card">
         <div className="calender-title">
-          <span
-           
-          >
-            共0篇记录
-          </span>
+          <div>
+            <span className="calender-title-name">日历</span>| 共0篇记录
+          </div>
         </div>
         <Calendar
           locale={localeCN}

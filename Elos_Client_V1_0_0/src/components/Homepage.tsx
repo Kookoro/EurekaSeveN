@@ -17,7 +17,7 @@ const Content = () => {
     sname: "绮夜幽蓝",
     saddress: "重庆",
     scountry: "中国",
-    scomment: "",
+    scomment: "行こう、楽園へ",
   });
   useEffect(() => {
     getUserInfo();
@@ -32,9 +32,8 @@ const Content = () => {
   }
 
   return (
-
     <section className="main_index_container">
-          <Wave></Wave>
+      <Wave></Wave>
       <div className="user_info_container">
         <div className="user_info_total_container">
           <div className="user_info_avatar_container">
@@ -46,14 +45,13 @@ const Content = () => {
           </div>
 
           <div className="user_info_container">
-            <div>
-              <span className="user_info_name">{userInfo.sname}</span>
+            <div className="user_info_name">
+              <span >{userInfo.sname}</span>
             </div>
-            <div>
-       
-              <span className="user_info_text">{userInfo.scountry}</span>
-              <span className="user_info_text">{userInfo.saddress}</span>
+            <div className="user_info_comment">
+              <span >{userInfo.scomment}</span>
             </div>
+            <hr className="line" />
           </div>
         </div>
         <div>
@@ -156,7 +154,7 @@ const Index: FunctionComponent = () => {
           </div>
         </Popover>
       </div>
-     
+
       <div className="content">
         <Content></Content>
         <ToolBar click={scrollToTop}></ToolBar>

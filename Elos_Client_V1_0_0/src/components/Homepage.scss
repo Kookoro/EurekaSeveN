@@ -196,7 +196,7 @@ html {
 }
 
 .main_index_container {
-position: relative;
+  position: relative;
   display: flex;
   height: 100%;
   justify-content: center;
@@ -222,8 +222,8 @@ position: relative;
       padding-top: 10px;
     }
     .user_info_avatar_container {
-      width: 170px;
-      height: 170px;
+      width: 140px;
+      height: 140px;
       position: relative;
       margin: 0 auto;
       margin-bottom: 12px;
@@ -246,15 +246,24 @@ position: relative;
       right: 50%;
       top: 50%;
       transform: translate(50%, -50%);
-   
     }
 
-    .user_info_container{
-      .user_info_name{
+    .user_info_container {
+      .user_info_name {
         text-align: center;
-        width: 100%;
-        display: block;
         font-size: 16px;
+      }
+      .user_info_comment {
+        text-align: center;
+        color: #8e8e8e;
+        height: 30px;
+        line-height: 30px;
+    
+      }
+      .line {
+        background-color:#cacaca;
+        height: 1px;
+        border: none;
       }
     }
   }

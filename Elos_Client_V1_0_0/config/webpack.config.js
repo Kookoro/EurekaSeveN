@@ -379,6 +379,18 @@ module.exports = function (webpackEnv) {
           ],
           include: paths.appSrc,
         },
+
+        {
+          test: /\.tsx?$/, // ts-loader是官方提供的处理tsx的文件
+          use: "ts-loader",
+          exclude: /node_modules/,
+        },
+        {
+          test: /\.ts?$/, // ts-loader是官方提供的处理tsx的文件
+          use: "ts-loader",
+          exclude: /node_modules/,
+        },
+
         {
           // "oneOf" will traverse all following loaders until one will
           // match the requirements. When no loader matches it will fall

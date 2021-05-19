@@ -79,7 +79,6 @@
     "style-loader": "0.23.1",
     "terser-webpack-plugin": "2.3.5",
     "ts-pnp": "1.1.6",
-    "typescript": "^3.9.7",
     "url-loader": "2.3.0",
     "webpack": "4.42.0",
     "webpack-manifest-plugin": "2.2.0",
@@ -87,7 +86,9 @@
   },
   "scripts": {
     "start": "react-app-rewired start",
-    "build": "set GENERATE_SOURCEMAP=false&&react-app-rewired build",
+    "start:prod": "set GENERATE_SOURCEMAP=false&&react-app-rewired start",
+    "build:prod": "set GENERATE_SOURCEMAP=false&&react-app-rewired build",
+    "build:prod:linux": "GENERATE_SOURCEMAP=false react-app-rewired build",
     "test": "react-app-rewired test",
     "report": "npm run build"
   },
@@ -113,6 +114,8 @@
     "@types/nprogress": "^0.2.0",
     "compression-webpack-plugin": "^4.0.0",
     "redux-devtools": "^3.6.0",
+    "ts-loader": "^8.3.0",
+    "typescript": "^3.9.9",
     "webpack-bundle-analyzer": "^3.9.0"
   },
   "jest": {

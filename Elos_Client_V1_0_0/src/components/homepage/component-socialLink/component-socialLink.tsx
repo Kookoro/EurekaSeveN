@@ -1,25 +1,36 @@
-import { Modal, Button } from "antd";
+import { Button, Modal } from "antd";
 
 import React, { useState } from "react";
+import LoadingIcon from "../../common/icon-loading/icon-loading";
 import "./component-socialLink.scss";
 
 function SocialLink(props) {
   const iconList = [
-    { component: Github, url: "https://github.com/Tsu8sa/" },
+    { component: Github, url: "https://github.com/Tsu8sa/", title: "Github" },
     {
       component: Weixin,
       func() {
         showModal("WX");
       },
+      title: "Weixin",
     },
-    { component: Twitter, url: "https://twitter.com/qiulin2483316" },
-    { component: Weibo, url: "https://weibo.com/6284276137" },
-    { component: Bilibili, url: "https://space.bilibili.com/3273496" },
+    {
+      component: Twitter,
+      url: "https://twitter.com/qiulin2483316",
+      title: "Twitter",
+    },
+    { component: Weibo, url: "https://weibo.com/6284276137", title: "Weibo" },
+    {
+      component: Bilibili,
+      url: "https://space.bilibili.com/3273496",
+      title: "Bilibili",
+    },
     {
       component: QQ,
       func() {
         showModal("QQ");
       },
+      title: "QQ",
     },
   ];
   const svgOption = {
@@ -38,7 +49,7 @@ function SocialLink(props) {
   }
   const [isModalVisibleWX, setIsModalVisibleWX] = useState(false);
   const [isModalVisibleQQ, setIsModalVisibleQQ] = useState(false);
-
+  const [imgShow, setImgShow] = useState(false);
   const handleOk = (type) => {
     setIsModalVisibleQQ(false);
 
@@ -80,11 +91,16 @@ function SocialLink(props) {
     }
   };
 
+  function handleImgLoad(e) {
+    setImgShow(true);
+  }
+
   return (
     <div className="icon-container">
       {iconList.map((item, index) => {
         return (
           <div
+            title={item.title}
             key={index}
             onClick={() => {
               item.func ? item.func() : gotoLink(item.url);
@@ -100,31 +116,62 @@ function SocialLink(props) {
 
       <Modal
         title="微信 | WeChat"
-        onOk={() => {
-          handleOk("WX");
-        }}
         onCancel={() => {
           handleCancel("WX");
         }}
+        footer={
+          <Button
+            onClick={() => {
+              handleOk("WX");
+            }}
+          >
+            确定
+          </Button>
+        }
         mask={false}
         cancelText="取消"
         visible={isModalVisibleWX}
-      ></Modal>
+      >
+        {imgShow ? null : <LoadingIcon scale="0.7"></LoadingIcon>}
+        <img
+          style={{
+            display: imgShow ? "block" : "none",
+            width: "50%",
+            margin: "0 auto",
+          }}
+          onLoad={handleImgLoad}
+          src="https://belos.xyz/image/qrcode-WX.png"
+          alt=""
+        ></img>
+      </Modal>
       <Modal
         title="企鹅 | QQ"
-        onOk={() => {
-          handleOk("QQ");
-        }}
-        onCancel={() => {
-          handleCancel("QQ");
-        }}
         mask={false}
         visible={isModalVisibleQQ}
         cancelText="取消"
+        onCancel={() => {
+          handleCancel("QQ");
+        }}
+        footer={
+          <Button
+            onClick={() => {
+              handleOk("QQ");
+            }}
+          >
+            确定
+          </Button>
+        }
       >
+        {imgShow ? null : <LoadingIcon scale="0.7"></LoadingIcon>}
         <img
-          style={{ width: "50%", margin: "0 auto" }}
-          src="https://belos.xyz/image/qq.png"
+          style={{
+            display: imgShow ? "block" : "none",
+            width: "50%",
+            margin: "0 auto",
+          }}
+          onLoad={handleImgLoad}
+          src="https://belos.xyz/image/qrcode-QQ.png"
+          alt=""
         ></img>
       </Modal>
     </div>

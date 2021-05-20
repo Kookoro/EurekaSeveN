@@ -46,12 +46,11 @@ const Content = () => {
 
           <div className="user_info_container">
             <div className="user_info_name">
-              <span >{userInfo.sname}</span>
+              <span>{userInfo.sname}</span>
             </div>
             <div className="user_info_comment">
-              <span >{userInfo.scomment}</span>
+              <span>{userInfo.scomment}</span>
             </div>
-            <hr className="line" />
           </div>
           <SocialLink></SocialLink>
         </div>

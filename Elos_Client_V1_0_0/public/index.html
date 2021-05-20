@@ -16,86 +16,21 @@
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/index192.png" />
 
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-
+    <link rel="stylesheet" href="%PUBLIC_URL%/index.css" />
     <title>翼をください-给我一双翅膀</title>
   </head>
-  <style>
-    .loading {
-      width: 100%;
-      height: 100%;
-      top: 0;
-      left: 0;
-      z-index: 100;
-      background: #fff;
-    }
-    .loading .pic {
-      width: 50px;
-      height: 50px;
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      margin: auto;
-    }
-    .loading .pic i {
-      display: block;
-      float: left;
-      width: 6px;
-      height: 50px;
-      background: #000;
-      margin: 0 2px;
-      -webkit-transform: scaleY(0.4);
-      -ms-transform: scaleY(0.4);
-      transform: scaleY(0.4);
-      -webkit-animation: load 1.2s infinite;
-      animation: load 1.2s infinite;
-    }
-    .loading .pic i:nth-of-type(2) {
-      -webkit-animation-delay: 0.1s;
-      animation-delay: 0.1s;
-    }
-    .loading .pic i:nth-of-type(3) {
-      -webkit-animation-delay: 0.2s;
-      animation-delay: 0.2s;
-    }
-    .loading .pic i:nth-of-type(4) {
-      -webkit-animation-delay: 0.3s;
-      animation-delay: 0.3s;
-    }
-    .loading .pic i:nth-of-type(5) {
-      -webkit-animation-delay: 0.4s;
-      animation-delay: 0.4s;
-    }
-    @-webkit-keyframes load {
-      0%,
-      40%,
-      100% {
-        -webkit-transform: scaleY(0.4);
-        transform: scaleY(0.4);
-      }
-      20% {
-        -webkit-transform: scaleY(1);
-        transform: scaleY(1);
-      }
-    }
-    @keyframes load {
-      0%,
-      40%,
-      100% {
-        -webkit-transform: scaleY(0.4);
-        transform: scaleY(0.4);
-      }
-      20% {
-        -webkit-transform: scaleY(1);
-        transform: scaleY(1);
-      }
-    }
-  </style>
+  <style></style>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root" class="loading">
-      <div class="pic"></div>
+      <div class="pic">
+        <!--加载条-->
+        <i></i>
+        <i></i>
+        <i></i>
+        <i></i>
+        <i></i>
+      </div>
     </div>
   </body>
   <script

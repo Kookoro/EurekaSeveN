@@ -1,5 +1,6 @@
 const {
   override,
+  useBabelRc,
   fixBabelImports,
   addDecoratorsLegacy,
   addLessLoader,
@@ -11,6 +12,7 @@ module.exports = override(
     libraryDirectory: "es",
     style: true,
   }),
+  useBabelRc(),
   addDecoratorsLegacy(),
   addLessLoader({
     javascriptEnabled: true,

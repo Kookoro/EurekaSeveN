@@ -390,6 +390,10 @@ module.exports = function (webpackEnv) {
           use: "ts-loader",
           exclude: /node_modules/,
         },
+        {
+          test: /tinymce[\\/]skins[\\/]/,
+          loader: "file?name=[path][name].[ext]&context=node_modules/tinymce",
+        },
 
         {
           // "oneOf" will traverse all following loaders until one will

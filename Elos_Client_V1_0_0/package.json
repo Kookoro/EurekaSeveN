@@ -80,6 +80,7 @@
     "semver": "6.3.0",
     "style-loader": "0.23.1",
     "terser-webpack-plugin": "2.3.5",
+    "tinymce": "^5.8.1",
     "ts-pnp": "1.1.6",
     "url-loader": "2.3.0",
     "webpack": "4.42.0",
@@ -115,6 +116,8 @@
   "devDependencies": {
     "@types/nprogress": "^0.2.0",
     "compression-webpack-plugin": "^4.0.0",
+    "exports-loader": "^3.0.0",
+    "imports-loader": "^3.0.0",
     "redux-devtools": "^3.6.0",
     "ts-loader": "^8.3.0",
     "typescript": "^3.9.9",

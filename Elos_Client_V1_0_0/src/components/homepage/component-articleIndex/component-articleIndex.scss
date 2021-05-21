@@ -1,4 +1,54 @@
 .article-container {
-  height: 230px;
   width: 100%;
+  .article-header {
+    font-size: 16px;
+    width: 100%;
+    ul {
+      height: 22px;
+      li {
+        display: inline-block;
+        width: 58px;
+        font-size: 14px;
+        text-align: center;
+        height: 14px;
+        line-height: 14px;
+        border-right: 1px solid hsla(0, 0%, 59.2%, 0.2);
+        cursor: pointer;
+      }
+      li:last-child {
+        border: none;
+      }
+    }
+  }
+}
+.article-main-item {
+  height: 140px;
+  padding: 14px;
+  border: 1px solid #f7f7f7;
+  cursor: pointer;
+  .article-item-title {
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 24px;
+    color: #1d2129;
+    word-break: break-all;
+    margin-bottom: 8px;
+  }
+  .item-describe {
+    margin-bottom: 14px;
+    font-size: 14px;
+    line-height: 22px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    width: 550px;
+  }
+}
+.article-main-item:first-child {
+  border: none;
+}
+.article-main-item:hover {
+  background-color: #fafafa;
 }

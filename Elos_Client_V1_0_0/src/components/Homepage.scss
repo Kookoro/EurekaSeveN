@@ -198,7 +198,7 @@ html {
 .main_index_container {
   position: relative;
   display: flex;
-  height: 100%;
+
   justify-content: center;
   background-color: $white;
   padding-top: 10px;
@@ -258,10 +258,9 @@ html {
         color: #8e8e8e;
         height: 30px;
         line-height: 30px;
-    
       }
       .line {
-        background-color:#cacaca;
+        background-color: #cacaca;
         height: 1px;
         border: none;
       }

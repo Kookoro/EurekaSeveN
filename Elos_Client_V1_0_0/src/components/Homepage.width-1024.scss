@@ -1,0 +1,24 @@
+@media screen and (max-width: 1075px) {
+  .banner_title_container {
+    h1 {
+      font-size: 60px;
+      text-align: center;
+    }
+  }
+
+  .main_index_calendar {
+    display: none;
+  }
+  .main_index_container .user_info_container {
+    width: 140px;
+  }
+  .main_index_container .user_info_container .user_info_avatar_container {
+    width: 70px;
+    height: 70px;
+    position: relative;
+    margin: 0 auto;
+    margin-bottom: 12px;
+    border-radius: 50%;
+    background-color: lightslategray;
+  }
+}

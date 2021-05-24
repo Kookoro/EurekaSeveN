@@ -18,7 +18,7 @@ const Content = () => {
     sname: "绮夜幽蓝",
     saddress: "重庆",
     scountry: "中国",
-    scomment: "行こう、楽園へ",
+    scomment: "行こう、楽園へ!",
   });
   useEffect(() => {
     // getUserInfo();
@@ -54,7 +54,7 @@ const Content = () => {
           </div>
           <SocialLink></SocialLink>
         </div>
-        <div>
+        <div className="main_index_calendar">
           <HomePageCalendar />
         </div>
       </div>

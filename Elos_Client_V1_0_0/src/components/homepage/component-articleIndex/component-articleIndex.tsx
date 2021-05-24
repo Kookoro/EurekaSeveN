@@ -1,14 +1,12 @@
-import { Divider } from "antd";
 import React, { FunctionComponent, useEffect, useState } from "react";
 import "./component-articleIndex.scss";
-import { Test } from "../../test/Test";
 
 interface Article {
   _id: string;
   stitle: string;
   sdescribe: string;
   nwords: number;
-  type: String[];
+  tag: String[];
   dcreate?: Date;
 }
 
@@ -31,7 +29,7 @@ const ArticleIndex: FunctionComponent = (props) => {
         可以在你确认不需要更新组件时使用。
         `,
           nwords: 4020,
-          type: ["react", "前端", "原理"],
+          tag: ["React", "前端", "原理"],
         },
         {
           _id: "00002",
@@ -46,7 +44,7 @@ const ArticleIndex: FunctionComponent = (props) => {
         可以在你确认不需要更新组件时使用。
         `,
           nwords: 4020,
-          type: ["react", "前端", "原理"],
+          tag: ["React", "前端", "原理"],
         },
         {
           _id: "00003",
@@ -61,7 +59,7 @@ const ArticleIndex: FunctionComponent = (props) => {
         可以在你确认不需要更新组件时使用。
         `,
           nwords: 4020,
-          type: ["react", "前端", "原理"],
+          tag: ["React", "前端", "原理"],
         },
         {
           _id: "00004",
@@ -76,7 +74,7 @@ const ArticleIndex: FunctionComponent = (props) => {
         可以在你确认不需要更新组件时使用。
         `,
           nwords: 4020,
-          type: ["react", "前端", "原理"],
+          tag: ["React", "前端", "原理"],
         },
         {
           _id: "00005",
@@ -91,7 +89,7 @@ const ArticleIndex: FunctionComponent = (props) => {
         可以在你确认不需要更新组件时使用。
         `,
           nwords: 4020,
-          type: ["react", "前端", "原理"],
+          tag: ["React", "前端", "原理"],
         },
         {
           _id: "00006",
@@ -106,7 +104,7 @@ const ArticleIndex: FunctionComponent = (props) => {
         可以在你确认不需要更新组件时使用。
         `,
           nwords: 4020,
-          type: ["react", "前端", "原理"],
+          tag: ["React", "前端", "原理"],
         },
       ],
     };
@@ -117,14 +115,14 @@ const ArticleIndex: FunctionComponent = (props) => {
     const result: any = initArticles().data;
     setArtVal(result);
   }, []);
-
+  const [isActive, setActive] = useState(0);
   return (
     <div className="article-container">
       <div className="article-header">
         <ul>
-          <li>最近</li>
-          <li>分类</li>
-          <li>阅读</li>
+          <li className={isActive === 0 ? "header-active" : ""}>最近</li>
+          <li className={isActive === 1 ? "header-active" : ""}>分类</li>
+          <li className={isActive === 2 ? "header-active" : ""}>阅读</li>
         </ul>
       </div>
       <div className="article-main">
@@ -136,6 +134,15 @@ const ArticleIndex: FunctionComponent = (props) => {
               }`}</h1>
               <div>
                 <span className="item-describe">{item.sdescribe}</span>
+              </div>
+              <div>
+                {item.tag.map((type: String, index: number) => {
+                  return (
+                    <span className="item-keyword" key={index}>
+                      {type}
+                    </span>
+                  );
+                })}
               </div>
             </div>
           );

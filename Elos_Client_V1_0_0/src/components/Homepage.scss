@@ -201,7 +201,7 @@ html {
 
   justify-content: center;
   background-color: $white;
-  padding-top: 10px;
+  padding-top: 16px;
   .main_content_container {
     width: 770px;
     background-color: white;
@@ -222,8 +222,8 @@ html {
       padding-top: 10px;
     }
     .user_info_avatar_container {
-      width: 140px;
-      height: 140px;
+      width: 120px;
+      height: 120px;
       position: relative;
       margin: 0 auto;
       margin-bottom: 12px;
@@ -309,3 +309,4 @@ footer {
   -webkit-transform: scale3d(1.1, 1.1, 1.1);
   -o-transform: scale3d(1.1, 1.1, 1.1);
 }
+@import "Homepage.width-1024.scss";

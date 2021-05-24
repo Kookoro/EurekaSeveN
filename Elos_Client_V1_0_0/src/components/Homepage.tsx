@@ -52,6 +52,8 @@ const Content = () => {
               <span>{userInfo.scomment}</span>
             </div>
           </div>
+
+          <Counter></Counter>
           <SocialLink></SocialLink>
         </div>
         <div className="main_index_calendar">
@@ -65,6 +67,25 @@ const Content = () => {
         <Route path="/index4" exact component={ArticlesEditor}></Route>
       </div>
     </section>
+  );
+};
+
+const Counter = () => {
+  return (
+    <div className="counter-container">
+      <div className="counter-item">
+        <span className="counter-item-num">23</span>
+        <span>记录</span>
+      </div>
+      <div className="counter-item">
+        <span className="counter-item-num">7</span>
+        <span>分类</span>
+      </div>
+      <div className="counter-item">
+        <span className="counter-item-num">8</span>
+        <span>标签</span>
+      </div>
+    </div>
   );
 };
 

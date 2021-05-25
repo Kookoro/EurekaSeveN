@@ -1,6 +1,7 @@
 import React, { FunctionComponent, useEffect, useState } from "react";
 import "./component-articleIndex.scss";
 import TAG from "../../common/icon-tags/icon-tags";
+import { timeToSort } from "../../../common/common";
 interface Article {
   _id: string;
   stitle: string;
@@ -8,12 +9,11 @@ interface Article {
   nwords: number;
   tag: String[];
   dcreate?: Date;
+  slink: string;
 }
 
 const ArticleIndex: FunctionComponent = (props) => {
   function initArticles() {
-    console.log("init");
-
     const result = {
       data: [
         {
@@ -29,7 +29,9 @@ const ArticleIndex: FunctionComponent = (props) => {
         可以在你确认不需要更新组件时使用。
         `,
           nwords: 4020,
-          tag: ["React", "前端", "原理"],
+          tag: ["React", "前端", "原理", "JavaScript"],
+          dcreate: new Date("2021-05-24"),
+          slink: "https://belos.xyz/image/React.jpg",
         },
         {
           _id: "00002",
@@ -45,6 +47,8 @@ const ArticleIndex: FunctionComponent = (props) => {
         `,
           nwords: 4020,
           tag: ["React", "前端", "原理"],
+          dcreate: new Date("2021-05-23 08:00:00"),
+          slink: "https://belos.xyz/image/React.jpeg",
         },
         {
           _id: "00003",
@@ -59,11 +63,13 @@ const ArticleIndex: FunctionComponent = (props) => {
         可以在你确认不需要更新组件时使用。
         `,
           nwords: 4020,
-          tag: ["React", "前端", "原理"],
+          tag: ["React", "Node.js", "原理"],
+          dcreate: new Date("2021-05-23 08:00:01"),
+          slink: "https://belos.xyz/image/userAvatar.jpg",
         },
         {
           _id: "00004",
-          stitle: "React生命周期",
+          stitle: "Vue双向绑定",
           sdescribe: `componentWillMount 在渲染前调用,在客户端也在服务端。
 
         componentDidMount : 在第一次渲染后调用，只在客户端。之后组件已经生成了对应的DOM结构，可以通过this.getDOMNode()来进行访问。 如果你想和其他JavaScript框架一起使用，可以在这个方法中调用setTimeout, setInterval或者发送AJAX请求等操作(防止异步操作阻塞UI)。
@@ -74,7 +80,8 @@ const ArticleIndex: FunctionComponent = (props) => {
         可以在你确认不需要更新组件时使用。
         `,
           nwords: 4020,
-          tag: ["React", "前端", "原理"],
+          tag: ["Vue", "前端", "原理"],
+          dcreate: new Date("2021-05-23 09:00:00"),
         },
         {
           _id: "00005",
@@ -90,6 +97,7 @@ const ArticleIndex: FunctionComponent = (props) => {
         `,
           nwords: 4020,
           tag: ["React", "前端", "原理"],
+          dcreate: new Date("2021-05-23 10:00:00"),
         },
         {
           _id: "00006",
@@ -105,6 +113,7 @@ const ArticleIndex: FunctionComponent = (props) => {
         `,
           nwords: 4020,
           tag: ["React", "前端", "原理"],
+          dcreate: new Date("2021-05-23 11:00:00"),
         },
         {
           _id: "00007",
@@ -120,6 +129,7 @@ const ArticleIndex: FunctionComponent = (props) => {
         `,
           nwords: 4020,
           tag: ["React", "前端", "原理"],
+          dcreate: new Date("2021-05-24 08:00:00"),
         },
       ],
     };
@@ -127,44 +137,70 @@ const ArticleIndex: FunctionComponent = (props) => {
   }
   const [articles, setArtVal] = useState([]);
   useEffect(() => {
-    const result: any = initArticles().data;
+    const result = initArticles().data as [];
     setArtVal(result);
   }, []);
   const [isActive, setActive] = useState(0);
+
+  function sortIndexArticle() {}
+
+  const sortList = ["最近", "分类", "阅读"];
   return (
     <div className="article-container">
       <div className="article-header">
         <ul>
-          <li className={isActive === 0 ? "header-active" : ""}>最近</li>
-          <li className={isActive === 1 ? "header-active" : ""}>分类</li>
-          <li className={isActive === 2 ? "header-active" : ""}>阅读</li>
+          {sortList.map((item, index) => {
+            return (
+              <li
+                key={index}
+                onClick={() => {
+                  setActive(index);
+                }}
+                className={isActive === index ? "header-active" : ""}
+              >
+                {item}
+              </li>
+            );
+          })}
         </ul>
       </div>
       <div className="article-main">
         {articles.map((item: Article, index: number) => {
           return (
             <div key={item._id} className="article-main-item">
-              <h1 className="article-item-title">{`${index + 1}.${
-                item.stitle
-              }`}</h1>
               <div>
-                <span className="item-describe">{item.sdescribe}</span>
+                <h1 className="article-item-title">{`${index + 1}.${
+                  item.stitle
+                }`}</h1>
+
+                <div>
+                  <span className="item-describe">{item.sdescribe}</span>
+                </div>
+                <div className="item-container">
+                  <div className="item-tag">
+                    {item.tag.map((type: String, index: number) => {
+                      return (
+                        <div key={index}>
+                          <span className="item-keyword">
+                            <TAG type={type}></TAG>
+                            {type}
+                          </span>
+                        </div>
+                      );
+                    })}
+                  </div>
+                  <div className="item-date">
+                    {timeToSort(item.dcreate, "yyyy-MM-dd")}
+                  </div>
+                </div>
               </div>
-              <div>
-                {item.tag.map((type: String, index: number) => {
-                  return (
-                    <div>
-                      <TAG type={type}></TAG>
-                      <span className="item-keyword" key={index}>
-                        {type}
-                      </span>
-                    </div>
-                  );
-                })}
+              <div className="item-img" title={item.stitle}>
+                <img src={item.slink} />
               </div>
             </div>
           );
         })}
+        <div></div>
       </div>
     </div>
   );

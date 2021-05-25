@@ -8,8 +8,9 @@ interface Article {
   sdescribe: string;
   nwords: number;
   tag: String[];
-  dcreate?: Date;
+  dcreate: Date;
   slink: string;
+  nreaded: number;
 }
 
 const ArticleIndex: FunctionComponent = (props) => {
@@ -32,6 +33,7 @@ const ArticleIndex: FunctionComponent = (props) => {
           tag: ["React", "前端", "原理", "JavaScript"],
           dcreate: new Date("2021-05-24"),
           slink: "https://belos.xyz/image/React.jpg",
+          nreaded: 236,
         },
         {
           _id: "00002",
@@ -49,6 +51,7 @@ const ArticleIndex: FunctionComponent = (props) => {
           tag: ["React", "前端", "原理"],
           dcreate: new Date("2021-05-23 08:00:00"),
           slink: "https://belos.xyz/image/React.jpeg",
+          nreaded: 253,
         },
         {
           _id: "00003",
@@ -66,6 +69,7 @@ const ArticleIndex: FunctionComponent = (props) => {
           tag: ["React", "Node.js", "原理"],
           dcreate: new Date("2021-05-23 08:00:01"),
           slink: "https://belos.xyz/image/userAvatar.jpg",
+          nreaded: 3237,
         },
         {
           _id: "00004",
@@ -82,6 +86,7 @@ const ArticleIndex: FunctionComponent = (props) => {
           nwords: 4020,
           tag: ["Vue", "前端", "原理"],
           dcreate: new Date("2021-05-23 09:00:00"),
+          nreaded: 234,
         },
         {
           _id: "00005",
@@ -98,6 +103,7 @@ const ArticleIndex: FunctionComponent = (props) => {
           nwords: 4020,
           tag: ["React", "前端", "原理"],
           dcreate: new Date("2021-05-23 10:00:00"),
+          nreaded:223,
         },
         {
           _id: "00006",
@@ -114,6 +120,7 @@ const ArticleIndex: FunctionComponent = (props) => {
           nwords: 4020,
           tag: ["React", "前端", "原理"],
           dcreate: new Date("2021-05-23 11:00:00"),
+          nreaded: 123,
         },
         {
           _id: "00007",
@@ -130,19 +137,46 @@ const ArticleIndex: FunctionComponent = (props) => {
           nwords: 4020,
           tag: ["React", "前端", "原理"],
           dcreate: new Date("2021-05-24 08:00:00"),
+          nreaded: 2323,
         },
       ],
     };
     return result;
   }
-  const [articles, setArtVal] = useState([]);
+  const [articles, setArtVal] = useState<Article[]>([]);
   useEffect(() => {
-    const result = initArticles().data as [];
+    const result = initArticles().data.sort((a, b) => {
+      return a.dcreate.getTime() - b.dcreate.getTime() > 0 ? -1 : 1;
+    }) as Article[];
     setArtVal(result);
+  
   }, []);
-  const [isActive, setActive] = useState(0);
 
-  function sortIndexArticle() {}
+  const [isActive, setActive] = useState(0);
+  // useEffect(() => {
+  //   sortIndexArticle(0)
+  // }, [articles]);
+  function sortIndexArticle(type) {
+    switch (type) {
+      case 0:
+        const sortDate: Article[] = articles.sort((a, b) => {
+          return a.dcreate.getTime() - b.dcreate.getTime() > 0 ? -1 : 1;
+        });
+        setArtVal([...sortDate]);
+
+        break;
+      case 1:
+        break;
+      case 2:
+        const sortReaded: Article[] = articles.sort((a, b) => {
+          return a.nreaded - b.nreaded > 0 ? -1 : 1;
+        });
+        setArtVal([...sortReaded]);
+        break;
+      default:
+        break;
+    }
+  }
 
   const sortList = ["最近", "分类", "阅读"];
   return (
@@ -155,6 +189,7 @@ const ArticleIndex: FunctionComponent = (props) => {
                 key={index}
                 onClick={() => {
                   setActive(index);
+                  sortIndexArticle(index);
                 }}
                 className={isActive === index ? "header-active" : ""}
               >

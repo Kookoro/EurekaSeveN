@@ -56,6 +56,21 @@ export const timeToSort = (value, type) => {
     case "yyyy-MM-dd":
       currentdate = year + seperator1 + finMonth + seperator1 + finStrDate;
       break;
+
+    case "yyyy-MM-dd hh:mm:ss":
+      currentdate =
+        year +
+        seperator1 +
+        finMonth +
+        seperator1 +
+        finStrDate +
+        " " +
+        hours +
+        seperator2 +
+        minutes +
+        seperator2 +
+        seconds;
+      break;
     case "hh:mm:ss":
       currentdate = hours + seperator2 + minutes + seperator2 + seconds;
       break;

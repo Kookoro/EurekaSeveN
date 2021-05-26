@@ -2,7 +2,7 @@ import React, { useEffect, useLayoutEffect, useState } from "react";
 import "../component-articleEditor/component-articleEditor.scss";
 import { Editor } from "@tinymce/tinymce-react";
 import { Button, Input, Space } from "antd";
-import { scrollToTop } from "../../../common/common";
+import { scrollToTop } from "../../../common/utils";
 
 // Initialize the app
 import prism from "prismjs";

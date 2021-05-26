@@ -1,7 +1,7 @@
 import React, { FunctionComponent, useEffect, useState } from "react";
 import "./component-articleIndex.scss";
 import TAG from "../../common/icon-tags/icon-tags";
-import { timeToSort } from "../../../common/common";
+import { timeToSort } from "../../../common/utils";
 interface Article {
   _id: string;
   stitle: string;

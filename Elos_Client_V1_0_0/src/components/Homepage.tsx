@@ -8,7 +8,7 @@ import Navigator from "./homepage/component-navigator/component-navigator";
 import ToolBar from "./homepage/component-toolBar/component-toolBar";
 import ArticlesEditor from "./homepage/component-articleEditor/component-articleEditor";
 import { Icon } from "../component.common";
-import { scrollToTop } from "../common/common";
+import { scrollToTop } from "../common/utils";
 import ArticleIndex from "./homepage/component-articleIndex/component-articleIndex";
 import Wave from "./homepage/component-wave/component-wave";
 import SocialLink from "./homepage/component-socialLink/component-socialLink";

@@ -7,4 +7,11 @@ export const AdminSchema = new mongoose.Schema({
   semail: String,
   sweibo: String,
 }
+
+
 );
+export const AdtSchema = new mongoose.Schema( {
+  ncount : Number,
+  ddate : Date,
+}
+)

@@ -1,7 +1,7 @@
 import { Module, HttpModule } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
 import { IndexController } from './index.controller';
-import { AdminSchema } from './index.schema';
+import { AdtSchema } from './index.schema';
 import { IndexService } from './index.service';
 
 @Module({
@@ -9,9 +9,9 @@ import { IndexService } from './index.service';
     HttpModule,
     MongooseModule.forFeature([
       {
-        name: 'Administrator',
-        schema: AdminSchema,
-        collection: 'Administrator',
+        name: 'articleDateList',//
+        schema:AdtSchema,
+        collection: 'articleDateList',
       },
     ]),
   ],

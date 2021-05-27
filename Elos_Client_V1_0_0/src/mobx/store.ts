@@ -29,7 +29,6 @@ class AppState {
   // 装饰器@
   @observable timer = 0;
   @observable price = 0;
-
   @action
   resetTimer() {
     //重置计数器
@@ -42,6 +41,7 @@ class AppState {
     //增加计数器
     this.timer++;
   }
+
 
   @action
   change(num: number, cb?: Function) {
@@ -62,6 +62,9 @@ class AppState {
     //改变价格
     this.price = value;
   }
+
+
+  
 
   @computed get totalPrice() {
     return this.timer * this.price;

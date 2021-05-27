@@ -1,14 +1,13 @@
-import { Controller, Get, Response, HttpStatus } from '@nestjs/common';
+import { Controller, Get,Post, Response, HttpStatus, Param, Body } from '@nestjs/common';
+import { throws } from 'assert';
+import { query } from 'express';
 import { IndexService } from './index.service';
 
 @Controller('index')
 export class IndexController {
   constructor(private readonly indexService: IndexService) {}
 
-  @Get('getAdminInfo')
-  getAdminInfo() {
-    return this.indexService.findAdmin();
-  }
+
   @Get('image')
   getDailyImg(@Response() response) {
     this.indexService.getDailyImg().subscribe(res => {
@@ -23,4 +22,31 @@ export class IndexController {
       return response.json(e);
     });
   }
+  @Post('datelist')
+  getDateList(@Body() date,@Response() response){
+
+    const dbegin  = date.dbegin
+    const dend = date.dend
+    
+    if(dbegin>dend){
+      throw new Error('开始时间不能大约结束时间')
+    }
+
+
+    const result =[]
+   this.indexService.getDateList(dbegin,dend).then((res)=>{
+
+    res.map((item)=>{
+      result.push({
+        count:item.ncount,
+        date:item.ddate
+      })
+    })
+    return response.json(result);
+   })
+  
+
+    
+
+  } 
 }

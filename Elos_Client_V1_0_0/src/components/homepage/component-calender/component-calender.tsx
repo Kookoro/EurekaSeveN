@@ -2,16 +2,21 @@ import React, { FunctionComponent, ReactNode } from "react";
 import { Calendar } from "antd";
 import localeCN from "antd/lib/calendar/locale/zh_CN.js";
 import "./component-calender.scss";
-
+import store from "../../../mobx/store";
+import { useObserver, Observer, useLocalStore } from "mobx-react";
 const HomePageCalendar = () => {
+  const appstore = useLocalStore(() => store);
   const onPanelChange = (value, mode) => {};
   return (
     <section>
       <div className="site-calendar-demo-card">
         <div className="calender-title">
-          <div>
-            <span className="calender-title-name">日历</span>| 共0篇记录
-          </div>
+          {useObserver(() => (
+            <div>
+              <span className="calender-title-name">日历</span>| 共
+              {appstore.price}篇记录
+            </div>
+          ))}
         </div>
         <Calendar
           locale={localeCN}

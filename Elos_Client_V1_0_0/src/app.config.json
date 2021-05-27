@@ -1,0 +1,10 @@
+{
+  "default_url": "http://127.0.0.1:3090",
+  "default_theme_color": "#282A36",
+  "nprogress_config": {
+    "minimum": 0.1,
+    "trickle": false,
+    "trickleSpeed": 1,
+    "showSpinner": false
+  }
+}

@@ -98,23 +98,24 @@ const Index: FunctionComponent = () => {
     imgShow: false,
     naviBarShow: false,
   });
-  const [imgUrl, setImgUrl] = useState<string>("");
-  const [imgCopyright, setCopyRight] = useState<string>("");
-  const [imgCopyrightLink, setCopyRightLink] = useState<string>("");
+
+  const [imgData, setImgData] = useState({
+    url: "",
+    copyright: "",
+    copyrightlink: "",
+  });
 
   useEffect(() => {
     (function getDailyImg() {
       axios.get("/index/image").then((res: AxiosResponse) => {
-        // setState({
-        //   ...state,
-        //   // imgUrl: "http://www.bing.com/" + res.data.imgUrl,
-        //   imgShow: true,
-        // });
         const scrollTop: number = document.documentElement.scrollTop; //滚动条滚动高度
         checkScrollHeight(scrollTop);
-        setImgUrl(`http://www.bing.com/${res.data.images[0].url}`); //必应每日图片接口)
-        setCopyRight(res.data.images[0].copyright);
-        setCopyRightLink(res.data.images[0].copyrightlink);
+
+        setImgData({
+          url: `http://www.bing.com/${res.data.images[0].url}`,
+          copyright: res.data.images[0].copyright,
+          copyrightlink: res.data.images[0].copyrightlink,
+        });
       });
     })();
 
@@ -163,17 +164,17 @@ const Index: FunctionComponent = () => {
           }}
           className="img_container"
         >
-          <img src={imgUrl} className="index_image" id="scream" alt="" />
+          <img src={imgData.url} className="index_image" id="scream" alt="" />
         </div>
         <Popover
           placement="left"
           content={
-            <a target="_blank" href={imgCopyrightLink}>
-              {imgCopyright}
+            <a target="_blank" href={imgData.copyrightlink}>
+              {imgData.copyright}
             </a>
           }
         >
-          <div data-copyright={imgCopyright} className="imgCopyright-icon">
+          <div data-copyright={imgData.copyright} className="imgCopyright-icon">
             <Icon.InfoCircleOutlined />
           </div>
         </Popover>

@@ -1,12 +1,13 @@
-import React, { useEffect, useLayoutEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import "../component-articleEditor/component-articleEditor.scss";
 import { Editor } from "@tinymce/tinymce-react";
-import { Button, Input, Space } from "antd";
+import { Button, Input } from "antd";
 import { scrollToTop } from "../../../common/utils";
-
+import store from "../../../mobx/store";
 // Initialize the app
 import prism from "prismjs";
 import "prismjs/themes/prism-tomorrow.css";
+import { useLocalStore, useObserver } from "mobx-react";
 
 const ArticlesList: React.FC = () => {
   const INIT_VALUE = `<p></p>`;
@@ -16,10 +17,17 @@ const ArticlesList: React.FC = () => {
   const handleEditorChange = (e) => {
     setValue(e.target.getContent() ? e.target.getContent() : INIT_VALUE);
   };
+  const appstore = useLocalStore(() => store);
   useEffect(() => {
     prism.highlightAll();
   }, [value]);
-  function handleClickSave() {}
+  function handleClickSave() {
+    appstore.change(appstore.price + 1, sayHello);
+  }
+
+  function sayHello() {
+    console.log("hello world");
+  }
 
   const code = `const handleEditorChange = (e) => {
     setValue(e.target.getContent() ? e.target.getContent() : INIT_VALUE);
@@ -72,7 +80,9 @@ const ArticlesList: React.FC = () => {
             <div className="view-header-container">
               <span className="view-header-text">文章标题:</span>
               <Input className="view-header-input"></Input>
-              <Button onClick={handleClickSave}>确定</Button>
+              {useObserver(() => (
+                <Button onClick={handleClickSave}>确定</Button>
+              ))}
             </div>
           </div>
           <Button

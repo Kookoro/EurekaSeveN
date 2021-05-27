@@ -6,6 +6,9 @@ const {
   addLessLoader,
 } = require("customize-cra");
 
+const appConfig = require("./src/app.config.json");
+
+const config = appConfig;
 module.exports = override(
   fixBabelImports("import", {
     libraryName: "antd",
@@ -17,7 +20,11 @@ module.exports = override(
   addLessLoader({
     javascriptEnabled: true,
     //配置antd主题颜色
-    modifyVars: { "@primary-color": "#282A36" },
+    modifyVars: {
+      "@primary-color": config.default_theme_color
+        ? config.default_theme_color
+        : "#282A36",
+    },
     /*
       @primary-color: #1890ff; // 全局主色
       @link-color: #1890ff; // 链接色

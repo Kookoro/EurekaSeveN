@@ -58,9 +58,12 @@
     border-radius: 8px;
     line-height: 14px;
     padding: 0 10px;
-    background-color: #f3f3f3;
+    background-color: #f7f7f7;
     font-size: 12px;
     margin: 0 4px;
+  }
+  .item-keyword:hover {
+    background-color: #f3f3f3;
   }
   .item-img {
     display: block;

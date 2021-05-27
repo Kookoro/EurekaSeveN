@@ -103,7 +103,7 @@ const ArticleIndex: FunctionComponent = (props) => {
           nwords: 4020,
           tag: ["React", "前端", "原理"],
           dcreate: new Date("2021-05-23 10:00:00"),
-          nreaded:223,
+          nreaded: 223,
         },
         {
           _id: "00006",
@@ -149,13 +149,29 @@ const ArticleIndex: FunctionComponent = (props) => {
       return a.dcreate.getTime() - b.dcreate.getTime() > 0 ? -1 : 1;
     }) as Article[];
     setArtVal(result);
-  
   }, []);
 
   const [isActive, setActive] = useState(0);
   // useEffect(() => {
   //   sortIndexArticle(0)
   // }, [articles]);
+
+  function sortReducer(state, action) {
+    switch (action.type) {
+      case 0:
+        return articles.sort((a, b) =>
+          a.dcreate.getTime() - b.dcreate.getTime() > 0 ? -1 : 1
+        );
+
+      case 1:
+        break;
+      case 2:
+        break;
+      default:
+        break;
+    }
+  }
+
   function sortIndexArticle(type) {
     switch (type) {
       case 0:

@@ -12,6 +12,9 @@
     "incremental": true,
     "noImplicitAny": false,
     "skipLibCheck": true,
-		"allowSyntheticDefaultImports": true
-  }
+		"allowSyntheticDefaultImports": true,
+    "resolveJsonModule": true,
+    
+  },
+ 
 }

@@ -5,7 +5,8 @@ import { AppService } from './app.service';
 import { LoginController } from './login/login.controller';
 import { IndexModule } from './index/index.module';
 import { UserCountModule } from './qltest/qltest.module';
-import { DATABASE_URL } from './dataBase.config';
+import { DATABASE_URL } from './db.config';
+
 @Module({
   imports: [IndexModule, UserCountModule, MongooseModule.forRoot(DATABASE_URL)],
   controllers: [AppController, LoginController],

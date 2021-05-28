@@ -53,7 +53,7 @@ export const ajaxConfig = () => {
   //后端地址
   axios.defaults.baseURL = appConfig.default_url;
   axios.defaults.headers.post["Content-Type"] =
-    "application/json; charset=utf-8";
+    "application/x-www-form-urlencoded";
   axios.interceptors.request.use(
     function (config: AxiosRequestConfigDIY) {
       // 出现进度条

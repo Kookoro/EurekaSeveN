@@ -48,7 +48,7 @@ const ArticleIndex: FunctionComponent = (props) => {
         可以在你确认不需要更新组件时使用。
         `,
           nwords: 4020,
-          tag: ["React", "前端", "原理"],
+          tag: ["React", "前端", "原理", "HTML"],
           dcreate: new Date("2021-05-23 08:00:00"),
           slink: "https://belos.xyz/image/React.jpeg",
           nreaded: 253,

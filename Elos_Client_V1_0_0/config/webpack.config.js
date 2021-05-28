@@ -28,7 +28,7 @@ const CompressionPlugin = require("compression-webpack-plugin"); //gzip
 const postcssNormalize = require("postcss-normalize");
 const appPackageJson = require(paths.appPackageJson);
 const { override, addWebpackPlugin } = require("customize-cra");
-const AntdDayjsWebpackPlugin = require("antd-dayjs-webpack-plugin");
+
 // Source maps are resource heavy and can cause out of memory issue for large source files.
 const shouldUseSourceMap = process.env.GENERATE_SOURCEMAP !== "false";
 // Some apps do not need the benefits of saving a web request, so not inlining the chunk
@@ -338,10 +338,6 @@ module.exports = function (webpackEnv) {
         // please link the files into your node_modules/ and let module-resolution kick in.
         // Make sure your source files are compiled, as they will not be processed in any way.
         new ModuleScopePlugin(paths.appSrc, [paths.appPackageJson]),
-        new AntdDayjsWebpackPlugin(),
-        new BundleAnalyzerPlugin({
-          analyzerPort: 3012,
-        }),
       ],
     },
     resolveLoader: {
@@ -602,6 +598,7 @@ module.exports = function (webpackEnv) {
     },
     plugins: [
       // Generates an `index.html` file with the <script> injected.
+
       new HtmlWebpackPlugin(
         Object.assign(
           {},

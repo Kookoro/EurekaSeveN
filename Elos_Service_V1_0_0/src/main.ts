@@ -8,7 +8,11 @@ declare const module: any;
 async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
 
-  app.enableCors();
+  app.enableCors({
+    origin: true,
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
+    credentials: true,
+  });
   //静态图片地址
   // app.useStaticAssets(join(__dirname,'..','public'),'static/images'); //配置静态目录
   app.useStaticAssets('public/images'); //直接访问图片

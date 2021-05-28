@@ -1,7 +1,7 @@
 import { Document } from 'mongoose';
 
-export interface ArticleDateList  extends Document {
-  readonly ncount : number;
-  readonly ddate : Date;
-
+export interface ArticleDateList extends Document {
+  readonly ncount: number;
+  readonly ddate: Date;
+  readonly ntotalArt?: number;
 }

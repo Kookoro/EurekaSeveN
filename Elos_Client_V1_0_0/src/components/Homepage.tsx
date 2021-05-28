@@ -7,7 +7,7 @@ import HomePageCalendar from "./homepage/component-calender/component-calender";
 import Navigator from "./homepage/component-navigator/component-navigator";
 import ToolBar from "./homepage/component-toolBar/component-toolBar";
 import ArticlesEditor from "./homepage/component-articleEditor/component-articleEditor";
-import { Icon } from "../component.common";
+import { Icon } from "./common/icon.common";
 import { scrollToTop } from "../common/utils";
 import ArticleIndex from "./homepage/component-articleIndex/component-articleIndex";
 import Wave from "./homepage/component-wave/component-wave";

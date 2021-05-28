@@ -1,9 +1,18 @@
 import React from "react";
 import "./icon-tags.scss";
+const ICON_TYPE = {
+  REACT: "React",
+  VUE: "Vue",
+  NODEJS: "Node.js",
+  JS: "JavaScript",
+  HTML: "HTML",
+  CSS: "CSS",
+  WEBPACK: "Webpack",
+};
 function TAG(prop) {
-  let icon: any = <span></span>;
+  let icon: any;
   switch (prop.type) {
-    case "React":
+    case ICON_TYPE.REACT:
       icon = (
         <svg
           className="icon-item"
@@ -22,7 +31,7 @@ function TAG(prop) {
         </svg>
       );
       break;
-    case "Vue":
+    case ICON_TYPE.VUE:
       icon = (
         <svg
           className="icon-item"
@@ -51,7 +60,7 @@ function TAG(prop) {
         </svg>
       );
       break;
-    case "Node.js":
+    case ICON_TYPE.NODEJS:
       icon = (
         <svg
           className="icon-item"
@@ -70,7 +79,7 @@ function TAG(prop) {
         </svg>
       );
       break;
-    case "JavaScript":
+    case ICON_TYPE.JS:
       icon = (
         <svg
           className="icon-item"
@@ -85,6 +94,25 @@ function TAG(prop) {
           <path
             d="M269.248 855.728l78.36-47.424c15.12 26.804 28.872 49.484 61.86 49.484 31.62 0 51.56-12.368 51.56-60.48v-327.192h96.228v328.552c0 99.668-58.424 145.036-143.664 145.036-76.98 0-121.664-39.868-144.348-87.984M609.524 845.416l78.352-45.364c20.628 33.684 47.436 58.428 94.86 58.428 39.876 0 65.3-19.936 65.3-47.432 0-32.992-26.12-44.68-70.112-63.92l-24.052-10.32c-69.428-29.548-115.48-66.668-115.48-145.028 0-72.176 54.988-127.168 140.912-127.168 61.176 0 105.168 21.312 136.784 76.988L841.16 589.72c-16.5-29.556-34.364-41.24-61.86-41.24-28.184 0-46.056 17.872-46.056 41.24 0 28.868 17.872 40.56 59.112 58.432l24.056 10.308c81.8 35.06 127.852 70.8 127.852 151.216 0 86.616-68.048 134.04-159.468 134.04-89.356 0-147.096-42.616-175.276-98.296"
             p-id="6892"
+          ></path>
+        </svg>
+      );
+      break;
+    case ICON_TYPE.HTML:
+      icon = (
+        <svg
+          className="icon-item"
+          viewBox="0 0 1024 1024"
+          version="1.1"
+          xmlns="http://www.w3.org/2000/svg"
+          p-id="2383"
+          width="16"
+          height="16"
+        >
+          <path
+            d="M512 749.226667l173.653333-48.213334 23.466667-260.266666H400.213333L392.533333 354.133333h324.266667l8.533333-84.906666H298.666667l23.893333 256.426666h293.973333l-9.813333 110.08-94.72 25.6-94.72-25.6-5.973333-70.826666h-85.333334l12.373334 136.106666L512 749.226667M173.653333 128h676.693334L789.333333 819.2 512 896l-277.333333-76.8L173.653333 128z"
+            fill="#E44D26"
+            p-id="2384"
           ></path>
         </svg>
       );

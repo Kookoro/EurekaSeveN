@@ -7,8 +7,8 @@ const {
   addWebpackPlugin,
 } = require("customize-cra");
 const AntdDayjsWebpackPlugin = require("antd-dayjs-webpack-plugin");
-const BundleAnalyzerPlugin = require("webpack-bundle-analyzer")
-  .BundleAnalyzerPlugin;
+// const BundleAnalyzerPlugin = require("webpack-bundle-analyzer")
+//   .BundleAnalyzerPlugin;
 const appConfig = require("./src/app.config.json");
 const DEBUG = process.env.NODE_ENV === "development";
 const config = appConfig;
@@ -20,7 +20,7 @@ module.exports = override(
   }),
   //添加webpack plugin配置
   addWebpackPlugin(new AntdDayjsWebpackPlugin()),
-  addWebpackPlugin(DEBUG ? new BundleAnalyzerPlugin() : null),
+  // addWebpackPlugin(DEBUG ? new BundleAnalyzerPlugin() : null),
   useBabelRc(),
   addDecoratorsLegacy(),
   addLessLoader({
